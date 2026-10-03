@@ -5,6 +5,8 @@ import com.github.jangalinski.tabweb._foundation.compose.KDiv
 import com.github.jangalinski.tabweb.navbar.TablerNavbar
 import com.github.jangalinski.tabweb._foundation.css.ClassNames
 import com.github.jangalinski.tabweb._foundation.css.ClassNames.modifier
+import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.core.PageContext
 import com.varabyte.kobweb.core.data.getValue
 import com.varabyte.kobweb.core.layout.Layout
@@ -65,7 +67,7 @@ fun TablerLayout(
         content()
       }
 
-      TablerFooter {
+      TablerFooter(Modifier.classNames("footer", "footer-transparent", "d-print-none")) {
         footer()
       }
     }

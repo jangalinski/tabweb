@@ -20,7 +20,6 @@ fetch-tabler-preview:
     tar -xzf "$archive" -C "$tmp_dir"
     mv "$tmp_dir/$archive_root/site" docs/preview.tabler.io
 
-
 # Refresh the local KotlinBootstrap reference. The snapshot is intentionally ignored by Git and is only used as a local Kobweb Bootstrap implementation reference.
 [group("project")]
 fetch-kobweb-bootstrap:
@@ -41,6 +40,7 @@ fetch-kobweb-bootstrap:
 # Run the documentation site via kobweb in static layout.
 [group("site")]
 run-site:
+    @just stop-site
     kobweb run -p site -l static --env=dev
 
 # Export the documentation site using the same static layout as the deployment workflow. Local exports intentionally keep the local base path `/`; only the GitHub Pages workflow adds the repository prefix.
@@ -96,13 +96,67 @@ generate-kotlin-code:
 generate-tabler-css-docs:
     @.agents/bin/gradlew-agent --no-watch-fs --console=plain generateTablerCssDocumentation
 
-
 # build project
 [group("gradle")]
 build:
-  ./gradlew :lib:build :site:build
+    ./gradlew :lib:build :site:build
 
 # evaluate detekt rules
 [group("gradle")]
 detekt strict="false":
-  ./gradlew --no-daemon --no-watch-fs --console=plain :lib:check -PtablerDetekt.strict={{strict}} --rerun-tasks
+    ./gradlew --no-daemon --no-watch-fs --console=plain :lib:check -PtablerDetekt.strict={{ strict }} --rerun-tasks
+
+# Export the documentation site from an isolated temporary Kobweb project so an existing run-site server can keep running.
+[group("site")]
+tmp-export:
+    #!/usr/bin/env zsh
+    set -euo pipefail
+
+    tmp_root="build/tmp/kobweb-export-root"
+    tmp_site="$tmp_root/site"
+    real_preview="build/site-preview"
+    tmp_preview="$tmp_root/build/site-preview"
+
+    echo "Preparing isolated Kobweb export project at $tmp_root"
+
+    rm -rf "$tmp_root"
+    mkdir -p "$tmp_root"
+
+    cp settings.gradle.kts "$tmp_root/settings.gradle.kts"
+    cp build.gradle.kts "$tmp_root/build.gradle.kts"
+    cp gradle.properties "$tmp_root/gradle.properties"
+
+    ln -s "$(pwd)/gradle" "$tmp_root/gradle"
+    ln -s "$(pwd)/lib" "$tmp_root/lib"
+
+    rsync -a \
+      --exclude='.gradle' \
+      --exclude='build' \
+      --exclude='.kobweb/site' \
+      --exclude='.kobweb/server' \
+      site/ "$tmp_site/"
+
+    perl -0pi -e 's/(\n  port:\s*)\d+/$1 . "13132"/e' "$tmp_site/.kobweb/conf.yaml"
+
+    .agents/bin/gradlew-agent \
+      --no-watch-fs \
+      -p "$tmp_root" \
+      :site:kobwebExport \
+      -PkobwebReuseServer=false \
+      -PkobwebEnv=DEV \
+      -PkobwebRunLayout=STATIC \
+      -PkobwebBuildTarget=RELEASE \
+      -PkobwebExportLayout=STATIC \
+      --console=plain
+
+    rm -rf "$real_preview"
+
+    if test -d "$tmp_preview"; then
+      mkdir -p "$(dirname "$real_preview")"
+      cp -R "$tmp_preview" "$real_preview"
+    else
+      echo "Expected preview output not found at $tmp_preview" >&2
+      exit 1
+    fi
+
+    echo "Temporary export written to $real_preview"

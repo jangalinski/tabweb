@@ -127,3 +127,5 @@ interface TabwebSize : TabwebDesign
  * Used to support content composition and propagation across different component types.
  */
 interface TabwebContent : TabwebConcept
+
+typealias ComposableContent = @Composable () -> Unit

@@ -13,6 +13,7 @@ import com.github.jangalinski.tabweb._foundation.css.ClassNames.modifier
  * Renders a standard Tabler card with an optional title.
  */
 @Composable
+@Deprecated("Use Card")
 fun TablerCard(
   title: String? = null,
   modifier: Modifier = Modifier,

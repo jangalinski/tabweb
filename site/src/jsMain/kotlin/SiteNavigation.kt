@@ -42,6 +42,12 @@ fun siteNavbar(activeRoute: String) = TablerNavbarData(
           active = activeRoute == SiteRoutes.Buttons,
         ),
         TablerNavbarItem.Link(
+          url = Url(SiteRoutes.Cards),
+          title = "Cards",
+          caption = "Show different card layouts and content types",
+          active = activeRoute == SiteRoutes.Cards,
+        ),
+        TablerNavbarItem.Link(
           url = Url(SiteRoutes.Colors),
           title = "Colors",
           caption = "Show colors, gradients, and hex values",

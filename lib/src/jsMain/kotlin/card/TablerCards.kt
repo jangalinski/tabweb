@@ -16,6 +16,7 @@ import com.github.jangalinski.tabweb._foundation.css.GridWidth.QUARTER
  * Scoped builder for card-only Tabler grids.
  */
 @TabwebDsl
+@Deprecated("Use Card")
 class TablerCardsScope internal constructor() {
 
   /**
@@ -42,6 +43,7 @@ class TablerCardsScope internal constructor() {
    * Adds a compact stat card to the grid.
    */
   @Composable
+  @Deprecated("Use Card")
   fun statCard(
     title: String,
     value: String,
@@ -66,6 +68,7 @@ class TablerCardsScope internal constructor() {
  * Lays out Tabler cards in a responsive deck-style grid.
  */
 @Composable
+@Deprecated("Use Card")
 fun TablerCards(
   modifier: Modifier = Modifier,
   content: @Composable TablerCardsScope.() -> Unit,

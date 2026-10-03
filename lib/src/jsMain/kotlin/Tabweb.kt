@@ -16,6 +16,8 @@ import com.github.jangalinski.tabweb.badge.BadgeComposable
 import com.github.jangalinski.tabweb.badge.BadgeDsl
 import com.github.jangalinski.tabweb.button.ButtonComposable
 import com.github.jangalinski.tabweb.button.ButtonDsl
+import com.github.jangalinski.tabweb.card.CardComposable
+import com.github.jangalinski.tabweb.card.CardDsl
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.core.KobwebApp
 import com.varabyte.kobweb.core.PageContext
@@ -25,7 +27,8 @@ import com.varabyte.kobweb.navigation.BasePath
 data object Tabweb :
   AvatarComposable by AvatarDsl,
   BadgeComposable by BadgeDsl,
-  ButtonComposable by ButtonDsl {
+  ButtonComposable by ButtonDsl,
+  CardComposable by CardDsl {
   const val TABLER_LAYER = "tabweb"
   const val TABLER_LAYOUT = "com.github.jangalinski.tabweb.Tabweb.Layout"
   val HOME = Url("/")

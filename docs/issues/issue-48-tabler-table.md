@@ -53,7 +53,7 @@ Extend the existing `TablerTable` component from a text-only, innerHTML-workarou
 | `src/jsMain/kotlin/components/TablerTable.kt` | Renders via `element.innerHTML` in a `Div`; avoids native Compose table nodes |
 | `src/jsMain/kotlin/models/TablerTableData.kt` | Pure data: `TablerTableData`, `TablerTableColumn`, `TablerTableRow`, `TablerTableCell(text, muted, isRowHeader)`, enums |
 | `src/jsMain/kotlin/components/TablerCard.kt` | `.card` → `.card-header` → `.card-body` — does **not** support a table-at-edges layout |
-| `src/jsMain/kotlin/styles/ClassNames.kt` | Already has `table = "table card-table table-vcenter"`, `cardHeader`, `cardTitle` |
+| `src/jsMain/kotlin/styles/ClassNames.kt` | Already has `table = "table card-table table-vcenter"`, `CARD_HEADER`, `cardTitle` |
 | `_examples/tagessieg/.../pages/Index.kt` | Uses `TablerTable` inside a regular `card { }` block |
 | `src/jsTest/kotlin/components/TablerTableTest.kt` | 6 existing tests covering current text-only API |
 

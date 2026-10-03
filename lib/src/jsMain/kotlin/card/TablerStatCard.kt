@@ -15,6 +15,7 @@ import com.github.jangalinski.tabweb._foundation.css.GridWidth
  * Renders a compact summary card for tabular or numeric statistics.
  */
 @Composable
+@Deprecated("Use Card")
 fun TablerStatCard(
   title: String,
   value: String,

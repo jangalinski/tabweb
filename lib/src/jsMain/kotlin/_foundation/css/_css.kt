@@ -3,8 +3,11 @@ package com.github.jangalinski.tabweb._foundation.css
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 
-fun cssClass(name: String) : CssClass = object : AbstractLazyCssModifier(), CssClass {
-  override val value: String = name
+fun cssClass(name: String) : CssClass {
+  require(!name.contains(Regex("\\s"))) { "cssClass must not contain multiple values: '$name'. Combine them using '+'." }
+  return object : AbstractLazyCssModifier(), CssClass {
+    override val value: String = name
+  }
 }
 
 /**

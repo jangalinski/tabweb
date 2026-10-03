@@ -8,7 +8,8 @@ sealed interface Url : TabwebValue<String> {
     operator fun invoke(value: String): Url = when {
       value.startsWith("http") -> External(value)
       value.startsWith("/") -> Internal(value)
-      else -> throw IllegalArgumentException("Url must start with http or /")
+      value.startsWith("#") -> Hash(value)
+      else -> throw IllegalArgumentException("Url must start with http, /, or #")
     }
   }
 
@@ -39,5 +40,16 @@ sealed interface Url : TabwebValue<String> {
     }
 
     override fun get(): String = BasePath.prependTo(value)
+  }
+
+  /**
+   * A value class representing a hash fragment URL, which must start with "#".
+   */
+  value class Hash(val value: String) : Url {
+    init {
+      require(value.startsWith("#")) { "Hash Url must start with #" }
+    }
+
+    override fun get(): String = value
   }
 }
