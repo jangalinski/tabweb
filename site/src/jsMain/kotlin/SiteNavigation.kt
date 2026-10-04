@@ -1,14 +1,9 @@
 package com.github.jangalinski.tabweb.site
 
-import androidx.compose.runtime.Composable
-import com.github.jangalinski.tabweb._app.LocalTablerAppState
-import com.github.jangalinski.tabweb._app.TablerTheme
 import com.github.jangalinski.tabweb._foundation.Url
 import com.github.jangalinski.tabweb.icon.TablerIcon
 import com.github.jangalinski.tabweb.navbar.TablerNavbarData
 import com.github.jangalinski.tabweb.navbar.TablerNavbarItem
-import org.jetbrains.compose.web.dom.A
-import org.jetbrains.compose.web.dom.Div
 
 /** Builds the sample primary navigation shown by the documentation site. */
 fun siteNavbar(activeRoute: String) = TablerNavbarData(
@@ -107,31 +102,3 @@ fun siteNavbar(activeRoute: String) = TablerNavbarData(
     ),
   ),
 )
-
-/** Renders the light/dark mode control in the site navbar's first row. */
-@Composable
-fun SiteThemeToggle() {
-  val tabler = LocalTablerAppState.current
-  val darkMode = tabler.settings.theme == TablerTheme.Dark
-  val targetMode = if (darkMode) TablerTheme.Light else TablerTheme.Dark
-  val targetName = if (darkMode) "light" else "dark"
-
-  Div(attrs = { attr("class", "d-none d-md-flex me-3") }) {
-    Div(attrs = { attr("class", "nav-item") }) {
-      A(
-        href = "#",
-        attrs = {
-          attr("class", "nav-link px-0")
-          attr("title", "Enable $targetName mode")
-          attr("aria-label", "Enable $targetName mode")
-          onClick {
-            it.preventDefault()
-            tabler.setTheme(targetMode)
-          }
-        },
-      ) {
-        if (darkMode) TablerIcon.TI_SUN() else TablerIcon.TI_MOON()
-      }
-    }
-  }
-}

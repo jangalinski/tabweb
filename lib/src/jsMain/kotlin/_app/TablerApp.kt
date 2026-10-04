@@ -2,13 +2,22 @@ package com.github.jangalinski.tabweb._app
 
 import androidx.compose.runtime.*
 import kotlinx.browser.document
+import kotlinx.browser.window
 
 /**
  * Creates one [TablerAppState] for the lifetime of its composition location.
+ * A theme selected in this browser tab's session takes precedence over [initialSettings].
  */
 @Composable
 fun rememberTablerAppState(initialSettings: TablerSettings = TablerSettings()): TablerAppState =
-  remember { TablerAppState(initialSettings) }
+  remember {
+    val theme = when (window.sessionStorage.getItem(THEME_SESSION_KEY)) {
+      "light" -> TablerTheme.Light
+      "dark" -> TablerTheme.Dark
+      else -> initialSettings.theme
+    }
+    TablerAppState(initialSettings.copy(theme = theme))
+  }
 
 /**
  * Provides static [site] defaults to Tabler composables in [content].
@@ -28,7 +37,7 @@ fun ProvideTablerSiteConfig(
 
 /**
  * Provides [state] to Tabler composables and synchronizes its settings with
- * the document's Tabler attributes.
+ * the document's Tabler attributes and the browser tab's session storage.
  */
 @Composable
 fun ProvideTablerAppState(
@@ -39,12 +48,19 @@ fun ProvideTablerAppState(
 
   SideEffect {
     settings.applyToDocument()
+    when (settings.theme) {
+      TablerTheme.System -> window.sessionStorage.removeItem(THEME_SESSION_KEY)
+      TablerTheme.Light -> window.sessionStorage.setItem(THEME_SESSION_KEY, "light")
+      TablerTheme.Dark -> window.sessionStorage.setItem(THEME_SESSION_KEY, "dark")
+    }
   }
 
   CompositionLocalProvider(LocalTablerAppState provides state) {
     content()
   }
 }
+
+internal const val THEME_SESSION_KEY = "tabweb.theme"
 
 /** The [TablerAppState] visible to the current Compose subtree. */
 val LocalTablerAppState = staticCompositionLocalOf<TablerAppState> {
