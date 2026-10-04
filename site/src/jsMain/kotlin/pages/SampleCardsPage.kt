@@ -3,7 +3,6 @@ package com.github.jangalinski.tabweb.site.pages.interfaces
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb.Tabweb.button
 import com.github.jangalinski.tabweb.Tabweb.buttons
-import com.github.jangalinski.tabweb.Tabweb.card
 import com.github.jangalinski.tabweb.Tabweb.cardGroup
 import com.github.jangalinski.tabweb.Tabweb.cardRow
 import com.github.jangalinski.tabweb._foundation.Link
@@ -16,16 +15,10 @@ import com.github.jangalinski.tabweb._foundation.css.plus
 import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
 import com.github.jangalinski.tabweb.button.ButtonColor
 import com.github.jangalinski.tabweb.button.ButtonStyle
-import com.github.jangalinski.tabweb.card.CardLinkType
-import com.github.jangalinski.tabweb.card.CardRibbon
-import com.github.jangalinski.tabweb.card.CardRibbonPosition
-import com.github.jangalinski.tabweb.card.CardRotate
-import com.github.jangalinski.tabweb.card.CardStamp
-import com.github.jangalinski.tabweb.card.CardStampSize
-import com.github.jangalinski.tabweb.card.CardStatus
-import com.github.jangalinski.tabweb.card.CardStatusPosition
+import com.github.jangalinski.tabweb.card.*
 import com.github.jangalinski.tabweb.icon.TablerIcon
 import com.github.jangalinski.tabweb.site.SiteRoutes
+import com.github.jangalinski.tabweb.site.data.LoremPicsum
 import com.github.jangalinski.tabweb.site.siteLayoutData
 import com.github.jangalinski.tabweb.site.sitePageMeta
 import com.varabyte.kobweb.core.Page
@@ -257,13 +250,14 @@ fun SampleCardsPage() {
       body {
         title("Card images")
         subtitle("Pair a card with an image on the left, right, top, or bottom.")
+
         cardRow {
           card(modifier = cssClass("col-lg-6")) {
             KDiv(modifier = cssClass("row") + cssClass("row-0")) {
               KDiv(modifier = cssClass("col-3")) {
                 imageStart(
-                  src = "/static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg",
-                  alt = "Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach",
+                  src = LoremPicsum.image().url.get(),
+                  alt = "Start Image",
                   modifier = cssClass("w-100") + cssClass("h-100") + cssClass("object-cover"),
                 )
               }
@@ -277,12 +271,12 @@ fun SampleCardsPage() {
               }
             }
           }
+
           card(modifier = cssClass("col-lg-6")) {
             KDiv(modifier = cssClass("row") + cssClass("row-0")) {
               KDiv(modifier = cssClass("col-3") + cssClass("order-md-last")) {
                 imageEnd(
-                  src = "/static/photos/finances-us-dollars-and-bitcoins-currency-money.jpg",
-                  alt = "Finances - US Dollars and Bitcoins - Currency - Money",
+                  image = LoremPicsum.image(),
                   modifier = cssClass("w-100") + cssClass("h-100") + cssClass("object-cover"),
                 )
               }
@@ -297,10 +291,7 @@ fun SampleCardsPage() {
             }
           }
           card(modifier = cssClass("col-md-6") + cssClass("col-lg-3")) {
-            imageTop(
-              src = "/static/photos/home-office-desk-with-macbook-iphone-calendar-watch-and-organizer.jpg",
-              alt = "Card with top image",
-            )
+            image(image = LoremPicsum.image().copy(altText = "Card with top image"), position = CardImagePosition.TOP)
             body {
               title("Card with top image")
               KP(modifier = cssClass("text-secondary")) {
@@ -315,10 +306,7 @@ fun SampleCardsPage() {
                 KText("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deleniti fugit incidunt, iste, itaque minima neque pariatur perferendis sed suscipit velit vitae voluptatem.")
               }
             }
-            imageBottom(
-              src = "/static/photos/finances-us-dollars-and-bitcoins-currency-money-2.jpg",
-              alt = "Card with bottom image",
-            )
+            image(image = LoremPicsum.image(), position = CardImagePosition.BOTTOM)
           }
         }
       }
@@ -329,6 +317,7 @@ fun SampleCardsPage() {
       body {
         title("Footers")
         subtitle("Add a footer for metadata, a single action, or a group of buttons.")
+
         cardRow {
           card(modifier = cssClass("col-md-6") + cssClass("col-lg-3")) {
             body {

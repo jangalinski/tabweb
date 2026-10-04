@@ -53,6 +53,12 @@ fun siteNavbar(activeRoute: String) = TablerNavbarData(
           caption = "Show colors, gradients, and hex values",
           active = activeRoute == SiteRoutes.Colors,
         ),
+        TablerNavbarItem.Link(
+          url = Url(SiteRoutes.Tables),
+          title = "Tables",
+          caption = "Tabler table examples",
+          active = activeRoute == SiteRoutes.Tables,
+        ),
       ),
     ),
     TablerNavbarItem.Section(
@@ -70,13 +76,6 @@ fun siteNavbar(activeRoute: String) = TablerNavbarData(
           title = "Elements",
           caption = "Low-level Tabler elements",
           active = activeRoute == SiteRoutes.Elements,
-        ),
-        TablerNavbarItem.Link(
-          url = Url(SiteRoutes.Tables),
-          title = "Tables",
-          caption = "Tabler table examples",
-          active = activeRoute == SiteRoutes.Tables,
-          icon = TablerIcon.TI_TABLE,
         ),
       ),
     ),

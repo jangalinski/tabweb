@@ -18,6 +18,10 @@ import com.github.jangalinski.tabweb.button.ButtonComposable
 import com.github.jangalinski.tabweb.button.ButtonDsl
 import com.github.jangalinski.tabweb.card.CardComposable
 import com.github.jangalinski.tabweb.card.CardDsl
+import com.github.jangalinski.tabweb.element.ElementComposable
+import com.github.jangalinski.tabweb.element.ElementDsl
+import com.github.jangalinski.tabweb.table.TableComposable
+import com.github.jangalinski.tabweb.table.TableDsl
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.core.KobwebApp
 import com.varabyte.kobweb.core.PageContext
@@ -28,7 +32,10 @@ data object Tabweb :
   AvatarComposable by AvatarDsl,
   BadgeComposable by BadgeDsl,
   ButtonComposable by ButtonDsl,
-  CardComposable by CardDsl {
+  CardComposable by CardDsl,
+  ElementComposable by ElementDsl,
+  TableComposable by TableDsl {
+
   const val TABLER_LAYER = "tabweb"
   const val TABLER_LAYOUT = "com.github.jangalinski.tabweb.Tabweb.Layout"
   val HOME = Url("/")

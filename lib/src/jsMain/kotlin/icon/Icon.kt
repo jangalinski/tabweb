@@ -1,11 +1,10 @@
 package com.github.jangalinski.tabweb.icon
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.tabweb._foundation.Tabler
 import com.github.jangalinski.tabweb._foundation.TabwebFoundationComponent
 import com.github.jangalinski.tabweb._foundation.compose.KI
-import com.github.jangalinski.tabweb._foundation.css.plus
 import com.github.jangalinski.tabweb._foundation.css.cssClass
+import com.github.jangalinski.tabweb._foundation.css.plus
 import com.varabyte.kobweb.compose.ui.Modifier
 
 val CSS_ICON = cssClass("icon")
@@ -16,11 +15,15 @@ val CSS_ICON = cssClass("icon")
  * @see [TablerIcon] for a list of all available icons.
  * @see https://docs.tabler.io/ui/components/icons for more information about Tabler icons.
  */
-fun interface Icon : TabwebFoundationComponent
+interface Icon : TabwebFoundationComponent
 
 @Composable
-fun icon(icon: Modifier) = Icon { modifier ->
-  val allModifier = CSS_ICON + icon + modifier
+fun icon(icon: Modifier) = object : Icon {
 
-  KI(allModifier)
+  @Composable
+  override fun invoke(modifier: Modifier) {
+    val allModifier = CSS_ICON + icon + modifier
+
+    KI(allModifier)
+  }
 }

@@ -39,6 +39,17 @@ fun KTbody(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
 }
 
 /**
+ * Internal DOM adapter for a table footer section with Kobweb modifier support.
+ *
+ * @param modifier attributes, classes, and styles applied to the table footer.
+ * @param content composable table-footer content.
+ */
+@Composable
+fun KTfoot(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
+  Tfoot(attrs = modifier.toAttrs()) { content() }
+}
+
+/**
  * Internal DOM adapter for a table row with Kobweb modifier support.
  *
  * @param modifier attributes, classes, and styles applied to the row.

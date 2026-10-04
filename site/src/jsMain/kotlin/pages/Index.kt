@@ -1,6 +1,7 @@
 package com.github.jangalinski.tabweb.site.pages
 
 import androidx.compose.runtime.Composable
+import com.github.jangalinski.tabweb.Tabweb.divider
 import com.github.jangalinski.tabweb._foundation.Image
 import com.github.jangalinski.tabweb._foundation.Url
 import com.github.jangalinski.tabweb._foundation.compose.KDiv
@@ -11,7 +12,7 @@ import com.github.jangalinski.tabweb._foundation.css.GridWidth.HALF
 import com.github.jangalinski.tabweb._foundation.css.GridWidth.QUARTER
 import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
 import com.github.jangalinski.tabweb.card.TablerCards
-import com.github.jangalinski.tabweb.divider.TablerDivider
+import com.github.jangalinski.tabweb.element.Status
 import com.github.jangalinski.tabweb.icon.TablerIcon
 import com.github.jangalinski.tabweb.icon.TablerIcon.TI_BRAND_GITHUB
 import com.github.jangalinski.tabweb.icon.TablerIcon.TI_FOOTSTEPS
@@ -102,6 +103,8 @@ fun Index() {
 
       TI_BRAND_GITHUB(Modifier.fontSize(128.px).size(128.px).color(Colors.Pink))
       TI_FOOTSTEPS(Modifier.fontSize(128.px).size(128.px).color(Colors.Green))
+
+      Status(text = "This is a status component")()
     }
 
     @Composable
@@ -115,7 +118,7 @@ fun Index() {
     card(title = "Colors", width = GridWidth.FULL) {
       Text("The Tabler color palette with base colors, light variants, the gray scale and social brand colors, each with background and text utilities.")
 
-      TablerDivider(text = "Color palette")
+      divider(text = "Color palette")
 
       H3 { Text("Base colors") }
       Text("These are the base colors. Each one has bg-* and text-* utilities, and the components use the same names for their color variants.")
@@ -126,7 +129,7 @@ fun Index() {
         }
       }
 
-      TablerDivider()
+      divider()
 
       H3 { Text("Light colors") }
       Text("Every base color also has a light shade with the -lt suffix. It works as a background for text or an icon in the base color.")
@@ -137,7 +140,7 @@ fun Index() {
         }
       }
 
-      TablerDivider()
+      divider()
 
       H3 { Text("Gray palette") }
       Text("The gray scale is used for backgrounds, borders and muted text. Tabler ships several gray palettes and switches between them with data-bs-theme-base.")
@@ -148,7 +151,7 @@ fun Index() {
         }
       }
 
-      TablerDivider()
+      divider()
 
       H3 { Text("Social colors") }
       Text("The brand colors of popular services are available too, for social buttons and icons.")

@@ -44,13 +44,16 @@ interface TabwebComponentDsl: TabwebConcept
  * Defines the base root container or foundational element of a UI component, for example
  * standalone elements (`accordion`, `card`, `btn`, `modal`, `table`).
  */
-fun interface TabwebComponent : TabwebConcept {
+interface TabwebComponent : TabwebConcept {
 
+  /**
+   * Composable entry point for rendering the component into the current composition.
+   *
+   * @param modifier an optional [Modifier] to apply to the component
+   */
   @Composable
-  operator fun invoke(modifier: Modifier)
+  operator fun invoke(modifier: Modifier = Modifier)
 
-  @Composable
-  operator fun invoke() = invoke(Modifier)
 }
 
 /**
@@ -61,7 +64,13 @@ fun interface TabwebComponent : TabwebConcept {
  * Defines a foundational element that is used as a building block for other components, for example
  * `Link`, `Image`, `Text`, ...
  */
-fun interface TabwebFoundationComponent : TabwebComponent
+interface TabwebFoundationComponent : TabwebComponent
+
+/**
+ * Smaller [TabwebComponent]s that are mostly used as content elements or decoration.
+ */
+interface TabwebElement : TabwebComponent
+
 
 interface TabwebTextComponent: TabwebFoundationComponent, TabwebValue<String> {
   val value: String

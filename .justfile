@@ -112,22 +112,27 @@ tmp-export:
     #!/usr/bin/env zsh
     set -euo pipefail
 
-    tmp_root="build/tmp/kobweb-export-root"
+    mkdir -p build/tmp
+    tmp_root="$(mktemp -d build/tmp/kobweb-export-root.XXXXXX)"
     tmp_site="$tmp_root/site"
     real_preview="build/site-preview"
     tmp_preview="$tmp_root/build/site-preview"
 
     echo "Preparing isolated Kobweb export project at $tmp_root"
 
-    rm -rf "$tmp_root"
-    mkdir -p "$tmp_root"
-
     cp settings.gradle.kts "$tmp_root/settings.gradle.kts"
     cp build.gradle.kts "$tmp_root/build.gradle.kts"
     cp gradle.properties "$tmp_root/gradle.properties"
 
-    ln -s "$(pwd)/gradle" "$tmp_root/gradle"
-    ln -s "$(pwd)/lib" "$tmp_root/lib"
+    rsync -a \
+      --exclude='.gradle' \
+      --exclude='build' \
+      gradle/ "$tmp_root/gradle/"
+
+    rsync -a \
+      --exclude='.gradle' \
+      --exclude='build' \
+      lib/ "$tmp_root/lib/"
 
     rsync -a \
       --exclude='.gradle' \
@@ -149,6 +154,8 @@ tmp-export:
       -PkobwebExportLayout=STATIC \
       --console=plain
 
+    .agents/bin/gradlew-agent --no-watch-fs -p "$tmp_root" :site:kobwebStop --console=plain
+
     rm -rf "$real_preview"
 
     if test -d "$tmp_preview"; then
@@ -160,3 +167,4 @@ tmp-export:
     fi
 
     echo "Temporary export written to $real_preview"
+    rm -rf "$tmp_root"
