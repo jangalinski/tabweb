@@ -15,7 +15,7 @@ assertk = "0.28.1"
 dokka = "2.2.0"
 detekt = "2.0.0-alpha.6"
 
-cdn-tabler-core = "1.6.0"
+cdn-tabler-core = "1.6.1"
 cdn-tabler-icons = "3.46.0"
 # Uncomment this line and comment out the release version below to verify main-SNAPSHOT.
 tabweb = "main-SNAPSHOT"

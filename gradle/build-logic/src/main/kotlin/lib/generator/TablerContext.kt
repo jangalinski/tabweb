@@ -13,5 +13,6 @@ class TablerContext(
 ) : KotlinCodeGenerationContextBase<TablerContext>(registry) {
   override val contextType = TablerContext::class
 
+  val foundationPackage: String = "$PKG_ROOT._foundation"
   val basePackage = PKG_ROOT
 }

@@ -149,6 +149,12 @@
     },
     {
       "name": "Warning", "short": "wa"
+    },
+    {
+      "name": "Light", "short": "li"
+    },
+    {
+      "name": "Dark", "short": "da"
     }
   ]
 }
