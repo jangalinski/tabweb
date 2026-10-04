@@ -1,12 +1,10 @@
 package com.github.jangalinski.tabweb.card
 
 import androidx.compose.runtime.Composable
+import com.github.jangalinski.tabweb._foundation.Image
 import com.github.jangalinski.tabweb._foundation.TabwebComponentScope
 import com.github.jangalinski.tabweb._foundation.TabwebDsl
-import com.github.jangalinski.tabweb._foundation.compose.KDiv
-import com.github.jangalinski.tabweb._foundation.compose.KH3
-import com.github.jangalinski.tabweb._foundation.compose.KImg
-import com.github.jangalinski.tabweb._foundation.compose.KText
+import com.github.jangalinski.tabweb._foundation.compose.*
 import com.github.jangalinski.tabweb._foundation.css.plus
 import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
 import com.github.jangalinski.tabweb.icon.Icon
@@ -138,6 +136,18 @@ interface CardScope : TabwebComponentScope {
    */
   @Composable
   fun imageEnd(src: String, alt: String = "", modifier: Modifier = Modifier)
+
+  /**
+   * Renders an image at the end (right) of the card.
+   */
+  @Composable
+  fun imageEnd(image: Image, modifier: Modifier = Modifier) {
+    require(image is Image.Resource)
+    imageEnd(src= image.url.get(), alt=image.altText ?: "", modifier=modifier + image.modifier)
+  }
+
+  @Composable
+  fun image(image: Image, position: CardImagePosition, modifier: Modifier = Modifier)
 }
 
 internal data object DefaultCardScope : CardScope {
@@ -152,14 +162,20 @@ internal data object DefaultCardScope : CardScope {
   ) {
     val lightModifier = if (light) CardCss.CARD_HEADER_LIGHT else Modifier
     KDiv(modifier = CardCss.CARD_HEADER + lightModifier + modifier) {
-      if (title != null) {
-        KH3(modifier = CardCss.CARD_TITLE) {
-          KText(title)
-        }
-      }
       if (subtitle != null) {
-        KDiv(modifier = CardCss.CARD_SUBTITLE) {
-          KText(subtitle)
+        KDiv {
+          if (title != null) {
+            KH2(modifier = CardCss.CARD_TITLE) {
+              KText(title)
+            }
+          }
+          KP(modifier = CardCss.CARD_SUBTITLE) {
+            KText(subtitle)
+          }
+        }
+      } else if (title != null) {
+        KH2(modifier = CardCss.CARD_TITLE) {
+          KText(title)
         }
       }
       content?.invoke(DefaultCardHeaderScope)
@@ -239,8 +255,15 @@ internal data object DefaultCardScope : CardScope {
     alt: String,
     position: CardImagePosition,
     modifier: Modifier,
+  ) = image(Image(url = src, altText = alt.takeIf { it.isNotEmpty() }), position, modifier)
+
+  @Composable
+  override fun image(
+    image: Image,
+    position: CardImagePosition,
+    modifier: Modifier,
   ) {
-    KImg(src = src, alt = alt, modifier = position.modifier + modifier)
+    image.invoke(modifier = position.modifier + modifier)
   }
 
   @Composable
