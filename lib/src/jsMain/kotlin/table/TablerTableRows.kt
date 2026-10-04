@@ -1,5 +1,7 @@
 package com.github.jangalinski.tabweb.table
 
+import androidx.compose.runtime.*
+
 /**
  * Row source for data-driven Tabler tables.
  *
@@ -40,7 +42,7 @@ data class StaticTablerTableRows(
 /**
  * Client-side paginated [TablerTableRows] view over a complete row list.
  *
- * Use `rememberPaginatedTableRows` from composable code so the current page survives
+ * Use [rememberPaginatedTableRows] from composable code so the current page survives
  * recomposition and page-link clicks update the visible row slice.
  */
 class PaginatedTablerTableRows internal constructor(
@@ -72,6 +74,30 @@ class PaginatedTablerTableRows internal constructor(
 
   override fun goToPage(page: Int) {
     onPageSelected(page.coerceIn(1, totalPages))
+  }
+}
+
+/**
+ * Remembers a paginated view of table rows.
+ */
+@Composable
+fun rememberPaginatedTableRows(
+  rows: List<TablerTableRow>,
+  pageSize: Int,
+  initialPage: Int = 1,
+  texts: TablerPaginationTexts = TablerPaginationTexts(),
+  window: TablerPaginationWindow = TablerPaginationWindow(),
+): TablerTableRows {
+  var currentPage by remember(rows, pageSize) { mutableStateOf(initialPage) }
+  return remember(rows, pageSize, currentPage, texts, window) {
+    PaginatedTablerTableRows(
+      allRows = rows,
+      pageSize = pageSize,
+      currentPage = currentPage,
+      texts = texts,
+      window = window,
+      onPageSelected = { currentPage = it },
+    )
   }
 }
 

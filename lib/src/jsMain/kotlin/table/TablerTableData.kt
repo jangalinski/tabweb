@@ -1,6 +1,7 @@
 package com.github.jangalinski.tabweb.table
 
-import com.github.jangalinski.tabweb.avatar.TablerAvatarData
+import com.github.jangalinski.tabweb.avatar.Avatar
+import com.github.jangalinski.tabweb.badge.Badge
 
 /**
  * Pure configuration for a Tabler table.
@@ -16,21 +17,18 @@ import com.github.jangalinski.tabweb.avatar.TablerAvatarData
 data class TablerTableData(
   val columns: List<TablerTableColumn>,
   val rows: List<TablerTableRow>,
-  val responsive: TablerTableResponsive = TablerTableResponsive.ALWAYS,
+  val responsive: TableResponsive = TableResponsive.ALWAYS,
   val noWrap: Boolean = false,
   val stickyHeader: Boolean = false,
   val expectedDisplayRows: Int? = null,
 ) {
   /**
    * Creates table data from a [TablerTableRows] source.
-   *
-   * This constructor keeps pagination-owned row slicing and expected display height with
-   * the row source while preserving the normal [TablerTableData] rendering path.
    */
   constructor(
     columns: List<TablerTableColumn>,
     rows: TablerTableRows,
-    responsive: TablerTableResponsive = TablerTableResponsive.ALWAYS,
+    responsive: TableResponsive = TableResponsive.ALWAYS,
     noWrap: Boolean = false,
     stickyHeader: Boolean = false,
   ) : this(
@@ -62,14 +60,14 @@ data class TablerTableColumn(
 /** One table row, optionally styled with a Tabler semantic variant. */
 data class TablerTableRow(
   val cells: List<TablerTableCell>,
-  val variant: TablerTableRowVariant? = null,
+  val variant: TableRowVariant? = null,
 )
 
 /**
  * Sealed content model for a single Tabler table cell.
  *
  * Use [Text] for the common plain-text case, or one of the richer subtypes
- * ([AvatarName], [Badge], [Tags], [Checkbox]) for structured content.
+ * ([AvatarName], [BadgeItem], [Tags], [Checkbox]) for structured content.
  */
 sealed interface TablerTableCell {
   /** Whether this cell acts as a row header (`<th scope="row">` instead of `<td>`). */
@@ -77,8 +75,6 @@ sealed interface TablerTableCell {
 
   /**
    * A plain-text cell, optionally muted and/or acting as a row header.
-   *
-   * This is the direct replacement for the former `TablerTableCell` data class.
    */
   data class Text(
     val value: String,
@@ -87,20 +83,19 @@ sealed interface TablerTableCell {
   ) : TablerTableCell
 
   /**
-   * A cell containing a small avatar image followed by a display name.
-   *
-   * The avatar is rendered using the same markup conventions as Tabler avatars.
+   * A cell containing an avatar followed by a display name and optional description.
    */
   data class AvatarName(
-    val avatar: TablerAvatarData,
+    val avatar: Avatar,
     val name: String,
+    val description: String? = null,
   ) : TablerTableCell
 
   /**
-   * A cell containing a Tabler badge / status chip.
+   * A cell containing a badge.
    *
-   * @param label  visible badge text
-   * @param variant optional Bootstrap/Tabler colour modifier, e.g. `"bg-success"` or `"badge-outline text-green"`
+   * @param label visible badge text
+   * @param variant optional styling variant or class
    */
   data class Badge(
     val label: String,
@@ -109,41 +104,21 @@ sealed interface TablerTableCell {
 
   /**
    * A cell containing a horizontal list of tag spans.
-   *
-   * An empty [tags] list renders an empty cell without error.
    */
   data class Tags(val tags: List<String>) : TablerTableCell
 
   /**
    * A cell containing a checkbox input.
-   *
-   * @param checked whether the checkbox is ticked
-   * @param label   optional visible label placed next to the checkbox
    */
   data class Checkbox(
     val checked: Boolean,
     val label: String? = null,
+    val onCheckedChange: ((Boolean) -> Unit)? = null,
   ) : TablerTableCell
-}
 
-/** Breakpoint at which a table stops scrolling horizontally. */
-enum class TablerTableResponsive(internal val className: String?) {
-  NONE(null),
-  ALWAYS("table-responsive"),
-  SMALL("table-responsive-sm"),
-  MEDIUM("table-responsive-md"),
-  LARGE("table-responsive-lg"),
-  EXTRA_LARGE("table-responsive-xl"),
-}
-
-/** Tabler semantic row backgrounds. */
-enum class TablerTableRowVariant(internal val className: String) {
-  PRIMARY("table-primary"),
-  SECONDARY("table-secondary"),
-  SUCCESS("table-success"),
-  DANGER("table-danger"),
-  WARNING("table-warning"),
-  INFO("table-info"),
-  LIGHT("table-light"),
-  DARK("table-dark"),
+  companion object {
+    /** Helper constructor matching the old TablerTableCell data class. */
+    operator fun invoke(value: String, muted: Boolean = false, isRowHeader: Boolean = false): TablerTableCell =
+      Text(value = value, muted = muted, isRowHeader = isRowHeader)
+  }
 }

@@ -1,40 +1,23 @@
 package com.github.jangalinski.tabweb.table
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.tabweb.table.TablerPaginationData
-import com.github.jangalinski.tabweb.table.TablerTableColumn
-import com.github.jangalinski.tabweb.table.TablerTableData
-import com.github.jangalinski.tabweb.table.TablerTableResponsive
-import com.github.jangalinski.tabweb.table.TablerTableRows
-import com.github.jangalinski.tabweb._foundation.css.ClassNames
-import com.github.jangalinski.tabweb._foundation.css.ClassNames.modifier
-import com.github.jangalinski.tabweb._foundation.compose.KAnchor
-import com.github.jangalinski.tabweb._foundation.compose.KDiv
-import com.github.jangalinski.tabweb._foundation.compose.KH3
-import com.github.jangalinski.tabweb._foundation.compose.KHtmlDiv
-import com.github.jangalinski.tabweb._foundation.compose.KLi
-import com.github.jangalinski.tabweb._foundation.compose.KP
-import com.github.jangalinski.tabweb._foundation.compose.KText
-import com.github.jangalinski.tabweb._foundation.compose.KUl
-import com.varabyte.kobweb.compose.foundation.layout.Column
+import com.github.jangalinski.tabweb._foundation.compose.*
+import com.github.jangalinski.tabweb._foundation.css.cssClass
+import com.github.jangalinski.tabweb._foundation.css.plus
+import com.github.jangalinski.tabweb.card.CardCss
+import com.github.jangalinski.tabweb.card.DefaultCardScope
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.attr
 
 /**
  * Renders a Tabler card that displays a data table flush against the card edges.
  *
- * Unlike [TablerCard], this composable omits the `.card-body` wrapper and places the
+ * Unlike standard cards, this composable omits the `.card-body` wrapper and places the
  * responsive table directly inside the `.card`, matching Tabler's `card-table` pattern.
  * This avoids the extra padding gap that would appear if the table were placed inside a
  * normal card body.
  *
- * When [pagination] is provided a `.card-footer` is rendered below the table with:
- * - a "Showing X to Y of Z entries" summary (when [TablerPaginationData.pageSize] and
- *   [TablerPaginationData.totalItems] are set), and
- * - numbered page links with previous/next chevron buttons.
- *
- * The component is **presentational only**: the caller owns the active-page state and
- * reacts to page changes via [onPageChange].
+ * When [pagination] is provided a `.card-footer` is rendered below the table.
  *
  * @param title        headline shown in the `.card-header`
  * @param subtitle     optional secondary line shown below the title inside the card header
@@ -50,37 +33,72 @@ fun TablerTableCard(
   data: TablerTableData,
   pagination: TablerPaginationData? = null,
   onPageChange: ((Int) -> Unit)? = null,
+  modifier: Modifier = Modifier,
 ) {
-  Column(modifier = ClassNames.card.modifier()) {
-    KDiv(modifier = ClassNames.cardHeader.modifier()) {
-      KDiv {
-        KH3(modifier = ClassNames.cardTitle.modifier()) {
-          KText(title)
+  KDiv(modifier = CardCss.CARD + modifier) {
+    DefaultCardScope.header(title = title, subtitle = subtitle)
+    Table(
+      responsive = data.responsive,
+      noWrap = data.noWrap,
+      stickyHeader = data.stickyHeader,
+      cardTable = true,
+    ) {
+      header(sticky = data.stickyHeader) {
+        data.columns.forEach { column ->
+          cell(text = column.label, noWrap = column.noWrap)
         }
-        subtitle?.let {
-          KDiv(modifier = "${ClassNames.textSecondary} ${ClassNames.mt1}".modifier()) {
-            KText(it)
+      }
+      body {
+        data.rows.forEach { row ->
+          row(variant = row.variant) {
+            row.cells.forEach { cell ->
+              when (cell) {
+                is TablerTableCell.Text -> cell(
+                  text = cell.value,
+                  muted = cell.muted,
+                  isRowHeader = cell.isRowHeader,
+                )
+                is TablerTableCell.AvatarName -> avatar(
+                  avatar = cell.avatar,
+                  name = cell.name,
+                  description = cell.description,
+                )
+                is TablerTableCell.Badge -> {
+                  cell {
+                    val bgMod = if (cell.variant != null) cssClass(cell.variant) else Modifier
+                    KSpan(modifier = cssClass("badge") + bgMod) {
+                      KText(cell.label)
+                    }
+                  }
+                }
+                is TablerTableCell.Tags -> tags(cell.tags)
+                is TablerTableCell.Checkbox -> checkbox(
+                  checked = cell.checked,
+                  label = cell.label,
+                  onCheckedChange = cell.onCheckedChange,
+                )
+              }
+            }
+          }
+        }
+        val placeholderRows = ((data.expectedDisplayRows ?: 0) - data.rows.size).coerceAtLeast(0)
+        repeat(placeholderRows) {
+          row(modifier = TableCss.TABLE_PLACEHOLDER_ROW) {
+            repeat(data.columns.size) {
+              cell { KText("\u00a0") }
+            }
           }
         }
       }
-    }
-    // Table rendered without its own responsive wrapper; the Div below provides it.
-    KHtmlDiv(
-      html = renderTableMarkup(data),
-      modifier = data.responsive.className?.modifier() ?: Modifier,
-    )
-    pagination?.let { pag ->
-      PaginationFooter(pagination = pag, onPageChange = onPageChange)
+    }.invoke(Modifier)
+    if (pagination != null) {
+      PaginationFooter(pagination = pagination, onPageChange = onPageChange)
     }
   }
 }
 
 /**
  * Renders a table card from a row source that may own table behaviour such as pagination.
- *
- * Static row sources render all rows directly. Paginated row sources provide their current
- * page slice, footer metadata, and page-change handler so callers do not need to repeat
- * pagination calculations in page code.
  *
  * @param title headline shown in the `.card-header`
  * @param subtitle optional secondary line shown below the title inside the card header
@@ -96,9 +114,10 @@ fun TablerTableCard(
   subtitle: String? = null,
   columns: List<TablerTableColumn>,
   rows: TablerTableRows,
-  responsive: TablerTableResponsive = TablerTableResponsive.ALWAYS,
+  responsive: TableResponsive = TableResponsive.ALWAYS,
   noWrap: Boolean = false,
   stickyHeader: Boolean = false,
+  modifier: Modifier = Modifier,
 ) {
   TablerTableCard(
     title = title,
@@ -112,7 +131,33 @@ fun TablerTableCard(
     ),
     pagination = rows.pagination,
     onPageChange = rows::goToPage,
+    modifier = modifier,
   )
+}
+
+/**
+ * Renders a table card using the composable DSL for the table content.
+ */
+@Composable
+fun TablerTableCard(
+  title: String,
+  subtitle: String? = null,
+  responsive: TableResponsive = TableResponsive.ALWAYS,
+  noWrap: Boolean = false,
+  stickyHeader: Boolean = false,
+  modifier: Modifier = Modifier,
+  block: @Composable TableScope.() -> Unit,
+) {
+  KDiv(modifier = CardCss.CARD + modifier) {
+    DefaultCardScope.header(title = title, subtitle = subtitle)
+    Table(
+      responsive = responsive,
+      noWrap = noWrap,
+      stickyHeader = stickyHeader,
+      cardTable = true,
+      content = block,
+    ).invoke(Modifier)
+  }
 }
 
 @Composable
@@ -120,47 +165,41 @@ private fun PaginationFooter(
   pagination: TablerPaginationData,
   onPageChange: ((Int) -> Unit)?,
 ) {
-  KDiv(modifier = ClassNames.cardFooter.modifier()) {
-    KDiv(modifier = ClassNames.paginationRow.modifier()) {
-      KDiv(modifier = ClassNames.paginationSummaryCol.modifier()) {
-        val pageSize = pagination.pageSize
-        val totalItems = pagination.totalItems
-        if (pageSize != null && totalItems != null) {
-          val firstItem = if (totalItems == 0) 0 else (pagination.currentPage - 1) * pageSize + 1
-          val lastItem = minOf(pagination.currentPage * pageSize, totalItems)
-          val index = if (firstItem == lastItem) firstItem.toString() else "$firstItem to $lastItem"
-          KP(modifier = "${ClassNames.m0} ${ClassNames.textSecondary}".modifier()) {
-            KText(pagination.texts.summaryTemplate.replace("{index}", index).replace("{max}", totalItems.toString()))
-          }
-        }
+  KDiv(modifier = CardCss.CARD_FOOTER + cssClass("d-flex") + cssClass("align-items-center")) {
+    val pageSize = pagination.pageSize
+    val totalItems = pagination.totalItems
+    if (pageSize != null && totalItems != null) {
+      val firstItem = if (totalItems == 0) 0 else (pagination.currentPage - 1) * pageSize + 1
+      val lastItem = minOf(pagination.currentPage * pageSize, totalItems)
+      val index = if (firstItem == lastItem) firstItem.toString() else "$firstItem to $lastItem"
+      KP(modifier = cssClass("m-0") + TableCss.TEXT_SECONDARY) {
+        KText(pagination.texts.summaryTemplate.replace("{index}", index).replace("{max}", totalItems.toString()))
       }
-      KDiv(modifier = ClassNames.paginationLinksCol.modifier()) {
-        KUl(modifier = ClassNames.pagination.modifier()) {
-          PaginationItem(
-            page = pagination.currentPage - 1,
-            label = pagination.texts.previousPageLabel,
-            disabled = pagination.currentPage <= 1,
-            onPageChange = onPageChange,
-          )
-          paginationTokens(pagination).forEach { token ->
-            when (token) {
-              PaginationToken.Ellipsis -> PaginationEllipsis(pagination.texts.ellipsisLabel)
-              is PaginationToken.Page -> PaginationItem(
-                page = token.page,
-                label = token.page.toString(),
-                active = token.page == pagination.currentPage,
-                onPageChange = onPageChange,
-              )
-            }
-          }
-          PaginationItem(
-            page = pagination.currentPage + 1,
-            label = pagination.texts.nextPageLabel,
-            disabled = pagination.currentPage >= pagination.totalPages,
+    }
+    KUl(modifier = cssClass("pagination") + cssClass("m-0") + cssClass("ms-auto")) {
+      PaginationItem(
+        page = pagination.currentPage - 1,
+        label = pagination.texts.previousPageLabel,
+        disabled = pagination.currentPage <= 1,
+        onPageChange = onPageChange,
+      )
+      paginationTokens(pagination).forEach { token ->
+        when (token) {
+          PaginationToken.Ellipsis -> PaginationEllipsis(pagination.texts.ellipsisLabel)
+          is PaginationToken.Page -> PaginationItem(
+            page = token.page,
+            label = token.page.toString(),
+            active = token.page == pagination.currentPage,
             onPageChange = onPageChange,
           )
         }
       }
+      PaginationItem(
+        page = pagination.currentPage + 1,
+        label = pagination.texts.nextPageLabel,
+        disabled = pagination.currentPage >= pagination.totalPages,
+        onPageChange = onPageChange,
+      )
     }
   }
 }
@@ -221,10 +260,10 @@ private fun paginationTokens(pagination: TablerPaginationData): List<PaginationT
 
 @Composable
 private fun PaginationEllipsis(label: String) {
-  KLi(modifier = ClassNames.pageItemDisabled.modifier()) {
+  KLi(modifier = cssClass("page-item") + cssClass("disabled")) {
     KAnchor(
       href = "#",
-      modifier = ClassNames.pageLink.modifier()
+      modifier = cssClass("page-link")
         .then(Modifier.attr("tabindex", "-1"))
         .then(Modifier.attr("aria-disabled", "true")),
       onClickAction = {},
@@ -242,16 +281,15 @@ private fun PaginationItem(
   active: Boolean = false,
   onPageChange: ((Int) -> Unit)?,
 ) {
-  KLi(
-    modifier = when {
-      disabled -> ClassNames.pageItemDisabled.modifier()
-      active -> ClassNames.pageItemActive.modifier()
-      else -> ClassNames.pageItem.modifier()
-    },
-  ) {
+  val stateModifier = when {
+    disabled -> cssClass("disabled")
+    active -> cssClass("active")
+    else -> Modifier
+  }
+  KLi(modifier = cssClass("page-item") + stateModifier) {
     KAnchor(
       href = "#",
-      modifier = ClassNames.pageLink.modifier()
+      modifier = cssClass("page-link")
         .then(if (disabled) Modifier.attr("tabindex", "-1") else Modifier)
         .then(if (disabled) Modifier.attr("aria-disabled", "true") else Modifier.attr("data-page", page.toString())),
       onClickAction = if (disabled) ({}) else ({ onPageChange?.invoke(page) }),
