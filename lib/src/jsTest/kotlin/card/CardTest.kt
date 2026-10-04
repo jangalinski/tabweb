@@ -9,6 +9,8 @@ import com.github.jangalinski.tabweb.Tabweb.cardRow
 import com.github.jangalinski.tabweb._foundation.Link
 import com.github.jangalinski.tabweb._foundation.Url
 import com.github.jangalinski.tabweb._foundation.compose.KText
+import com.github.jangalinski.tabweb._foundation.css.GridWidth
+import com.github.jangalinski.tabweb._foundation.css.cssClass
 import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
 import com.github.jangalinski.tabweb.icon.TablerIcon
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
@@ -150,6 +152,28 @@ class CardTest {
     assertThat(html).contains("card-group")
     assertThat(html).contains("row-deck")
     assertThat(root.querySelectorAll(".card").length).isEqualTo(5)
+  }
+
+  @Test
+  fun appliesGridWidthToRowColumnsInsteadOfCards() = runTest {
+    composition {
+      cardRow {
+        card(width = GridWidth.MD_HALF_LG_QUARTER, modifier = cssClass("extra")) {
+          body { KText("DSL card") }
+        }
+        card(Card(title = "Built", body = "Card"), width = GridWidth.LG_HALF)
+        card(title = "Simple", body = "Card", width = GridWidth.MD_THIRD)
+        col(width = GridWidth.FULL) { KText("Column") }
+        card { body { KText("Default width") } }
+      }
+    }
+
+    assertThat(root.querySelectorAll(".row-cards > .col-md-6.col-lg-3.extra > .card").length).isEqualTo(1)
+    assertThat(root.querySelectorAll(".row-cards > .col-lg-6 > .card").length).isEqualTo(1)
+    assertThat(root.querySelectorAll(".row-cards > .col-md-4 > .card").length).isEqualTo(1)
+    assertThat(root.querySelectorAll(".row-cards > .col-12").length).isEqualTo(1)
+    assertThat(root.querySelectorAll(".row-cards > .col > .card").length).isEqualTo(1)
+    assertThat(root.querySelectorAll(".card.col-md-6").length).isEqualTo(0)
   }
 
   @Test

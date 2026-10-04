@@ -11,6 +11,7 @@ import com.github.jangalinski.tabweb._foundation.compose.KDiv
 import com.github.jangalinski.tabweb._foundation.compose.KP
 import com.github.jangalinski.tabweb._foundation.compose.KText
 import com.github.jangalinski.tabweb._foundation.css.cssClass
+import com.github.jangalinski.tabweb._foundation.css.GridWidth
 import com.github.jangalinski.tabweb._foundation.css.plus
 import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
 import com.github.jangalinski.tabweb.button.ButtonColor
@@ -43,26 +44,26 @@ fun SampleCardsPage() {
   cardRow {
 
     // 1. Headers & body styles
-    card(modifier = cssClass("col-12")) {
+    card(width = GridWidth.FULL) {
       body {
         title("Headers & body styles")
         subtitle("Combine a header, a tinted background, or drop the border for a simpler look.")
         cardRow {
-          card(modifier = cssClass("col-md-6") + cssClass("col-lg-3")) {
+          card(width = GridWidth.MD_HALF_LG_QUARTER) {
             header(title = "Card title")
             body { KText("Simple card") }
           }
-          card(modifier = cssClass("col-md-6") + cssClass("col-lg-3")) {
+          card(width = GridWidth.MD_HALF_LG_QUARTER) {
             header(title = "Card title", light = true)
             body { KText("Card with header background") }
           }
-          card(modifier = cssClass("col-md-6") + cssClass("col-lg-3"), borderless = true) {
+          card(width = GridWidth.MD_HALF_LG_QUARTER, borderless = true) {
             body {
               title("Card title")
               KText("Card without border")
             }
           }
-          card(modifier = cssClass("col-md-6") + cssClass("col-lg-3")) {
+          card(width = GridWidth.MD_HALF_LG_QUARTER) {
             header(title = "Card title", subtitle = "Subtitle")
             body { KText("Card with title and subtitle") }
           }
@@ -71,18 +72,18 @@ fun SampleCardsPage() {
     }
 
     // 2. Link hover effects
-    card(modifier = cssClass("col-12")) {
+    card(width = GridWidth.FULL) {
       body {
         title("Link hover effects")
         subtitle("Add motion cues when the whole card acts as a link.")
         cardRow {
-          card(modifier = cssClass("col-md-6") + cssClass("col-lg-3"), link = sampleLink, linkType = CardLinkType.DEFAULT) {
+          card(width = GridWidth.MD_HALF_LG_QUARTER, link = sampleLink, linkType = CardLinkType.DEFAULT) {
             body { KText("Default hover effect") }
           }
-          card(modifier = cssClass("col-md-6") + cssClass("col-lg-3"), link = sampleLink, linkType = CardLinkType.ROTATE) {
+          card(width = GridWidth.MD_HALF_LG_QUARTER, link = sampleLink, linkType = CardLinkType.ROTATE) {
             body { KText("Rotate hover effect") }
           }
-          card(modifier = cssClass("col-md-6") + cssClass("col-lg-3"), link = sampleLink, linkType = CardLinkType.POP) {
+          card(width = GridWidth.MD_HALF_LG_QUARTER, link = sampleLink, linkType = CardLinkType.POP) {
             body { KText("Pop hover effect") }
           }
         }
@@ -90,21 +91,21 @@ fun SampleCardsPage() {
     }
 
     // 3. Rotation & state
-    card(modifier = cssClass("col-12")) {
+    card(width = GridWidth.FULL) {
       body {
         title("Rotation & state")
         subtitle("Tilt a card slightly, or mark it as active or inactive.")
         cardRow {
-          card(modifier = cssClass("col-md-6") + cssClass("col-lg-3"), rotate = CardRotate.END) {
+          card(width = GridWidth.MD_HALF_LG_QUARTER, rotate = CardRotate.END) {
             body { KText("Card rotate end") }
           }
-          card(modifier = cssClass("col-md-6") + cssClass("col-lg-3"), rotate = CardRotate.START) {
+          card(width = GridWidth.MD_HALF_LG_QUARTER, rotate = CardRotate.START) {
             body { KText("Card rotate start") }
           }
-          card(modifier = cssClass("col-md-6") + cssClass("col-lg-3"), active = true) {
+          card(width = GridWidth.MD_HALF_LG_QUARTER, active = true) {
             body { KP { KText("This is a card with active state.") } }
           }
-          card(modifier = cssClass("col-md-6") + cssClass("col-lg-3"), inactive = true) {
+          card(width = GridWidth.MD_HALF_LG_QUARTER, inactive = true) {
             body { KP { KText("This is some text inactive state.") } }
           }
         }
@@ -112,13 +113,13 @@ fun SampleCardsPage() {
     }
 
     // 4. Icon & background accents
-    card(modifier = cssClass("col-12")) {
+    card(width = GridWidth.FULL) {
       body {
         title("Icon & background accents")
         subtitle("Draw attention with a stamp icon or a tinted background.")
         cardRow {
           card(
-            modifier = cssClass("col-md-6") + cssClass("col-lg-4"),
+            width = GridWidth.MD_HALF_LG_THIRD,
             stamp = CardStamp(icon = TablerIcon.TI_BELL, color = BackgroundColor.BASE.YELLOW, size = CardStampSize.DEFAULT),
           ) {
             body {
@@ -129,7 +130,7 @@ fun SampleCardsPage() {
             }
           }
           card(
-            modifier = cssClass("col-md-6") + cssClass("col-lg-4"),
+            width = GridWidth.MD_HALF_LG_THIRD,
             cardModifier = BackgroundColor.LIGHT.BLUE,
           ) {
             body {
@@ -140,7 +141,7 @@ fun SampleCardsPage() {
             }
           }
           card(
-            modifier = cssClass("col-md-6") + cssClass("col-lg-4"),
+            width = GridWidth.MD_HALF_LG_THIRD,
             stamp = CardStamp(icon = TablerIcon.TI_STAR, color = BackgroundColor.BASE.GREEN, size = CardStampSize.LG),
           ) {
             body {
@@ -155,12 +156,12 @@ fun SampleCardsPage() {
     }
 
     // 5. Status indicators
-    card(modifier = cssClass("col-12")) {
+    card(width = GridWidth.FULL) {
       body {
         title("Status indicators")
         subtitle("Mark a card's state with a colored edge on any side.")
         cardRow {
-          card(modifier = cssClass("col-md-6") + cssClass("col-lg-4"), status = CardStatus.top(BackgroundColor.SEMANTIC.DANGER)) {
+          card(width = GridWidth.MD_HALF_LG_THIRD, status = CardStatus.top(BackgroundColor.SEMANTIC.DANGER)) {
             body {
               title("Card with top status")
               KP(modifier = cssClass("text-secondary")) {
@@ -168,7 +169,7 @@ fun SampleCardsPage() {
               }
             }
           }
-          card(modifier = cssClass("col-md-6") + cssClass("col-lg-4"), status = CardStatus.bottom(BackgroundColor.SEMANTIC.SUCCESS)) {
+          card(width = GridWidth.MD_HALF_LG_THIRD, status = CardStatus.bottom(BackgroundColor.SEMANTIC.SUCCESS)) {
             body {
               title("Card with bottom status")
               KP(modifier = cssClass("text-secondary")) {
@@ -176,7 +177,7 @@ fun SampleCardsPage() {
               }
             }
           }
-          card(modifier = cssClass("col-md-6") + cssClass("col-lg-4"), status = CardStatus.start(BackgroundColor.SEMANTIC.PRIMARY)) {
+          card(width = GridWidth.MD_HALF_LG_THIRD, status = CardStatus.start(BackgroundColor.SEMANTIC.PRIMARY)) {
             body {
               title("Card with side status")
               KP(modifier = cssClass("text-secondary")) {
@@ -189,13 +190,13 @@ fun SampleCardsPage() {
     }
 
     // 6. Ribbons & progress
-    card(modifier = cssClass("col-12")) {
+    card(width = GridWidth.FULL) {
       body {
         title("Ribbons & progress")
         subtitle("Flag content with a ribbon, or track progress right inside the card.")
         cardRow {
           card(
-            modifier = cssClass("col-md-6") + cssClass("col-lg-3"),
+            width = GridWidth.MD_HALF_LG_QUARTER,
             ribbon = CardRibbon(
               icon = TablerIcon.TI_STAR,
               position = CardRibbonPosition.TOP,
@@ -211,7 +212,7 @@ fun SampleCardsPage() {
             }
           }
           card(
-            modifier = cssClass("col-md-6") + cssClass("col-lg-3"),
+            width = GridWidth.MD_HALF_LG_QUARTER,
             ribbon = CardRibbon(
               text = "NEW",
               color = BackgroundColor.SEMANTIC.DANGER,
@@ -224,7 +225,7 @@ fun SampleCardsPage() {
               }
             }
           }
-          card(modifier = cssClass("col-md-6") + cssClass("col-lg-3")) {
+          card(width = GridWidth.MD_HALF_LG_QUARTER) {
             progress(value = 38, color = BackgroundColor.SEMANTIC.PRIMARY)
             body {
               title("Card with progress bar")
@@ -233,7 +234,7 @@ fun SampleCardsPage() {
               }
             }
           }
-          card(modifier = cssClass("col-md-6") + cssClass("col-lg-3"), stacked = true) {
+          card(width = GridWidth.MD_HALF_LG_QUARTER, stacked = true) {
             body {
               title("Stacked card")
               KP(modifier = cssClass("text-secondary")) {
@@ -246,22 +247,22 @@ fun SampleCardsPage() {
     }
 
     // 7. Card images
-    card(modifier = cssClass("col-12")) {
+    card(width = GridWidth.FULL) {
       body {
         title("Card images")
         subtitle("Pair a card with an image on the left, right, top, or bottom.")
 
         cardRow {
-          card(modifier = cssClass("col-lg-6")) {
+          card(width = GridWidth.LG_HALF) {
             KDiv(modifier = cssClass("row") + cssClass("row-0")) {
-              KDiv(modifier = cssClass("col-3")) {
+              KDiv(modifier = GridWidth.BASE_QUARTER.modifier()) {
                 imageStart(
                   src = LoremPicsum.image().url.get(),
                   alt = "Start Image",
                   modifier = cssClass("w-100") + cssClass("h-100") + cssClass("object-cover"),
                 )
               }
-              KDiv(modifier = cssClass("col")) {
+              KDiv(modifier = GridWidth.AUTO.modifier()) {
                 body {
                   title("Card with left side image")
                   KP(modifier = cssClass("text-secondary")) {
@@ -272,15 +273,15 @@ fun SampleCardsPage() {
             }
           }
 
-          card(modifier = cssClass("col-lg-6")) {
+          card(width = GridWidth.LG_HALF) {
             KDiv(modifier = cssClass("row") + cssClass("row-0")) {
-              KDiv(modifier = cssClass("col-3") + cssClass("order-md-last")) {
+              KDiv(modifier = GridWidth.BASE_QUARTER.modifier() + cssClass("order-md-last")) {
                 imageEnd(
                   image = LoremPicsum.image(),
                   modifier = cssClass("w-100") + cssClass("h-100") + cssClass("object-cover"),
                 )
               }
-              KDiv(modifier = cssClass("col")) {
+              KDiv(modifier = GridWidth.AUTO.modifier()) {
                 body {
                   title("Card with right side image")
                   KP(modifier = cssClass("text-secondary")) {
@@ -290,7 +291,7 @@ fun SampleCardsPage() {
               }
             }
           }
-          card(modifier = cssClass("col-md-6") + cssClass("col-lg-3")) {
+          card(width = GridWidth.MD_HALF_LG_QUARTER) {
             image(image = LoremPicsum.image().copy(altText = "Card with top image"), position = CardImagePosition.TOP)
             body {
               title("Card with top image")
@@ -299,7 +300,7 @@ fun SampleCardsPage() {
               }
             }
           }
-          card(modifier = cssClass("col-md-6") + cssClass("col-lg-3")) {
+          card(width = GridWidth.MD_HALF_LG_QUARTER) {
             body {
               title("Card with bottom image")
               KP(modifier = cssClass("text-secondary")) {
@@ -313,13 +314,13 @@ fun SampleCardsPage() {
     }
 
     // 8. Footers
-    card(modifier = cssClass("col-12")) {
+    card(width = GridWidth.FULL) {
       body {
         title("Footers")
         subtitle("Add a footer for metadata, a single action, or a group of buttons.")
 
         cardRow {
-          card(modifier = cssClass("col-md-6") + cssClass("col-lg-3")) {
+          card(width = GridWidth.MD_HALF_LG_QUARTER) {
             body {
               title("Card with footer")
               KP(modifier = cssClass("text-secondary")) {
@@ -330,7 +331,7 @@ fun SampleCardsPage() {
               KText("This is standard card footer")
             }
           }
-          card(modifier = cssClass("col-md-6") + cssClass("col-lg-3")) {
+          card(width = GridWidth.MD_HALF_LG_QUARTER) {
             body {
               title("Card with transparent footer")
               KP(modifier = cssClass("text-secondary")) {
@@ -341,7 +342,7 @@ fun SampleCardsPage() {
               KText("This is transparent card footer")
             }
           }
-          card(modifier = cssClass("col-md-6") + cssClass("col-lg-3")) {
+          card(width = GridWidth.MD_HALF_LG_QUARTER) {
             body {
               title("Card with footer button")
               KP(modifier = cssClass("text-secondary")) {
@@ -352,7 +353,7 @@ fun SampleCardsPage() {
               button(text = "Action button", color = ButtonColor.PRIMARY)
             }
           }
-          card(modifier = cssClass("col-md-6") + cssClass("col-lg-3")) {
+          card(width = GridWidth.MD_HALF_LG_QUARTER) {
             body {
               title("Card with footer buttons")
               KP(modifier = cssClass("text-secondary")) {
@@ -371,12 +372,12 @@ fun SampleCardsPage() {
     }
 
     // 9. Nested & grouped cards
-    card(modifier = cssClass("col-12")) {
+    card(width = GridWidth.FULL) {
       body {
         title("Nested & grouped cards")
         subtitle("Combine cards inside a card, a full-bleed group, or a matched-height deck.")
         cardRow {
-          card(modifier = cssClass("col-12")) {
+          card(width = GridWidth.FULL) {
             header(title = "Cards inside card")
             body {
               cardRow {
@@ -385,7 +386,7 @@ fun SampleCardsPage() {
                   Triple("Second", CardStatusPosition.TOP, BackgroundColor.SEMANTIC.SUCCESS),
                   Triple("Third", CardStatusPosition.TOP, BackgroundColor.SEMANTIC.INFO),
                 ).forEach { (name, pos, color) ->
-                  card(modifier = cssClass("col-md"), status = CardStatus(pos, color)) {
+                  card(width = GridWidth.MD_AUTO, status = CardStatus(pos, color)) {
                     header(title = "$name card")
                     body {
                       KP(modifier = cssClass("text-secondary")) {
@@ -398,7 +399,7 @@ fun SampleCardsPage() {
             }
           }
 
-          col(modifier = cssClass("col-12")) {
+          col(width = GridWidth.FULL) {
             cardGroup {
               listOf("First", "Second", "Third").forEach { name ->
                 card {
@@ -413,9 +414,9 @@ fun SampleCardsPage() {
             }
           }
 
-          col(modifier = cssClass("col-12")) {
+          col(width = GridWidth.FULL) {
             cardRow(deck = true) {
-              card(modifier = cssClass("col-md-4")) {
+              card(width = GridWidth.MD_THIRD) {
                 header(title = "Deck card 1")
                 body {
                   KText("This is a wider card with supporting text below as a natural lead-in to additional content.")
@@ -424,7 +425,7 @@ fun SampleCardsPage() {
                   KText("Last updated 3 mins ago")
                 }
               }
-              card(modifier = cssClass("col-md-4")) {
+              card(width = GridWidth.MD_THIRD) {
                 header(title = "Deck card 2")
                 body {
                   KText("This card has supporting text below as a natural lead-in to additional content.")
@@ -433,7 +434,7 @@ fun SampleCardsPage() {
                   KText("Last updated 3 mins ago")
                 }
               }
-              card(modifier = cssClass("col-md-4")) {
+              card(width = GridWidth.MD_THIRD) {
                 header(title = "Deck card 3")
                 body {
                   KText("This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content to demonstrate equal height action.")

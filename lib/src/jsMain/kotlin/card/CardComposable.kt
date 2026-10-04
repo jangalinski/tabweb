@@ -77,4 +77,13 @@ interface CardComposable : TabwebComposable {
     modifier: Modifier = Modifier,
     content: @Composable CardRowScope.() -> Unit,
   )
+
+  /**
+   * Creates and renders a row of cards with same height..
+   */
+  @Composable
+  fun cardDeck(
+    modifier: Modifier = Modifier,
+    content: @Composable CardRowScope.() -> Unit,
+  ) = cardRow(deck = true, modifier = modifier, content = content)
 }

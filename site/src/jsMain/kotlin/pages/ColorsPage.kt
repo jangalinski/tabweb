@@ -1,12 +1,13 @@
 package com.github.jangalinski.tabweb.site.pages
 
 import androidx.compose.runtime.Composable
+import com.github.jangalinski.tabweb.Tabweb.cardDeck
+import com.github.jangalinski.tabweb.Tabweb.cardRow
 import com.github.jangalinski.tabweb._foundation.compose.KDiv
 import com.github.jangalinski.tabweb._foundation.css.GridWidth
 import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
-import com.github.jangalinski.tabweb.avatar.AvatarStyle
 import com.github.jangalinski.tabweb.avatar.Avatar
-import com.github.jangalinski.tabweb.card.TablerCards
+import com.github.jangalinski.tabweb.avatar.AvatarStyle
 import com.github.jangalinski.tabweb.site.SiteRoutes
 import com.github.jangalinski.tabweb.site.siteLayoutData
 import com.github.jangalinski.tabweb.site.sitePageMeta
@@ -63,28 +64,47 @@ fun color(names: List<BackgroundColor>) {
 @Page(routeOverride = SiteRoutes.Colors)
 @Composable
 fun Colors() {
-  TablerCards {
-    card(title = "Colors", width = GridWidth.QUARTER) {
-      Text("All colors, with hex values, and a gradient builder.")
-      color(BackgroundColor.BASE.entries.toList())
+  cardDeck {
+    card(width = GridWidth.QUARTER) {
+      body {
+        title(text = "Colors")
+        Text("All colors, with hex values, and a gradient builder.")
+        color(BackgroundColor.BASE.entries.toList())
+      }
     }
-    card(title = "Light colors", width = GridWidth.QUARTER) {
-      Text("A tinted, low-contrast version of each color.")
-      color(BackgroundColor.LIGHT.entries.toList())
-    }
-    card(title = "Gray colors", width = GridWidth.QUARTER) {
-      Text("The neutral gray scale used for text, borders, and backgrounds.")
-      color(BackgroundColor.GRAY.entries.toList())
 
+    card(width = GridWidth.QUARTER) {
+      body {
+        title(text = "Light colors")
+        Text("A tinted, low-contrast version of each color.")
+        color(BackgroundColor.LIGHT.entries.toList())
+      }
     }
-    card(title = "Social colors", width = GridWidth.QUARTER) {
-      Text("Brand colors for social networks.")
-      color(BackgroundColor.SOCIAL.entries.toList())
+
+    card(width = GridWidth.QUARTER) {
+      body {
+        title(text = "Gray colors")
+        Text("The neutral gray scale used for text, borders, and backgrounds.")
+        color(BackgroundColor.GRAY.entries.toList())
+      }
     }
-    card(title = "Semantic colors", width = GridWidth.QUARTER) {
-      Text("Semantic colors.")
-      color(BackgroundColor.SEMANTIC.entries.toList())
+
+    card(width = GridWidth.QUARTER) {
+      body {
+        title(text = "Social colors")
+
+        Text("Brand colors for social networks.")
+
+        color(BackgroundColor.SOCIAL.entries.toList())
+      }
+    }
+
+    card(width = GridWidth.QUARTER) {
+      body {
+        title(text = "Semantic colors")
+        Text("Semantic colors.")
+        color(BackgroundColor.SEMANTIC.entries.toList())
+      }
     }
   }
-
 }
