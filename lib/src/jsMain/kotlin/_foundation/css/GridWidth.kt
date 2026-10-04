@@ -70,6 +70,13 @@ enum class GridWidth(val classNames: String) {
   LG_HALF("col-lg-6"),
 
   /**
+   * Occupies the full row below `lg`, then 8 of 12 columns (two thirds) from `lg` up.
+   *
+   * `lg` means large screens.
+   */
+  LG_TWO_THIRDS("col-lg-8"),
+
+  /**
    * Occupies the full row below `md`, then shares space equally with automatic columns from `md` up.
    *
    * `md` means medium screens; this preset does not fix a number of grid columns.

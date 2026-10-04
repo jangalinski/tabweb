@@ -21,6 +21,7 @@ class TabwebLibGenerator(
 
   val registry: KotlinCodeGenerationSpiRegistry = KotlinCodeGenerationSpiList(
     TablerColorCssStrategy(),
+    TabwebConstantsStrategy(),
     EnumLazyModifierProzessor()
   ).registry()
 

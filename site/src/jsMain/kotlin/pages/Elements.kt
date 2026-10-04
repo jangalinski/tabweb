@@ -1,7 +1,7 @@
 package com.github.jangalinski.tabweb.site.pages
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.tabweb.card.TablerCards
+import com.github.jangalinski.tabweb.Tabweb.cardDeck
 import com.github.jangalinski.tabweb.site.SiteRoutes
 import com.github.jangalinski.tabweb.site.siteLayoutData
 import com.github.jangalinski.tabweb.site.sitePageMeta
@@ -10,7 +10,6 @@ import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.core.data.add
 import com.varabyte.kobweb.core.init.InitRoute
 import com.varabyte.kobweb.core.init.InitRouteContext
-import com.varabyte.kobweb.core.layout.Layout
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
 
@@ -23,12 +22,18 @@ fun initElementsPage(ctx: InitRouteContext) {
 @Page(routeOverride = SiteRoutes.Elements)
 @Composable
 fun Elements() {
-  TablerCards {
-    card(title = "Icons", width = HALF) {
-      P { Text("Icons can be used directly inside cards and navigation items.") }
+  cardDeck {
+    card(width = HALF) {
+      header(title = "Icons")
+      body {
+        P { Text("Icons can be used directly inside cards and navigation items.") }
+      }
     }
-    card(title = "Tables", width = HALF) {
-      P { Text("The table demonstrations are available under Elements > Tables.") }
+    card(width = HALF) {
+      header(title = "Tables")
+      body {
+        P { Text("The table demonstrations are available under Elements > Tables.") }
+      }
     }
   }
 }

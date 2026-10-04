@@ -31,7 +31,7 @@ fun color(names: List<BackgroundColor>) {
   KDiv(Modifier.classNames("row", "g-3")) {
 
     names.forEach { name ->
-      KDiv(Modifier.classNames("col-12")) {
+      KDiv(GridWidth.FULL.modifier()) {
         KDiv(Modifier.classNames("row", "align-items-center")) {
           KDiv(Modifier.classNames("col-auto")) {
 

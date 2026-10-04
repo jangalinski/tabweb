@@ -3,11 +3,15 @@ package com.github.jangalinski.tabweb.card
 import assertk.assertThat
 import assertk.assertions.contains
 import assertk.assertions.isEqualTo
+import com.github.jangalinski.tabweb.Tabweb.badge
 import com.github.jangalinski.tabweb.Tabweb.card
+import com.github.jangalinski.tabweb.Tabweb.cardDeck
 import com.github.jangalinski.tabweb.Tabweb.cardGroup
 import com.github.jangalinski.tabweb.Tabweb.cardRow
 import com.github.jangalinski.tabweb._foundation.Link
 import com.github.jangalinski.tabweb._foundation.Url
+import com.github.jangalinski.tabweb._foundation.compose.KH1
+import com.github.jangalinski.tabweb._foundation.compose.KP
 import com.github.jangalinski.tabweb._foundation.compose.KText
 import com.github.jangalinski.tabweb._foundation.css.GridWidth
 import com.github.jangalinski.tabweb._foundation.css.cssClass
@@ -23,6 +27,61 @@ class CardTest {
   private val testLink = object : Link {
     override val href = Url("/test")
     override val text = "Test Link"
+  }
+
+  @Test
+  fun rendersDeckCardsWithHeadersBodiesAndResponsiveWidths() = runTest {
+    composition {
+      cardDeck {
+        card(width = GridWidth.HALF) {
+          header(title = "First")
+          body { KText("One") }
+        }
+        card(width = GridWidth.HALF) {
+          header(title = "Second")
+          body { KText("Two") }
+        }
+      }
+    }
+
+    assertThat(root.querySelectorAll(".row.row-cards.row-deck > .col-12.col-sm-6 > .card").length).isEqualTo(2)
+    assertThat(root.querySelectorAll(".card-header .card-title").length).isEqualTo(2)
+    assertThat(root.querySelectorAll(".card-body").length).isEqualTo(2)
+    assertThat(root.innerHTML).contains("First")
+    assertThat(root.innerHTML).contains("One")
+    assertThat(root.innerHTML).contains("Second")
+    assertThat(root.innerHTML).contains("Two")
+  }
+
+  @Test
+  fun rendersStatContentAndOptionalBadgeInCardBody() = runTest {
+    composition {
+      cardDeck {
+        card(width = GridWidth.QUARTER) {
+          header(title = "Revenue")
+          body {
+            KH1 { KText("€ 5 000") }
+            KP { KText("Since last week") }
+            badge(text = "+12%")
+          }
+        }
+        card(width = GridWidth.QUARTER) {
+          header(title = "Users")
+          body { KH1 { KText("42") } }
+        }
+      }
+    }
+
+    assertThat(root.querySelectorAll(".col-sm-6.col-lg-3 > .card").length).isEqualTo(2)
+    assertThat(root.querySelectorAll(".card-body h1").length).isEqualTo(2)
+    assertThat(root.querySelectorAll(".card-body .badge").length).isEqualTo(1)
+    assertThat(root.innerHTML).contains("Revenue")
+    assertThat(root.innerHTML).contains("€ 5 000")
+    assertThat(root.innerHTML).contains("Since last week")
+    assertThat(root.innerHTML).contains("+12%")
+    assertThat(root.innerHTML).contains("Users")
+    assertThat(root.innerHTML).contains("42")
+    assertThat(root.querySelectorAll(".col-sm-6.col-lg-3:nth-child(2) .badge").length).isEqualTo(0)
   }
 
   @Test

@@ -12,6 +12,7 @@ import com.github.jangalinski.tabweb._foundation.compose.KSpan
 import com.github.jangalinski.tabweb._foundation.compose.KText
 import com.github.jangalinski.tabweb._foundation.css.cssClass
 import com.github.jangalinski.tabweb._foundation.css.plus
+import com.github.jangalinski.tabweb._foundation.css.GridWidth
 import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
 import com.github.jangalinski.tabweb.avatar.Avatar
 import com.github.jangalinski.tabweb.badge.Badge
@@ -104,7 +105,7 @@ fun TablesPage() {
 
   cardRow {
     // 1. Basic table
-    card(modifier = cssClass("col-lg-8")) {
+    card(width = GridWidth.LG_TWO_THIRDS) {
       header(
         title = "Basic table",
         subtitle = "A clean list of rows and columns, ready to drop into any card.",
@@ -188,7 +189,7 @@ fun TablesPage() {
     }
 
     // 2. Top Pages
-    card(modifier = cssClass("col-lg-4")) {
+    card(width = GridWidth.THIRD) {
       body {
         title("Top Pages")
         table(sm = true, borderless = true) {
@@ -243,7 +244,7 @@ fun TablesPage() {
     }
 
     // 3. Striped rows
-    card(modifier = cssClass("col-12")) {
+    card(width = GridWidth.FULL) {
       header(
         title = "Striped rows",
         subtitle = "Alternate row shading with table-striped to make wide tables easier to scan.",
@@ -291,7 +292,7 @@ fun TablesPage() {
     }
 
     // 4. With avatars
-    card(modifier = cssClass("col-12")) {
+    card(width = GridWidth.FULL) {
       header(
         title = "With avatars",
         subtitle = "Swap the plain name column for an avatar, title, and department.",
@@ -386,7 +387,7 @@ fun TablesPage() {
     }
 
     // 5. Responsive with actions
-    card(modifier = cssClass("col-12")) {
+    card(width = GridWidth.FULL) {
       header(
         title = "Responsive with actions",
         subtitle = "Collapses to stacked rows on mobile and adds an actions button per row.",
@@ -458,7 +459,7 @@ fun TablesPage() {
     }
 
     // 6. Invoices (Data table with selectable rows)
-    card(modifier = cssClass("col-12")) {
+    card(width = GridWidth.FULL) {
       header(title = "Invoices")
       table(
         responsive = TableResponsive.ALWAYS,
@@ -523,7 +524,7 @@ fun TablesPage() {
     }
 
     // 7. Paginated Table Card
-    col(modifier = cssClass("col-12")) {
+    col(width = GridWidth.FULL) {
       TablerTableCard(
         title = "Employees",
         subtitle = "Paginated table card with responsive layout and status tags",

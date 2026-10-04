@@ -1,7 +1,7 @@
 package com.github.jangalinski.tabweb.site.pages
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.tabweb.card.TablerCards
+import com.github.jangalinski.tabweb.Tabweb.cardDeck
 import com.github.jangalinski.tabweb.icon.TablerIcon
 import com.github.jangalinski.tabweb.site.SiteRoutes
 import com.github.jangalinski.tabweb.site.siteLayoutData
@@ -23,14 +23,19 @@ fun initComponentsPage(ctx: InitRouteContext) {
 @Page(routeOverride = SiteRoutes.Components)
 @Composable
 fun Components() {
-  TablerCards {
-    card(title = "Cards", width = HALF) {
-      P { Text("TablerCard and TablerCards provide the basic card layout.") }
+  cardDeck {
+    card(width = HALF) {
+      header(title = "Cards")
+      body {
+        P { Text("Card rows and cards provide the basic card layout.") }
+      }
     }
-    card(title = "Statistics ..... 1", width = HALF) {
-      P { Text("Stat cards are useful for compact values and summaries.") }
-
-      TablerIcon.entries.forEach { icon -> icon() }
+    card(width = HALF) {
+      header(title = "Statistics ..... 1")
+      body {
+        P { Text("Stat cards are useful for compact values and summaries.") }
+        TablerIcon.entries.forEach { icon -> icon() }
+      }
     }
   }
 }
