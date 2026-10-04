@@ -8,7 +8,7 @@ kobweb = "0.25.1"
 compose-runtime = "1.11.4"
 jetbrains-compose = "1.12.1"
 
-markdown = "0.7.14"
+markdown = "0.7.15"
 
 assertk = "0.28.1"
 
