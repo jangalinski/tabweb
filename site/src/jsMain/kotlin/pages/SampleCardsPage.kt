@@ -1,4 +1,4 @@
-package com.github.jangalinski.tabweb.site.pages.interfaces
+package com.github.jangalinski.tabweb.site.pages
 
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb.Tabweb.button
