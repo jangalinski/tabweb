@@ -26,4 +26,10 @@ interface ElementComposable : TabwebComposable {
    */
   @Composable
   fun status(text: String, modifier: Modifier = Modifier)
+
+  @Composable
+  fun tracking(blocks: List<Tracking.Block>, square: Boolean = false, modifier: Modifier = Modifier)
+
+  @Composable
+  fun tracking(vararg blocks: Tracking.Block, square: Boolean = false, modifier: Modifier = Modifier) = tracking(blocks.toList(), square, modifier)
 }

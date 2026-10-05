@@ -82,7 +82,7 @@ kobweb {
             layerName = TABWEB
           )
           importCss(
-            url = "https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@${libs.versions.cdn.tabler.core.get()}/dist/css/tabler-vendors.min.css",
+            url = "https://cdn.jsdelivr.net/npm/@tabler/core@${libs.versions.cdn.tabler.core.get()}/dist/css/tabler-vendors.min.css",
             layerName = TABWEB
           )
           importCss(

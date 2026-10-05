@@ -3,6 +3,7 @@ package com.github.jangalinski.tabweb.site.pages
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb.Tabweb.cardDeck
 import com.github.jangalinski.tabweb.Tabweb.divider
+import com.github.jangalinski.tabweb.Tabweb.tracking
 import com.github.jangalinski.tabweb._foundation.Image
 import com.github.jangalinski.tabweb._foundation.Initials
 import com.github.jangalinski.tabweb._foundation.Url
@@ -18,6 +19,7 @@ import com.github.jangalinski.tabweb._foundation.css.GridWidth.QUARTER
 import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
 import com.github.jangalinski.tabweb.avatar.Avatar
 import com.github.jangalinski.tabweb.element.Status
+import com.github.jangalinski.tabweb.element.Tracking
 import com.github.jangalinski.tabweb.icon.TablerIcon
 import com.github.jangalinski.tabweb.icon.TablerIcon.TI_BRAND_GITHUB
 import com.github.jangalinski.tabweb.icon.TablerIcon.TI_FOOTSTEPS
@@ -148,63 +150,96 @@ fun Index() {
       }
     }
 
-    @Composable
-    fun colorCard(colorName: String, colorClass: String? = null) {
-      KDiv(modifier = Modifier.classNames("text-center")) {
-        KDiv(modifier = Modifier.classNames("p-6", "rounded", "border", colorClass ?: "bg-${colorName.lowercase()}")){}
-        KDiv(modifier = Modifier.classNames("small")) { Text(colorName) }
-      }
-    }
-
-    card(width = GridWidth.FULL) {
-      header(title = "Colors")
+    card(width = HALF) {
+      header(title = "Service availability", subtitle = "Tracking blocks with Tabler tooltips.")
       body {
-        Text("The Tabler color palette with base colors, light variants, the gray scale and social brand colors, each with background and text utilities.")
-
-        divider(text = "Color palette")
-
-        H3 { Text("Base colors") }
-        Text("These are the base colors. Each one has bg-* and text-* utilities, and the components use the same names for their color variants.")
-
-        KDiv(modifier = Modifier.classNames("row", "row-cols-4", "row-cols-md-6", "g-3", "g-md-4")) {
-          BackgroundColor.BASE.entries.forEach { color ->
-            colorCard(color.displayName, color.value)
-          }
+        KP {
+          KText("Hover over a day to see its status. Open another page and return here to compare tooltip behavior after navigation.")
         }
+        tracking(
+          square = true,
+          blocks = (1..30).map { day ->
+            when (day) {
+              9, 23 -> Tracking.Block(
+                text = "Day $day: service unavailable",
+                color = BackgroundColor.SEMANTIC.DANGER,
+              )
 
-        divider()
+              15, 16 -> Tracking.Block(
+                text = "Day $day: degraded performance",
+                color = BackgroundColor.SEMANTIC.WARNING,
+              )
 
-        H3 { Text("Light colors") }
-        Text("Every base color also has a light shade with the -lt suffix. It works as a background for text or an icon in the base color.")
-
-        KDiv(modifier = Modifier.classNames("row", "row-cols-4", "row-cols-md-6", "g-3", "g-md-4")) {
-          BackgroundColor.LIGHT.entries.forEach { color ->
-            colorCard(color.displayName, color.value)
+              else -> Tracking.Block(
+                text = "Day $day: service operational",
+                color = BackgroundColor.SEMANTIC.SUCCESS,
+              )
+            }
           }
+        )
+    }
+    footer {
+      KText("Green: operational. Yellow: degraded. Red: unavailable.")
+    }
+  }
+
+  @Composable
+  fun colorCard(colorName: String, colorClass: String? = null) {
+    KDiv(modifier = Modifier.classNames("text-center")) {
+      KDiv(modifier = Modifier.classNames("p-6", "rounded", "border", colorClass ?: "bg-${colorName.lowercase()}")) {}
+      KDiv(modifier = Modifier.classNames("small")) { Text(colorName) }
+    }
+  }
+
+  card(width = GridWidth.FULL) {
+    header(title = "Colors")
+    body {
+      Text("The Tabler color palette with base colors, light variants, the gray scale and social brand colors, each with background and text utilities.")
+
+      divider(text = "Color palette")
+
+      H3 { Text("Base colors") }
+      Text("These are the base colors. Each one has bg-* and text-* utilities, and the components use the same names for their color variants.")
+
+      KDiv(modifier = Modifier.classNames("row", "row-cols-4", "row-cols-md-6", "g-3", "g-md-4")) {
+        BackgroundColor.BASE.entries.forEach { color ->
+          colorCard(color.displayName, color.value)
         }
+      }
 
-        divider()
+      divider()
 
-        H3 { Text("Gray palette") }
-        Text("The gray scale is used for backgrounds, borders and muted text. Tabler ships several gray palettes and switches between them with data-bs-theme-base.")
+      H3 { Text("Light colors") }
+      Text("Every base color also has a light shade with the -lt suffix. It works as a background for text or an icon in the base color.")
 
-        KDiv(modifier = Modifier.classNames("row", "row-cols-4", "row-cols-md-6", "g-3", "g-md-4")) {
-          BackgroundColor.GRAY.entries.forEach { color ->
-            colorCard(color.displayName, color.value)
-          }
+      KDiv(modifier = Modifier.classNames("row", "row-cols-4", "row-cols-md-6", "g-3", "g-md-4")) {
+        BackgroundColor.LIGHT.entries.forEach { color ->
+          colorCard(color.displayName, color.value)
         }
+      }
 
-        divider()
+      divider()
 
-        H3 { Text("Social colors") }
-        Text("The brand colors of popular services are available too, for social buttons and icons.")
+      H3 { Text("Gray palette") }
+      Text("The gray scale is used for backgrounds, borders and muted text. Tabler ships several gray palettes and switches between them with data-bs-theme-base.")
 
-        KDiv(modifier = Modifier.classNames("row", "row-cols-4", "row-cols-md-6", "g-3", "g-md-4")) {
-          BackgroundColor.SOCIAL.entries.forEach { color ->
-            colorCard(color.displayName, color.value)
-          }
+      KDiv(modifier = Modifier.classNames("row", "row-cols-4", "row-cols-md-6", "g-3", "g-md-4")) {
+        BackgroundColor.GRAY.entries.forEach { color ->
+          colorCard(color.displayName, color.value)
+        }
+      }
+
+      divider()
+
+      H3 { Text("Social colors") }
+      Text("The brand colors of popular services are available too, for social buttons and icons.")
+
+      KDiv(modifier = Modifier.classNames("row", "row-cols-4", "row-cols-md-6", "g-3", "g-md-4")) {
+        BackgroundColor.SOCIAL.entries.forEach { color ->
+          colorCard(color.displayName, color.value)
         }
       }
     }
   }
+}
 }

@@ -14,4 +14,13 @@ internal data object ElementDsl : ElementComposable {
   override fun status(text: String, modifier: Modifier) {
     Status(text).invoke(modifier)
   }
+
+  @Composable
+  override fun tracking(
+    blocks: List<Tracking.Block>,
+    square: Boolean,
+    modifier: Modifier
+  ) {
+    Tracking(blocks, square).invoke(modifier)
+  }
 }

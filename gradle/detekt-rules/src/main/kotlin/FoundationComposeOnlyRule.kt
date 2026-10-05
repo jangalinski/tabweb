@@ -42,7 +42,7 @@ class FoundationComposeOnlyRule(config: Config) : Rule(
 
     val BLOCKED_IMPORT_PREFIXES = listOf(
       "org.jetbrains.compose.web.dom.",
-      "org.w3c.dom.",
+      //"org.w3c.dom.",
     )
   }
 }

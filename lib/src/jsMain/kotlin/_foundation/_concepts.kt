@@ -138,3 +138,9 @@ interface TabwebSize : TabwebDesign
 interface TabwebContent : TabwebConcept
 
 typealias ComposableContent = @Composable () -> Unit
+
+interface TabwebModifier : TabwebValue<Modifier>
+
+interface AsModifier : TabwebConcept {
+  val modifier: Modifier
+}
