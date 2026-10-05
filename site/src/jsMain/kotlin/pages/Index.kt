@@ -23,6 +23,7 @@ import com.github.jangalinski.tabweb.icon.TablerIcon.TI_BRAND_GITHUB
 import com.github.jangalinski.tabweb.icon.TablerIcon.TI_FOOTSTEPS
 import com.github.jangalinski.tabweb.link.TablerLink
 import com.github.jangalinski.tabweb.site.SiteRoutes
+import com.github.jangalinski.tabweb.site.chart.SiteChart
 import com.github.jangalinski.tabweb.site.siteLayoutData
 import com.github.jangalinski.tabweb.site.sitePageMeta
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -40,6 +41,33 @@ import org.jetbrains.compose.web.dom.A
 import org.jetbrains.compose.web.dom.H3
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
+import kotlin.js.json
+
+@Composable
+private fun VisitsChart() {
+  SiteChart(
+    id = "site-home-visits-chart",
+    label = "Visits over the last six months",
+    options = {
+      json(
+        "chart" to json(
+          "type" to "line",
+          "fontFamily" to "inherit",
+          "height" to 240,
+          "parentHeightOffset" to 0,
+          "toolbar" to json("show" to false),
+          "animations" to json("enabled" to false),
+        ),
+        "series" to arrayOf(json("name" to "Visits", "data" to arrayOf(3200, 3800, 3500, 4700, 4400, 5600))),
+        "xaxis" to json("categories" to arrayOf("Jan", "Feb", "Mar", "Apr", "May", "Jun")),
+        "stroke" to json("width" to 2, "curve" to "straight"),
+        "dataLabels" to json("enabled" to false),
+        "colors" to arrayOf("var(--tblr-primary)"),
+        "legend" to json("show" to false),
+      )
+    },
+  )
+}
 
 /**
  * Registers the documentation home page metadata before the shared Tabler layout renders.
@@ -110,6 +138,13 @@ fun Index() {
         TI_FOOTSTEPS(Modifier.fontSize(128.px).size(128.px).color(Colors.Green))
 
         Status(text = "This is a status component")()
+      }
+    }
+
+    card(width = HALF) {
+      header(title = "Visits", subtitle = "A first ApexCharts example inside a card.")
+      body {
+        VisitsChart()
       }
     }
 

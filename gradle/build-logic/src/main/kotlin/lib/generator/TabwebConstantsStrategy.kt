@@ -15,8 +15,10 @@ class TabwebConstantsStrategy : KotlinFileSpecListStrategy<TablerContext, Unit>(
     val colorsClass = className(context.foundationPackage, "TablerColors")
 
     val colors = enumClassBuilder(colorsClass) {
+      addConstructorProperty("value", String::class)
+
       context.colors.base.forEach {
-        this.addEnumConstant(it.enumName)
+        this.addEnumConstant(it.enumName, "%S", it.value)
       }
     }
 

@@ -28,6 +28,7 @@ docs/kobweb-bootstrap/
 # Kotlin ignores
 .kotlin/
 __pycache__/
+lib/.generated
 
 .junie/
 .env.agent

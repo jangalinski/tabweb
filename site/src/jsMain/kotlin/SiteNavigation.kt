@@ -43,6 +43,12 @@ fun siteNavbar(activeRoute: String) = TablerNavbarData(
           active = activeRoute == SiteRoutes.Cards,
         ),
         TablerNavbarItem.Link(
+          url = Url(SiteRoutes.Charts),
+          title = "Charts",
+          caption = "Explore ApexCharts inside Tabler cards",
+          active = activeRoute == SiteRoutes.Charts,
+        ),
+        TablerNavbarItem.Link(
           url = Url(SiteRoutes.Colors),
           title = "Colors",
           caption = "Show colors, gradients, and hex values",
