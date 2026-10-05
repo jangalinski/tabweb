@@ -11,6 +11,7 @@ data object SiteRoutes {
   const val Badges = "/interfaces/badges"
   const val Buttons = "/interfaces/buttons"
   const val Cards = "/interfaces/cards"
+  const val ExtremeCards = "/interfaces/extreme-cards"
   const val Charts = "/interfaces/charts"
   const val Colors = "/interfaces/colors"
 }

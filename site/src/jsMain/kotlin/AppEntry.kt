@@ -31,7 +31,7 @@ fun AppEntry(content: @Composable () -> Unit) {
       shell = TablerShellConfig(
         navbar = ::siteNavbar,
         navbarActions = {
-          KDiv(modifier = Modifier.classNames("d-none", "d-md-flex", "me-3")) {
+          KDiv(modifier = Modifier.classNames("d-none", "d-md-flex", "me-3", "btn-list")) {
             KDiv(modifier = Modifier.classNames("nav-item")) {
               DarkModeButton()
             }

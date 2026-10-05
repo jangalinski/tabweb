@@ -43,6 +43,12 @@ fun siteNavbar(activeRoute: String) = TablerNavbarData(
           active = activeRoute == SiteRoutes.Cards,
         ),
         TablerNavbarItem.Link(
+          url = Url(SiteRoutes.ExtremeCards),
+          title = "Extreme cards",
+          caption = "Stress-test combinations of card options",
+          active = activeRoute == SiteRoutes.ExtremeCards,
+        ),
+        TablerNavbarItem.Link(
           url = Url(SiteRoutes.Charts),
           title = "Charts",
           caption = "Explore ApexCharts inside Tabler cards",
