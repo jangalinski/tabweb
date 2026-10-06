@@ -3,6 +3,7 @@ package com.github.jangalinski.tabweb.badge
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb._foundation.Link
 import com.github.jangalinski.tabweb._foundation.TabwebComposable
+import com.github.jangalinski.tabweb._foundation.TabwebDirection
 import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
 import com.github.jangalinski.tabweb.icon.Icon
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -53,7 +54,7 @@ interface BadgeComposable : TabwebComposable {
   fun badge(
     text: String,
     icon: Icon,
-    iconPosition: BadgeIconPosition = BadgeIconPosition.LEFT,
+    iconPosition: TabwebDirection.Horizontal = TabwebDirection.LEFT,
     color: BackgroundColor = BackgroundColor.SEMANTIC.PRIMARY,
     style: BadgeStyle = BadgeStyle.DEFAULT,
     size: BadgeSize = BadgeSize.DEFAULT,

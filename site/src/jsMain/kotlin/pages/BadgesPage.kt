@@ -5,6 +5,7 @@ import com.github.jangalinski.tabweb.Tabweb.badge
 import com.github.jangalinski.tabweb.Tabweb.badges
 import com.github.jangalinski.tabweb.Tabweb.cardDeck
 import com.github.jangalinski.tabweb._foundation.Link
+import com.github.jangalinski.tabweb._foundation.TabwebDirection
 import com.github.jangalinski.tabweb._foundation.Url
 import com.github.jangalinski.tabweb._foundation.compose.KDiv
 import com.github.jangalinski.tabweb._foundation.compose.KH1
@@ -16,7 +17,6 @@ import com.github.jangalinski.tabweb._foundation.compose.KH6
 import com.github.jangalinski.tabweb._foundation.compose.KText
 import com.github.jangalinski.tabweb._foundation.css.GridWidth
 import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
-import com.github.jangalinski.tabweb.badge.BadgeIconPosition
 import com.github.jangalinski.tabweb.badge.BadgeShape
 import com.github.jangalinski.tabweb.badge.BadgeSize
 import com.github.jangalinski.tabweb.badge.BadgeStyle
@@ -121,7 +121,7 @@ fun BadgesPage() {
               badge(
                 text = "Right icon",
                 icon = TablerIcon.TI_ARROW_RIGHT,
-                iconPosition = BadgeIconPosition.RIGHT,
+                iconPosition = TabwebDirection.RIGHT,
                 size = size,
               )
               badge(icon = TablerIcon.TI_STAR, size = size)

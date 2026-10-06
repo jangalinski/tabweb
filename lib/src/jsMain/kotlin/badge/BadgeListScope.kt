@@ -3,6 +3,7 @@ package com.github.jangalinski.tabweb.badge
 import com.github.jangalinski.tabweb._foundation.TabwebDsl
 import com.github.jangalinski.tabweb._foundation.Link
 import com.github.jangalinski.tabweb._foundation.TabwebComponentScope
+import com.github.jangalinski.tabweb._foundation.TabwebDirection
 import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
 import com.github.jangalinski.tabweb.icon.Icon
 
@@ -61,7 +62,7 @@ class BadgeListScope internal constructor() : TabwebComponentScope {
   fun badge(
     text: String,
     icon: Icon,
-    iconPosition: BadgeIconPosition = BadgeIconPosition.LEFT,
+    iconPosition: TabwebDirection.Horizontal = TabwebDirection.LEFT,
     color: BackgroundColor = BackgroundColor.SEMANTIC.PRIMARY,
     style: BadgeStyle = BadgeStyle.DEFAULT,
     size: BadgeSize = BadgeSize.DEFAULT,
