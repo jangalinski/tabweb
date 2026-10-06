@@ -18,6 +18,8 @@ import com.github.jangalinski.tabweb.button.ButtonComposable
 import com.github.jangalinski.tabweb.button.ButtonDsl
 import com.github.jangalinski.tabweb.card.CardComposable
 import com.github.jangalinski.tabweb.card.CardDsl
+import com.github.jangalinski.tabweb.chart.ChartComposable
+import com.github.jangalinski.tabweb.chart.ChartDsl
 import com.github.jangalinski.tabweb.element.ElementComposable
 import com.github.jangalinski.tabweb.element.ElementDsl
 import com.github.jangalinski.tabweb.table.TableComposable
@@ -33,6 +35,7 @@ data object Tabweb :
   BadgeComposable by BadgeDsl,
   ButtonComposable by ButtonDsl,
   CardComposable by CardDsl,
+  ChartComposable by ChartDsl,
   ElementComposable by ElementDsl,
   TableComposable by TableDsl {
 

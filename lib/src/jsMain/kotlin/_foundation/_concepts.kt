@@ -145,3 +145,6 @@ interface AsModifier : TabwebConcept {
   val modifier: Modifier
 }
 
+interface DynamicJson  {
+  val json: dynamic
+}

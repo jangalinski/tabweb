@@ -48,11 +48,23 @@ fun siteNavbar(activeRoute: String) = TablerNavbarData(
           caption = "Stress-test combinations of card options",
           active = activeRoute == SiteRoutes.ExtremeCards,
         ),
-        TablerNavbarItem.Link(
-          url = Url(SiteRoutes.Charts),
+        TablerNavbarItem.Section(
           title = "Charts",
           caption = "Explore ApexCharts inside Tabler cards",
-          active = activeRoute == SiteRoutes.Charts,
+          items = listOf(
+            TablerNavbarItem.Link(
+              url = Url(SiteRoutes.Charts),
+              title = "Chart gallery",
+              caption = "Compare chart families and variants",
+              active = activeRoute == SiteRoutes.Charts,
+            ),
+            TablerNavbarItem.Link(
+              url = Url(SiteRoutes.BarCharts),
+              title = "Bar charts",
+              caption = "Explore the first typed chart spec",
+              active = activeRoute == SiteRoutes.BarCharts,
+            ),
+          ),
         ),
         TablerNavbarItem.Link(
           url = Url(SiteRoutes.Colors),
@@ -77,6 +89,12 @@ fun siteNavbar(activeRoute: String) = TablerNavbarData(
           title = "Components",
           caption = "Reusable UI building blocks",
           active = activeRoute == SiteRoutes.Components,
+        ),
+        TablerNavbarItem.Link(
+          url = Url(SiteRoutes.Empty),
+          title = "Empty",
+          caption = "An empty page",
+          active = activeRoute == SiteRoutes.Empty,
         ),
         TablerNavbarItem.Link(
           url = Url(SiteRoutes.Elements),

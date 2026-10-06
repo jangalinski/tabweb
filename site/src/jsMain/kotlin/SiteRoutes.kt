@@ -13,5 +13,7 @@ data object SiteRoutes {
   const val Cards = "/interfaces/cards"
   const val ExtremeCards = "/interfaces/extreme-cards"
   const val Charts = "/interfaces/charts"
+  const val BarCharts = "/interfaces/charts/bar"
   const val Colors = "/interfaces/colors"
+  const val Empty = "/empty"
 }

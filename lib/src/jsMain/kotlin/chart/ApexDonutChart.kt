@@ -12,12 +12,12 @@ import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import kotlin.js.json
 import kotlin.random.Random
 
-private external class ApexCharts(element: dynamic, options: dynamic) {
-  fun render(): dynamic
-}
 
 /**
- * Small data point used by [ApexDonutChart].
+ * A labeled numeric slice used by [ApexDonutChart].
+ *
+ * @param label text shown for the slice in the chart legend.
+ * @param value numeric value determining the slice size.
  */
 data class DonutSlice(
   val label: String,
@@ -28,6 +28,11 @@ data class DonutSlice(
  * Renders a simple ApexCharts donut chart inside a Tabler-friendly container.
  *
  * The ApexCharts runtime is expected to be available globally through the library script layer.
+ *
+ * @param slices labeled numeric slices rendered by the chart.
+ * @param modifier additional attributes and styles applied to the chart root.
+ * @param heightPx chart height in CSS pixels.
+ * @return `Unit` after the chart host has been emitted into the composition.
  */
 @Composable
 fun ApexDonutChart(
