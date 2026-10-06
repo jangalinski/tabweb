@@ -47,7 +47,7 @@ interface Tooltip : AsModifier {
 
       override val modifier: Modifier by lazy {
         val isHtml = text !is PlainText
-        val title = if (text is MarkdownText) (text as MarkdownText).html else text.get()
+        val title = if (text is MarkdownText) text.html else text.get()
         val options = TooltipOptions(title, placement.get(), isHtml)
 
         Modifier

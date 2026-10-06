@@ -6,8 +6,6 @@ import com.github.jangalinski.tabweb._foundation.compose.KDiv
 import com.github.jangalinski.tabweb._foundation.compose.KText
 import com.github.jangalinski.tabweb._foundation.css.cssClass
 import com.github.jangalinski.tabweb._foundation.plus
-import com.github.jangalinski.tabweb.element.Divider.Companion.Css.HR
-import com.github.jangalinski.tabweb.element.Divider.Companion.Css.HR_TEXT
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**
@@ -18,10 +16,8 @@ import com.varabyte.kobweb.compose.ui.Modifier
 interface Divider : TabwebElement {
 
   companion object {
-    internal data object Css {
-      val HR = cssClass("hr")
-      val HR_TEXT = cssClass("hr-text")
-    }
+    internal val HR = cssClass("hr")
+    internal val HR_TEXT = cssClass("hr-text")
 
     /**
      * Creates a new instance of [Divider] with the given [text].
