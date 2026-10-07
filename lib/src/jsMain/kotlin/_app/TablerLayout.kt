@@ -67,9 +67,7 @@ fun TablerLayout(
         content()
       }
 
-      TablerFooter(Modifier.classNames("footer", "footer-transparent", "d-print-none")) {
-        footer()
-      }
+      footer(Modifier.classNames("footer", "footer-transparent", "d-print-none"))
     }
   }
 }

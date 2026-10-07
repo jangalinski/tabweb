@@ -1,30 +1,38 @@
 package com.github.jangalinski.tabweb.site
 
-import androidx.compose.runtime.Composable
-import com.varabyte.kobweb.compose.foundation.layout.ColumnScope
+import com.github.jangalinski.tabweb._app.TablerFooter
+import com.github.jangalinski.tabweb._app.TablerFooterItem
+import com.github.jangalinski.tabweb._foundation.compose.KAnchor
+import com.github.jangalinski.tabweb._foundation.compose.KText
 import com.github.jangalinski.tabweb._foundation.css.ClassNames
-import com.varabyte.kobweb.compose.foundation.layout.RowScope
-import org.jetbrains.compose.web.dom.A
-import org.jetbrains.compose.web.dom.Div
-import org.jetbrains.compose.web.dom.Text
+import com.github.jangalinski.tabweb._foundation.css.ClassNames.modifier
+import com.varabyte.kobweb.compose.ui.modifiers.attr
 
-/** Builds the site-specific content inside the shared Tabler footer. */
-fun siteFooter(): @Composable () -> Unit = {
-  Div(attrs = { attr("class", ClassNames.footerRow) }) {
-    Div(attrs = { attr("class", ClassNames.footerLeft) }) {
-      Text("tabweb component documentation")
-    }
-    Div(attrs = { attr("class", ClassNames.footerRight) }) {
-      A(
+/**
+ * Builds the structured footer content for the documentation site.
+ *
+ * The footer component owns the responsive columns, list markup, and dotted
+ * separators. This site only supplies the items displayed on each side.
+ */
+fun siteFooter(): TablerFooter = TablerFooter(
+  left = listOf(
+    TablerFooterItem {
+      KText("@ 2026 tabweb - jangalinski")
+    },
+    TablerFooterItem {
+      KText("tabweb component documentation")
+    },
+  ),
+  right = listOf(
+    TablerFooterItem {
+      KAnchor(
         href = "https://github.com/jangalinski/tabweb",
-        attrs = {
-          attr("class", ClassNames.footerLink)
-          attr("target", "_blank")
-          attr("rel", "noopener noreferrer")
-        },
+        modifier = ClassNames.footerLink.modifier()
+          .attr("target", "_blank")
+          .attr("rel", "noopener noreferrer"),
       ) {
-        Text("GitHub")
+        KText("GitHub")
       }
-    }
-  }
-}
+    },
+  ),
+)

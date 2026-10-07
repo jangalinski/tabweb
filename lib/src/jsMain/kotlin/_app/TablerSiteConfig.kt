@@ -25,7 +25,7 @@ data class TablerSiteConfig(
  * @param brand Primary brand header rendered at the top of the page.
  * @param navbar Primary navigation rendered below the brand header for the active route.
  * @param navbarActions Actions rendered at the right side of the navbar's first row.
- * @param footer Footer rendered at the bottom of the page.
+ * @param footer structured footer rendered at the bottom of the page.
  */
 data class TablerShellConfig(
   val brand: TablerBrand.Brand = TablerBrand.Brand.Logo(
@@ -36,7 +36,7 @@ data class TablerShellConfig(
   val navbar: TablerNavbarFactory = TablerNavbarFactory.None,
   /** Actions rendered at the right side of the navbar's first row. */
   val navbarActions: @Composable () -> Unit = {},
-  val footer: @Composable () -> Unit = {},
+  val footer: TablerFooter = TablerFooter(),
 )
 
 /**

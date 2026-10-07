@@ -139,24 +139,42 @@ just stop-tagessieg
 > a `clean build` is only needed to force-recompile everything (e.g., after switching branches).
 > Incremental compilation works normally — Gradle rebuilds only what changed.
 
-### Produce and test a release
+### Release to JitPack
 
-Before creating a Git tag, test the exact release version locally. Using a temporary Maven repository keeps the
-test publication out of your normal `~/.m2` cache:
+JitPack publishes this library from Git tags. There is no upload command: pushing the `0.0.2` tag is what makes
+JitPack build the release. JitPack provides `VERSION=0.0.2` while running the build, and [`jitpack.yml`](jitpack.yml)
+publishes only the `:lib` project with Java 17.
+
+Before creating the tag, verify the build and publish the exact release version to a temporary local Maven repository:
 
 ```bash
 VERSION=0.0.2 ./gradlew :lib:publishToMavenLocal \
   -Dmaven.repo.local=/tmp/tabweb-m2
 ```
 
-When that succeeds, create and push the matching release tag (replace the version for later releases):
+Then create and push the matching annotated tag:
 
 ```bash
 git tag -a 0.0.2 -m "Release 0.0.2"
 git push origin 0.0.2
 ```
 
-Also compile the source-backed example to verify normal development usage:
+Optionally create a GitHub Release from the `0.0.2` tag. JitPack will build the tag when the dependency is first
+requested. Monitor the build at:
+
+<https://jitpack.io/#jangalinski/tabweb/0.0.2>
+
+or inspect its log directly:
+
+<https://jitpack.io/com/github/jangalinski/tabweb/0.0.2/build.log>
+
+The released dependency coordinate is:
+
+```kotlin
+implementation("com.github.jangalinski:tabweb:0.0.2")
+```
+
+Before tagging, it is also useful to compile the source-backed example and documentation site:
 
 ```bash
 ./gradlew :lib:compileKotlinJs

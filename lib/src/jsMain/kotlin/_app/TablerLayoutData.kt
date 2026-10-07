@@ -1,6 +1,5 @@
 package com.github.jangalinski.tabweb._app
 
-import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb.breadcrumb.BreadcrumbItem
 
 /**
@@ -13,8 +12,8 @@ import com.github.jangalinski.tabweb.breadcrumb.BreadcrumbItem
 data class TablerLayoutData(
   /** Base-path-independent route used to select configured navigation. */
   val activeRoute: String,
-  /** Footer content overriding the configured Tabler shell footer. */
-  val footer: (@Composable () -> Unit)? = null,
+  /** Footer overriding the configured Tabler shell footer. */
+  val footer: TablerFooter? = null,
 )
 
 /**

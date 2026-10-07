@@ -15,7 +15,7 @@ class TablerFooterTest {
   @Test
   fun rendersFooterClass() = runTest {
     composition {
-      TablerFooter { }
+      TablerFooter()()
     }
 
     val html = root.innerHTML
@@ -25,9 +25,11 @@ class TablerFooterTest {
   @Test
   fun rendersSlotContent() = runTest {
     composition {
-      TablerFooter {
-        Text("© 2024 My App")
-      }
+      TablerFooter(
+        left = listOf(
+          TablerFooterItem { Text("© 2024 My App") },
+        ),
+      )()
     }
 
     val html = root.innerHTML
@@ -37,7 +39,7 @@ class TablerFooterTest {
   @Test
   fun rendersFooterTransparentClass() = runTest {
     composition {
-      TablerFooter { }
+      TablerFooter()()
     }
 
     val html = root.innerHTML
