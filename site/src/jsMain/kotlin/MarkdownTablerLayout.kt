@@ -6,6 +6,8 @@ import com.github.jangalinski.tabweb._app.TablerLayoutData
 import com.github.jangalinski.tabweb._app.TablerPageMeta
 import com.varabyte.kobweb.core.PageContext
 import com.varabyte.kobweb.core.layout.Layout
+import com.varabyte.kobweb.navigation.BasePath
+import com.varabyte.kobweb.navigation.remove
 import com.varabyte.kobwebx.markdown.markdown
 
 /**
@@ -34,7 +36,7 @@ fun MarkdownTablerLayout(
 
   TablerLayout(
     ctx = ctx,
-    layoutData = TablerLayoutData(activeRoute = ctx.route.path),
+    layoutData = TablerLayoutData(activeRoute = BasePath.remove(ctx.route.path)),
     pageMeta = TablerPageMeta(title = title, subtitle = subtitle),
     content = content,
   )
