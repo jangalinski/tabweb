@@ -108,7 +108,11 @@ fun siteNavbar(activeRoute: String) = TablerNavbarData(
       title = "Plugins",
       icon = TablerIcon.TI_PUZZLE,
       items = listOf(
-        TablerNavbarItem.Link(url = Url(SiteRoutes.Home), title = "All plugins"),
+        TablerNavbarItem.Link(
+          url = Url("/markdown-pages"),
+          title = "Markdown pages",
+          active = activeRoute == "/markdown-pages",
+        ),
         TablerNavbarItem.Link(url = Url(SiteRoutes.Home), title = "Marketplace"),
         TablerNavbarItem.Section(
           title = "Installed",

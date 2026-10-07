@@ -14,6 +14,7 @@ plugins {
   alias(libs.plugins.compose.compiler)
   alias(libs.plugins.jetbrains.compose)
   alias(libs.plugins.kobweb.application)
+  alias(libs.plugins.kobwebx.markdown)
 }
 
 kobweb {
@@ -23,6 +24,11 @@ kobweb {
     index {
       description.set("Tabweb documentation and examples")
     }
+  }
+
+  markdown {
+    defaultLayout.set("com.github.jangalinski.tabweb.site.MarkdownTablerLayout")
+    defaultPackage.set(".com.github.jangalinski.tabweb.site.pages")
   }
 }
 
@@ -43,6 +49,7 @@ kotlin {
       implementation(libs.compose.runtime)
       implementation(libs.compose.html.core)
       implementation(libs.kobweb.compose.js)
+      implementation(libs.kobwebx.markdown)
     }
   }
 }

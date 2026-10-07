@@ -42,9 +42,37 @@ fun TablerLayout(
   ctx: PageContext,
   content: @Composable () -> Unit
 ) {
-  val site = LocalTablerSiteConfig.current
   val layoutData = ctx.data.getValue<TablerLayoutData>()
   val pageMeta = ctx.data.getValue<TablerPageMeta>()
+
+  TablerLayout(
+    ctx = ctx,
+    layoutData = layoutData,
+    pageMeta = pageMeta,
+    content = content,
+  )
+}
+
+/**
+ * Renders the shared Tabler page shell with explicitly supplied route data.
+ *
+ * This overload is useful for generated page sources, such as Kobweb Markdown,
+ * whose layout data is available to the layout but cannot be added to Kobweb's
+ * read-only page data store during composition.
+ *
+ * @param ctx Kobweb page context for the current route.
+ * @param layoutData route-specific navigation and footer data.
+ * @param pageMeta title, subtitle, and breadcrumbs for the page header.
+ * @param content route content rendered in the page body.
+ */
+@Composable
+fun TablerLayout(
+  ctx: PageContext,
+  layoutData: TablerLayoutData,
+  pageMeta: TablerPageMeta,
+  content: @Composable () -> Unit,
+) {
+  val site = LocalTablerSiteConfig.current
   val footer = layoutData.footer ?: site.shell.footer
 
   TablerPage {
