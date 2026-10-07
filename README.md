@@ -4,7 +4,9 @@
 [![Detekt](https://github.com/jangalinski/tabweb/actions/workflows/detekt.yml/badge.svg)](https://github.com/jangalinski/tabweb/actions/workflows/detekt.yml)
 [![JitPack](https://jitpack.io/v/jangalinski/tabweb.svg)](https://jitpack.io/#jangalinski/tabweb)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.4.20-blue?logo=kotlin)](https://kotlinlang.org/)
-[![Compose](https://img.shields.io/badge/compose-1.12.1-blue)](https://github.com/JetBrains/compose-multiplatform)[![Kobweb](https://img.shields.io/badge/kobweb-0.25.1-blue)](https://kobweb.varabyte.com/)
+[![Compose](https://img.shields.io/badge/compose-1.12.1-blue)](https://github.com/JetBrains/compose-multiplatform)
+[![Kobweb](https://img.shields.io/badge/kobweb-0.25.1-blue)](https://kobweb.varabyte.com/)
+[![tabler.io](https://img.shields.io/badge/tabler-1.6.1-blue)](https://tabler.io/)
 [![API Docs](https://img.shields.io/badge/API_Reference-grey?logo=readthedocs)](https://jangalinski.github.io/tabweb/docs/)
 
 > Build a Kobweb page that is either dynamically served or statically generated using Tabler layout and charts.
