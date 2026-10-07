@@ -4,13 +4,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import com.github.jangalinski.tabweb.Tabweb.KobwebTablerApp
 import com.github.jangalinski.tabweb._app.LocalTablerAppState
+import com.github.jangalinski.tabweb._app.TablerSettings
 import com.github.jangalinski.tabweb._app.TablerShellConfig
 import com.github.jangalinski.tabweb._app.TablerSiteConfig
 import com.github.jangalinski.tabweb._app.TablerTheme
-import com.github.jangalinski.tabweb._foundation.TabwebText.Companion.markdown
 import com.github.jangalinski.tabweb._foundation.compose.KDiv
 import com.github.jangalinski.tabweb.button.ButtonColor
 import com.github.jangalinski.tabweb.element.Tooltip
+import com.github.jangalinski.tabweb.navigation.NavbarBehavior
 import com.github.jangalinski.tabweb.widget.ConfettiButton
 import com.github.jangalinski.tabweb.widget.DarkModeButton
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -38,7 +39,7 @@ fun AppEntry(content: @Composable () -> Unit) {
               DarkModeButton()
             }
             KDiv(modifier = Modifier.classNames("nav-item")) {
-              val color = if (LocalTablerAppState.current.settings.theme == TablerTheme.Dark) {
+              val color = if (LocalTablerAppState.current.settings.theme == TablerTheme.DARK) {
                 ButtonColor.DARK
               } else {
                 ButtonColor.LIGHT
@@ -49,6 +50,9 @@ fun AppEntry(content: @Composable () -> Unit) {
         },
         footer = siteFooter(),
       ),
+    ),
+    settings = TablerSettings(
+      navbarBehavior = NavbarBehavior.STICKY_TOP,
     ),
   ) {
     content()

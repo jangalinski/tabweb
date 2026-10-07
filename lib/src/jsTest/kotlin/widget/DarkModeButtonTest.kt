@@ -21,7 +21,7 @@ class DarkModeButtonTest {
     val runtime = TooltipRuntimeStub()
     runtime.install()
     try {
-      val state = TablerAppState(TablerSettings(theme = TablerTheme.Dark))
+      val state = TablerAppState(TablerSettings(theme = TablerTheme.DARK))
 
       composition {
         ProvideTablerAppState(state) {
@@ -49,7 +49,7 @@ class DarkModeButtonTest {
     val runtime = TooltipRuntimeStub()
     runtime.install()
     try {
-      val state = TablerAppState(TablerSettings(theme = TablerTheme.Light))
+      val state = TablerAppState(TablerSettings(theme = TablerTheme.LIGHT))
 
       composition {
         ProvideTablerAppState(state) {
@@ -77,7 +77,7 @@ class DarkModeButtonTest {
     val runtime = TooltipRuntimeStub()
     runtime.install()
     try {
-      val state = TablerAppState(TablerSettings(theme = TablerTheme.Light))
+      val state = TablerAppState(TablerSettings(theme = TablerTheme.LIGHT))
 
       composition {
         ProvideTablerAppState(state) {
@@ -88,7 +88,7 @@ class DarkModeButtonTest {
       val link = root.querySelector("button.btn.btn-icon") as HTMLElement
       link.click()
 
-      assertThat(state.settings.theme).isEqualTo(TablerTheme.Dark)
+      assertThat(state.settings.theme).isEqualTo(TablerTheme.DARK)
       waitForRecompositionComplete()
       assertThat(root.innerHTML).contains("ti-sun")
       assertThat(link.className).contains("btn-dark")
@@ -96,7 +96,7 @@ class DarkModeButtonTest {
         .isEqualTo("Enable light mode")
       link.click()
       waitForRecompositionComplete()
-      assertThat(state.settings.theme).isEqualTo(TablerTheme.Light)
+      assertThat(state.settings.theme).isEqualTo(TablerTheme.LIGHT)
       assertThat(link.className).contains("btn-light")
       assertThat(runtime.state.created[runtime.state.created.length - 1].options.title as String)
         .isEqualTo("Enable dark mode")

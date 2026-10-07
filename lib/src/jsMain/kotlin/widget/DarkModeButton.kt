@@ -19,8 +19,8 @@ data object DarkModeButton : TabwebComponent {
   @Composable
   override fun invoke(modifier: Modifier) {
     val tabler = LocalTablerAppState.current
-    val darkMode = tabler.settings.theme == TablerTheme.Dark
-    val targetMode = if (darkMode) TablerTheme.Light else TablerTheme.Dark
+    val darkMode = tabler.settings.theme == TablerTheme.DARK
+    val targetMode = if (darkMode) TablerTheme.LIGHT else TablerTheme.DARK
     val targetName = if (darkMode) "light" else "dark"
 
     Button(

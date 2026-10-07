@@ -12,12 +12,21 @@ import com.varabyte.kobweb.core.AppGlobals
  *
  * Presentation settings that may change while the application runs belong in
  * [TablerSettings], not in this configuration.
+ *
+ * @param shell Shared page-shell defaults supplied by [TablerSiteConfig].
  */
 data class TablerSiteConfig(
   val shell: TablerShellConfig = TablerShellConfig(),
 )
 
-/** Shared page-shell defaults supplied by [TablerSiteConfig]. */
+/**
+ * Shared page-shell defaults supplied by [TablerSiteConfig].
+ *
+ * @param brand Primary brand header rendered at the top of the page.
+ * @param navbar Primary navigation rendered below the brand header for the active route.
+ * @param navbarActions Actions rendered at the right side of the navbar's first row.
+ * @param footer Footer rendered at the bottom of the page.
+ */
 data class TablerShellConfig(
   val brand: TablerBrand.Brand = TablerBrand.Brand.Logo(
     image = Url("/tabweb/tabweb-logo.svg"),

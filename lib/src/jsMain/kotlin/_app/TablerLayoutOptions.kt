@@ -1,5 +1,7 @@
 package com.github.jangalinski.tabweb._app
 
+import com.github.jangalinski.tabweb.navigation.NavbarBehavior
+
 /**
  * Configuration for the structural and behavioral variants of a Tabler page
  * shell.
@@ -26,7 +28,7 @@ data class TablerLayoutOptions(
   val containerWidth: ContainerWidth = ContainerWidth.Fluid,
   val sidebarMode: SidebarMode = SidebarMode.Default,
   val sidebarPlacement: SidebarPlacement = SidebarPlacement.Start,
-  val navbarBehavior: NavbarBehavior = NavbarBehavior.Default,
+  val navbarBehavior: NavbarBehavior = NavbarBehavior.DEFAULT,
   val navbarTheme: NavbarTheme = NavbarTheme.Default,
 ) {
   /** Selects the primary navigation arrangement. */
@@ -66,18 +68,6 @@ data class TablerLayoutOptions(
 
     /** Render the sidebar at the end side of the page. */
     End,
-  }
-
-  /** Selects the navbar's positioning behavior. */
-  enum class NavbarBehavior {
-    /** Use Tabler's normal document-flow navbar behavior. */
-    Default,
-
-    /** Keep the navbar visible while the page scrolls. */
-    Sticky,
-
-    /** Let the navbar overlap the page header. */
-    Overlap,
   }
 
   /** Selects the navbar surface theme. */

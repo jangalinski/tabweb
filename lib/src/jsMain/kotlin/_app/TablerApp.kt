@@ -1,6 +1,8 @@
 package com.github.jangalinski.tabweb._app
 
 import androidx.compose.runtime.*
+import com.github.jangalinski.tabweb._foundation.sessionItem
+import com.github.jangalinski.tabweb.navigation.NavbarBehavior
 import kotlinx.browser.document
 import kotlinx.browser.window
 
@@ -9,15 +11,13 @@ import kotlinx.browser.window
  * A theme selected in this browser tab's session takes precedence over [initialSettings].
  */
 @Composable
-fun rememberTablerAppState(initialSettings: TablerSettings = TablerSettings()): TablerAppState =
-  remember {
-    val theme = when (window.sessionStorage.getItem(THEME_SESSION_KEY)) {
-      "light" -> TablerTheme.Light
-      "dark" -> TablerTheme.Dark
-      else -> initialSettings.theme
-    }
-    TablerAppState(initialSettings.copy(theme = theme))
-  }
+fun rememberTablerAppState(initialSettings: TablerSettings = TablerSettings()): TablerAppState = remember {
+  val sessionItem = window.sessionItem
+  val theme = TablerTheme.getOrDefault(sessionItem, initialSettings.theme)
+  val navbarBehavior = NavbarBehavior.getOrDefault(sessionItem, initialSettings.navbarBehavior)
+
+  TablerAppState(initialSettings.copy(theme = theme, navbarBehavior = navbarBehavior))
+}
 
 /**
  * Provides static [site] defaults to Tabler composables in [content].
@@ -47,12 +47,7 @@ fun ProvideTablerAppState(
   val settings = state.settings
 
   SideEffect {
-    settings.applyToDocument()
-    when (settings.theme) {
-      TablerTheme.System -> window.sessionStorage.removeItem(THEME_SESSION_KEY)
-      TablerTheme.Light -> window.sessionStorage.setItem(THEME_SESSION_KEY, "light")
-      TablerTheme.Dark -> window.sessionStorage.setItem(THEME_SESSION_KEY, "dark")
-    }
+    settings.sideEffect(document, window)
   }
 
   CompositionLocalProvider(LocalTablerAppState provides state) {
@@ -60,19 +55,9 @@ fun ProvideTablerAppState(
   }
 }
 
-internal const val THEME_SESSION_KEY = "tabweb.theme"
-
-/** The [TablerAppState] visible to the current Compose subtree. */
+/**
+ * The [TablerAppState] visible to the current Compose subtree.
+ */
 val LocalTablerAppState = staticCompositionLocalOf<TablerAppState> {
   error("TablerAppState was not provided")
-}
-
-internal fun TablerSettings.applyToDocument() {
-  document.documentElement?.let { html ->
-    when (theme) {
-      TablerTheme.System -> html.removeAttribute("data-bs-theme")
-      TablerTheme.Light -> html.setAttribute("data-bs-theme", "light")
-      TablerTheme.Dark -> html.setAttribute("data-bs-theme", "dark")
-    }
-  }
 }

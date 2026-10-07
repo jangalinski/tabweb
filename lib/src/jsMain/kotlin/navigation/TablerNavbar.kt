@@ -1,28 +1,19 @@
 package com.github.jangalinski.tabweb.navbar
 
 import androidx.compose.runtime.Composable
+import com.github.jangalinski.tabweb._app.LocalTablerAppState
+import com.github.jangalinski.tabweb._foundation.compose.*
 import com.github.jangalinski.tabweb._foundation.css.BaseCss.CONTAINER_XL
 import com.github.jangalinski.tabweb._foundation.css.BaseCss.PRINT_NONE
-import com.github.jangalinski.tabweb._foundation.compose.KAnchor
-import com.github.jangalinski.tabweb._foundation.compose.KButton
-import com.github.jangalinski.tabweb._foundation.compose.KDiv
-import com.github.jangalinski.tabweb._foundation.compose.KHeader
-import com.github.jangalinski.tabweb._foundation.compose.KLi
-import com.github.jangalinski.tabweb._foundation.compose.KNav
-import com.github.jangalinski.tabweb._foundation.compose.KSpan
-import com.github.jangalinski.tabweb._foundation.compose.KUl
 import com.github.jangalinski.tabweb._foundation.css.plus
-import com.github.jangalinski.tabweb._foundation.Url
-import com.github.jangalinski.tabweb._foundation.Url.External
-import com.github.jangalinski.tabweb._foundation.Url.Internal
 import com.github.jangalinski.tabweb.navbar.TablerBrand.Brand
 import com.github.jangalinski.tabweb.navbar.TablerNavbarCss.NAVBAR
 import com.github.jangalinski.tabweb.navbar.TablerNavbarCss.NAVBAR_EXPAND_MD
+import com.github.jangalinski.tabweb.navigation.NavbarBehavior
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.attr
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.compose.ui.modifiers.dataAttr
-import com.varabyte.kobweb.navigation.BasePath
 
 /**
  * Renders the preview-style Tabler navbar: a brand and action row followed by
@@ -44,39 +35,53 @@ data object TablerNavbar {
     data: TablerNavbarData,
     actions: @Composable () -> Unit = {},
   ) {
-    KHeader(modifier = NAVBAR + NAVBAR_EXPAND_MD + PRINT_NONE) {
-      KDiv(CONTAINER_XL) {
-        KButton(
-          modifier = Modifier.classNames("navbar-toggler")
-            .attr("type", "button")
-            .dataAttr("bs-toggle", "collapse")
-            .dataAttr("bs-target", "#$menuId")
-            .attr("aria-controls", menuId)
-            .attr("aria-expanded", "false")
-            .attr("aria-label", "Toggle primary navigation"),
-        ) {
-          KSpan(modifier = Modifier.classNames("navbar-toggler-icon")) {}
-        }
-        TablerBrand(brand)
-        KDiv(modifier = Modifier.classNames("navbar-nav", "flex-row", "order-md-last")) {
-          actions()
+
+    @Composable
+    fun renderNavbarRows() {
+
+      KHeader(modifier = NAVBAR + NAVBAR_EXPAND_MD + PRINT_NONE) {
+        KDiv(CONTAINER_XL) {
+
+          KButton(
+            modifier = Modifier.classNames("navbar-toggler")
+              .attr("type", "button")
+              .dataAttr("bs-toggle", "collapse")
+              .dataAttr("bs-target", "#$menuId")
+              .attr("aria-controls", menuId)
+              .attr("aria-expanded", "false")
+              .attr("aria-label", "Toggle primary navigation"),
+          ) {
+            KSpan(modifier = Modifier.classNames("navbar-toggler-icon")) {}
+          }
+          TablerBrand(brand)
+          KDiv(modifier = Modifier.classNames("navbar-nav", "flex-row", "order-md-last")) {
+            actions()
+          }
         }
       }
-    }
-    KDiv(NAVBAR_EXPAND_MD) {
-      KDiv(modifier = Modifier.classNames("collapse", "navbar-collapse").attr("id", menuId)) {
-        KDiv(NAVBAR) {
-          KDiv(CONTAINER_XL) {
-            KNav(label = "Primary") {
-              KUl(modifier = Modifier.classNames("navbar-nav")) {
-                data.items.forEach { item ->
-                  renderItem(item)
+      KDiv(NAVBAR_EXPAND_MD) {
+        KDiv(modifier = Modifier.classNames("collapse", "navbar-collapse").attr("id", menuId)) {
+          KDiv(NAVBAR) {
+            KDiv(CONTAINER_XL) {
+              KNav(label = "Primary") {
+                KUl(modifier = Modifier.classNames("navbar-nav")) {
+                  data.items.forEach { item ->
+                    renderItem(item)
+                  }
                 }
               }
             }
           }
         }
       }
+    }
+
+    when (LocalTablerAppState.current.settings.navbarBehavior) {
+      NavbarBehavior.STICKY_TOP -> KDiv(modifier = NavbarBehavior.CSS_STICKY_TOP) {
+        renderNavbarRows()
+      }
+
+      else -> renderNavbarRows()
     }
   }
 
