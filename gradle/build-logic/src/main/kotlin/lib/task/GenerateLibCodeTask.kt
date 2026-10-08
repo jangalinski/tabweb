@@ -4,7 +4,10 @@ import com.github.jangalinski.tabweb.gradle.buildlogic.lib.generator.TabwebLibGe
 import com.github.jangalinski.tabweb.gradle.buildlogic.lib.model.ColorsModel
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.DirectoryProperty
+import org.gradle.api.provider.MapProperty
+import org.gradle.api.provider.Property
 import org.gradle.api.tasks.OutputDirectory
+import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.TaskAction
 
 abstract class GenerateLibCodeTask : DefaultTask(), () -> Unit {
@@ -13,6 +16,12 @@ abstract class GenerateLibCodeTask : DefaultTask(), () -> Unit {
     const val NAME = "generateLibCode"
     const val DESCRIPTION = "Generates Kotlin code for Tabler."
   }
+
+  @get:Input
+  abstract val projectVersion: Property<String>
+
+  @get:Input
+  abstract val versions: MapProperty<String, String>
 
   @get:OutputDirectory
   abstract val outputDirectory: DirectoryProperty
@@ -25,6 +34,9 @@ abstract class GenerateLibCodeTask : DefaultTask(), () -> Unit {
     val colors : ColorsModel = ColorsModel.load()
 
     val generator = TabwebLibGenerator(colors)
+
+    println("Generating Version.kt for ${projectVersion.get()}")
+    println("Using versions: ${versions.get()}")
 
     println("Generating color types: $colors")
 
