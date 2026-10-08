@@ -34,10 +34,14 @@ interface Tooltip : AsModifier {
   companion object {
     internal const val CLASS = "tooltip"
 
-    /** Creates a tooltip from plain text, HTML, or Markdown at the given [placement]. */
+    /**
+     * Creates a tooltip from plain text, HTML, or Markdown at the given [placement].
+     */
     operator fun invoke(text: TabwebText, placement: Placement = Placement.BOTTOM) = TooltipData(text, placement) as Tooltip
 
-    /** Creates a plain-text tooltip at the given [placement]. */
+    /**
+     * Creates a plain-text tooltip at the given [placement].
+     */
     operator fun invoke(text: String, placement: Placement = Placement.BOTTOM) = TooltipData(plain(text), placement) as Tooltip
 
     internal data class TooltipData(
@@ -76,7 +80,6 @@ interface Tooltip : AsModifier {
       }
     }
 
-
     private data class TooltipOptions(val title: String, val placement: String, val html: Boolean)
     private data class ActiveTooltip(val options: TooltipOptions, val instance: TooltipInstance)
 
@@ -84,8 +87,7 @@ interface Tooltip : AsModifier {
 
     private fun updateTooltip(element: Element, options: TooltipOptions) {
       if (activeTooltips[element]?.options == options) return
-      val tooltip = window.asDynamic().tabler?.Tooltip
-      if (tooltip == null) return
+      val tooltip = window.asDynamic().tabler?.Tooltip ?: return
       val existing: TooltipInstance? = tooltip.getInstance(element)
       existing?.dispose()
       val instance: TooltipInstance = tooltip.getOrCreateInstance(
@@ -99,9 +101,7 @@ interface Tooltip : AsModifier {
       )
       activeTooltips[element] = ActiveTooltip(options, instance)
     }
-
   }
-
 }
 
 private external interface TooltipInstance {
