@@ -1,6 +1,7 @@
 package com.github.jangalinski.tabweb._app
 
 import com.github.jangalinski.tabweb.breadcrumb.BreadcrumbItem
+import com.github.jangalinski.tabweb.navigation.TablerSectionNavigationFactory
 
 /**
  * Route-scoped content supplied to the shared Tabler Kobweb layout.
@@ -14,6 +15,8 @@ data class TablerLayoutData(
   val activeRoute: String,
   /** Footer overriding the configured Tabler shell footer. */
   val footer: TablerFooter? = null,
+  /** Optional route-scoped navigation rendered beside the page body. */
+  val sectionNavigation: TablerSectionNavigationFactory? = null,
 )
 
 /**

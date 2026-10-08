@@ -4,6 +4,7 @@ import com.github.jangalinski.tabweb._foundation.Url
 import com.github.jangalinski.tabweb.icon.TablerIcon
 import com.github.jangalinski.tabweb.navbar.TablerNavbarData
 import com.github.jangalinski.tabweb.navbar.TablerNavbarItem
+import com.github.jangalinski.tabweb.navigation.TablerSectionNavigationConfig
 
 /** Builds the sample primary navigation shown by the documentation site. */
 fun siteNavbar(activeRoute: String) = TablerNavbarData(
@@ -136,3 +137,34 @@ fun siteNavbar(activeRoute: String) = TablerNavbarData(
     ),
   ),
 )
+
+/**
+ * Documentation navigation used by the Markdown layout example.
+ *
+ * This is deliberately a separate route tree from [siteNavbar], keeping
+ * documentation pages out of the global application menu.
+ */
+val siteDocumentationNavigation = TablerSectionNavigationConfig(
+  sections = listOf(
+    TablerSectionNavigationConfig.Section(
+      title = "Tabweb",
+      items = listOf(
+        TablerSectionNavigationConfig.Item.Link(
+          title = "Markdown pages",
+          path = "/markdown-pages",
+        ),
+        TablerSectionNavigationConfig.Item.Group(
+          title = "Components",
+          path = SiteRoutes.Components,
+          items = listOf(
+            TablerSectionNavigationConfig.Item.Link("Avatars", SiteRoutes.Avatars),
+            TablerSectionNavigationConfig.Item.Link("Badges", SiteRoutes.Badges),
+            TablerSectionNavigationConfig.Item.Link("Buttons", SiteRoutes.Buttons),
+            TablerSectionNavigationConfig.Item.Link("Cards", SiteRoutes.Cards),
+            TablerSectionNavigationConfig.Item.Link("Tables", SiteRoutes.Tables),
+          ),
+        ),
+      ),
+    ),
+  ),
+).factory()

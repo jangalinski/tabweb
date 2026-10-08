@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb._app.TablerLayout
 import com.github.jangalinski.tabweb._app.TablerLayoutData
 import com.github.jangalinski.tabweb._app.TablerPageMeta
+import com.github.jangalinski.tabweb._foundation.compose.KDiv
 import com.varabyte.kobweb.core.PageContext
 import com.varabyte.kobweb.core.layout.Layout
 import com.varabyte.kobweb.navigation.BasePath
@@ -36,9 +37,20 @@ fun MarkdownTablerLayout(
 
   TablerLayout(
     ctx = ctx,
-    layoutData = TablerLayoutData(activeRoute = BasePath.remove(ctx.route.path)),
+    layoutData = TablerLayoutData(
+      activeRoute = BasePath.remove(ctx.route.path),
+      sectionNavigation = siteDocumentationNavigation,
+    ),
     pageMeta = TablerPageMeta(title = title, subtitle = subtitle),
-    content = content,
+    content = {
+      KDiv("card", "card-lg") {
+        KDiv("card-body") {
+          KDiv("prose") {
+            content()
+          }
+        }
+      }
+    },
   )
 }
 
