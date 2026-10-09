@@ -1,12 +1,13 @@
 package com.github.jangalinski.tabweb.table
 
 import androidx.compose.runtime.Composable
+import com.github.jangalinski.tabweb._foundation.TabwebComponentDsl
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**
  * Default implementation of [TableComposable].
  */
-data object TableDsl : TableComposable {
+internal data object TableDsl : TabwebComponentDsl, TableComposable {
   @Composable
   override fun table(table: Table, modifier: Modifier) {
     table.invoke(modifier)

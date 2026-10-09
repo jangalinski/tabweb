@@ -11,7 +11,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 /**
  * The badge DSL implementation delegated through [com.github.jangalinski.tabweb.Tabweb].
  */
-data object BadgeDsl : TabwebComponentDsl, BadgeComposable {
+internal data object BadgeDsl : TabwebComponentDsl, BadgeComposable {
   @Composable
   override fun badge(
     text: String,

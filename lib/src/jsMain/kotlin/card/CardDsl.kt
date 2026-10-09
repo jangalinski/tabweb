@@ -2,6 +2,7 @@ package com.github.jangalinski.tabweb.card
 
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb._foundation.Link
+import com.github.jangalinski.tabweb._foundation.TabwebComponentDsl
 import com.github.jangalinski.tabweb._foundation.compose.KDiv
 import com.github.jangalinski.tabweb._foundation.css.plus
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -9,7 +10,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 /**
  * Default implementation of [CardComposable].
  */
-internal data object CardDsl : CardComposable {
+internal data object CardDsl : TabwebComponentDsl, CardComposable {
 
   @Composable
   override fun card(card: Card, modifier: Modifier) {

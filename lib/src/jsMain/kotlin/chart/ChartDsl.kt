@@ -2,6 +2,7 @@ package com.github.jangalinski.tabweb.chart
 
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb._foundation.TablerColors
+import com.github.jangalinski.tabweb._foundation.TabwebComponentDsl
 import com.github.jangalinski.tabweb._foundation.TabwebDirection.Orientation
 import com.github.jangalinski.tabweb.chart.BarChart.Companion.BarSeries
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -10,7 +11,7 @@ import org.jetbrains.compose.web.css.CSSLengthValue
 /**
  * The chart DSL implementation delegated through [com.github.jangalinski.tabweb.Tabweb].
  */
-data object ChartDsl : ChartComposable {
+internal data object ChartDsl : TabwebComponentDsl, ChartComposable {
 
   /**
    * Creates and renders a [BarChart] from the supplied typed values.

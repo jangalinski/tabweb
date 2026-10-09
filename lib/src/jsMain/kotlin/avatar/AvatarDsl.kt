@@ -3,6 +3,7 @@ package com.github.jangalinski.tabweb.avatar
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb._foundation.Image
 import com.github.jangalinski.tabweb._foundation.Initials
+import com.github.jangalinski.tabweb._foundation.TabwebComponentDsl
 import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
 import com.github.jangalinski.tabweb.icon.Icon
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -10,7 +11,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 /**
  * The avatar DSL implementation delegated through [com.github.jangalinski.tabweb.Tabweb].
  */
-data object AvatarDsl : AvatarComposable {
+internal data object AvatarDsl : TabwebComponentDsl, AvatarComposable {
 
   @Composable
   override fun avatar(

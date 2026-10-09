@@ -1,6 +1,7 @@
 package com.github.jangalinski.tabweb.button
 
 import androidx.compose.runtime.Composable
+import com.github.jangalinski.tabweb._foundation.TabwebComponentDsl
 import com.github.jangalinski.tabweb.icon.Icon
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.onClick
@@ -8,7 +9,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.onClick
 /**
  * The button DSL implementation delegated through [com.github.jangalinski.tabweb.Tabweb].
  */
-data object ButtonDsl : ButtonComposable {
+internal data object ButtonDsl : TabwebComponentDsl, ButtonComposable {
   @Composable
   override fun button(
     text: String,
