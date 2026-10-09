@@ -17,7 +17,14 @@ interface CardRow : TabwebComponent {
   @Composable
   override fun invoke(modifier: Modifier) {
     val deckModifier = if (deck) cssClass("row-deck") else Modifier
-    KDiv(modifier = cssClass("row") + cssClass("row-cards") + deckModifier + modifier) {
+    KDiv(
+      modifier = cssClass("row") +
+        cssClass("row-cards") +
+        cssClass("g-3") +
+        cssClass("mb-4") +
+        deckModifier +
+        modifier,
+    ) {
       DefaultCardRowScope.content()
     }
   }
