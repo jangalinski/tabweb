@@ -81,6 +81,11 @@ clean mode="":
 generate-dokka-html:
     @./gradlew --no-daemon --no-watch-fs --console=plain :lib:dokkaGeneratePublicationHtml
 
+# Generate inspectable GitHub Flavored Markdown and metadata from Dokka.
+[group("project")]
+generate-dokka-markdown:
+    @./gradlew --no-daemon --no-watch-fs --console=plain :lib:generateDokkaMarkdown
+
 # tabler icon from css
 [group("project")]
 generate-tabler-icon:

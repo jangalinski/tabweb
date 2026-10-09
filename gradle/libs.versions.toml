@@ -1,6 +1,7 @@
 [versions]
 kotlin = "2.4.20"
 kotlinx-serialization = "1.11.0"
+kaml = "0.104.0"
 kotlin-code-generation = "0.5.2"
 
 compose-html = "1.12.1"
@@ -23,6 +24,7 @@ tabweb = "main-SNAPSHOT"
 
 [libraries]
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+kaml = { module = "com.charleskorn.kaml:kaml", version.ref = "kaml" }
 
 bom-kotlin-code-generation = { module = "io.toolisticon.kotlin.generation:kotlin-code-generation-bom", version.ref = "kotlin-code-generation" }
 
@@ -38,6 +40,7 @@ kobwebx-serialization-kotlinx = { module = "com.varabyte.kobwebx:kobwebx-seriali
 tabweb = { module = "com.github.jangalinski:tabweb", version.ref = "tabweb" }
 
 jetbrains-markdown = { module = "org.jetbrains:markdown", version.ref = "markdown" }
+dokka-gradle-plugin = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "dokka" }
 kotlin-code-generation = { module = "io.toolisticon.kotlin.generation:kotlin-code-generation" }
 
 test-assertk = { module = "com.willowtreeapps.assertk:assertk", version.ref = "assertk" }

@@ -17,9 +17,11 @@ val strictDetekt = providers.gradleProperty("tablerDetekt.strict")
 plugins {
   `maven-publish`
   alias(libs.plugins.kotlin.multiplatform)
+  alias(libs.plugins.kotlinx.serialization)
   alias(libs.plugins.compose.compiler)
   alias(libs.plugins.detekt)
   alias(libs.plugins.dokka)
+  id("buildlogic.dokka-markdown")
   alias(libs.plugins.kobweb.library)
   id("com.github.jangalinski.tabweb.buildlogic.kotlin-code-generation")
 
@@ -61,6 +63,7 @@ kotlin {
         implementation(libs.kobweb.core)
         implementation(libs.kobweb.compose.js)
         implementation(libs.jetbrains.markdown)
+        implementation(libs.kaml)
       }
     }
 
@@ -111,6 +114,9 @@ dokka {
       fileTree("src/jsMain/kotlin") {
         include("**/*.md")
       }
+    )
+    suppressedFiles.from(
+      file("src/jsMain/kotlin/icon/TablerIcon.kt")
     )
   }
 }

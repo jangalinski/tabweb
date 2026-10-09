@@ -9,6 +9,7 @@ dependencies {
 
   implementation(libs.kotlinx.serialization.json)
   implementation(libs.kotlin.code.generation)
+  implementation(libs.dokka.gradle.plugin)
 
   testImplementation(kotlin("test-junit5"))
   testImplementation(libs.test.assertk)
@@ -45,6 +46,10 @@ gradlePlugin {
     create("tabwebLib") {
       id = "buildlogic.tabweb-lib"
       implementationClass = "com.github.jangalinski.tabweb.gradle.buildlogic.lib.TabwebLibPlugin"
+    }
+    create("dokkaMarkdown") {
+      id = "buildlogic.dokka-markdown"
+      implementationClass = "com.github.jangalinski.tabweb.gradle.buildlogic.dokka.DokkaMarkdownPlugin"
     }
   }
 }
