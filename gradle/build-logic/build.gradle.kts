@@ -30,6 +30,10 @@ gradlePlugin {
       id = "com.github.jangalinski.tabweb.buildlogic.site-preview"
       implementationClass = "com.github.jangalinski.tabweb.gradle.buildlogic.SitePreviewPlugin"
     }
+    create("tabwebSite") {
+      id = "com.github.jangalinski.tabweb.buildlogic.site"
+      implementationClass = "com.github.jangalinski.tabweb.gradle.buildlogic.site.TabwebSitePlugin"
+    }
     create("tablerIcons") {
       id = "com.github.jangalinski.tabweb.buildlogic.tabler-icons"
       implementationClass = "com.github.jangalinski.tabweb.gradle.buildlogic.TablerIconsPlugin"

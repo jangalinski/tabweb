@@ -89,14 +89,14 @@ class TablerNavigationJsonTest {
             "description": "API documentation",
             "route": "/kdoc",
             "sections": [
-              { "$include": "$dokka.json" }
+              { "$include": "dokka.json" }
             ]
           }
         ]
       }
       """.trimIndent(),
     ) { reference ->
-      assertThat(reference).isEqualTo("\$dokka.json")
+      assertThat(reference).isEqualTo("dokka.json")
       """
       {
         "sections": [

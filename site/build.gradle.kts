@@ -9,6 +9,7 @@ val useLocalTabweb =
     .getOrElse(true)
 
 plugins {
+  id("com.github.jangalinski.tabweb.buildlogic.site")
   id("com.github.jangalinski.tabweb.buildlogic.site-preview")
   alias(libs.plugins.kotlin.multiplatform)
   alias(libs.plugins.compose.compiler)
@@ -50,6 +51,10 @@ kotlin {
       implementation(libs.compose.html.core)
       implementation(libs.kobweb.compose.js)
       implementation(libs.kobwebx.markdown)
+    }
+
+    jsMain {
+      kotlin.srcDir(tasks.named("generateNavigation"))
     }
   }
 }

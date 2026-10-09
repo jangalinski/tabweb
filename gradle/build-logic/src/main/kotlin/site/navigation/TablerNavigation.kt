@@ -1,7 +1,5 @@
-package com.github.jangalinski.tabweb.navigation
+package com.github.jangalinski.tabweb.gradle.buildlogic.site.navigation
 
-import com.github.jangalinski.tabweb._foundation.Url
-import com.github.jangalinski.tabweb.icon.TablerIcon
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
@@ -27,15 +25,14 @@ data class TablerNavigation(
  * @param route route represented by this entry.
  * @param icon optional generated Tabler icon.
  * @param badgeRef optional site-owned badge registry key.
- * @param columns number of columns used when rendering direct children.
  * @param children nested top-navigation entries.
  * @param sections left-side navigation sections belonging to this entry.
  */
 data class TablerNavigationElement(
   val title: String,
   val description: String? = null,
-  val route: Url,
-  val icon: TablerIcon? = null,
+  val route: String,
+  val icon: String? = null,
   val badgeRef: String? = null,
   val columns: Int = 1,
   val children: List<TablerNavigationElement> = emptyList(),
@@ -102,18 +99,17 @@ private data class NavigationElementManifest(
   val route: String,
   val icon: String? = null,
   val badgeRef: String? = null,
+  val columns: Int = 1,
   val children: List<NavigationElementManifest> = emptyList(),
   val sections: List<NavigationSectionManifest> = emptyList(),
 ) {
   fun toNavigation(resolve: (String) -> String): TablerNavigationElement = TablerNavigationElement(
     title = title,
     description = description,
-    route = Url(route),
-    icon = icon?.let { iconName ->
-      runCatching { TablerIcon.valueOf(iconName) }
-        .getOrElse { error("Unknown TablerIcon '$iconName' for navigation entry '$title'.") }
-    },
+    route = route,
+    icon = icon,
     badgeRef = badgeRef,
+    columns = columns,
     children = children.map { it.toNavigation(resolve) },
     sections = sections.flatMap { it.toNavigation(resolve) },
   )

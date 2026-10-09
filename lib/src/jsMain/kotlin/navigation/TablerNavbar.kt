@@ -112,7 +112,7 @@ data object TablerNavbar {
 
   @Composable
   private fun renderSection(item: TablerNavbarItem.Section) {
-    val active = item.hasActiveDescendant()
+    val active = item.active || item.hasActiveDescendant()
     KLi(
       modifier = Modifier.classNames("nav-item", "dropdown")
         .then(if (active) Modifier.classNames("active") else Modifier),
@@ -170,7 +170,7 @@ data object TablerNavbar {
       }
 
       is TablerNavbarItem.Section -> {
-        val active = item.hasActiveDescendant()
+        val active = item.active || item.hasActiveDescendant()
         KLi(
           modifier = Modifier.classNames("dropend")
             .then(if (active) Modifier.classNames("active") else Modifier),

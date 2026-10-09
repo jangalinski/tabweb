@@ -43,6 +43,10 @@
         "badgeRef": {
           "type": ["string", "null"]
         },
+        "columns": {
+          "type": "integer",
+          "minimum": 1
+        },
         "children": {
           "type": "array",
           "items": {

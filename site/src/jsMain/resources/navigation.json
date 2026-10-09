@@ -129,6 +129,7 @@
       "name": "Plugins",
       "route": "/plugins",
       "icon": "TI_PUZZLE",
+      "columns": 2,
       "children": [
         {
           "name": "Markdown pages",
@@ -136,7 +137,7 @@
         },
         {
           "name": "Marketplace",
-          "route": "/"
+          "route": "/plugins/marketplace"
         },
         {
           "name": "Installed",
@@ -144,36 +145,36 @@
           "children": [
             {
               "name": "Analytics",
-              "route": "/"
+              "route": "/plugins/installed/analytics"
             },
             {
               "name": "Backups",
-              "route": "/"
+              "route": "/plugins/installed/backups"
             },
             {
               "name": "Monitoring",
-              "route": "/"
+              "route": "/plugins/installed/monitoring"
             }
           ]
         },
         {
           "name": "Updates",
-          "route": "/"
+          "route": "/plugins/updates"
         },
         {
           "name": "Plugin settings",
-          "route": "/"
+          "route": "/plugins/settings"
         },
         {
           "name": "Developer tools",
-          "route": "/"
+          "route": "/plugins/developer-tools"
         }
       ]
     },
     {
       "name": "Help",
       "description": "Documentation and support",
-      "route": "/",
+      "route": "/help",
       "icon": "TI_HELP_CIRCLE"
     }
   ]

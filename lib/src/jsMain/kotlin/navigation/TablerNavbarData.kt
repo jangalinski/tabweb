@@ -46,6 +46,8 @@ sealed interface TablerNavbarItem {
     val items: List<TablerNavbarItem>,
     /** Number of preview-style columns used for this dropdown's direct children. */
     val columns: Int = 1,
+    /** Whether this section's own route is active. */
+    val active: Boolean = false,
   ) : TablerNavbarItem {
     init {
       require(columns > 0) { "Navbar section columns must be positive." }

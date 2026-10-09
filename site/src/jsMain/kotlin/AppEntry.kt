@@ -12,6 +12,7 @@ import com.github.jangalinski.tabweb._foundation.compose.KDiv
 import com.github.jangalinski.tabweb.button.ButtonColor
 import com.github.jangalinski.tabweb.element.Tooltip
 import com.github.jangalinski.tabweb.navigation.NavbarBehavior
+import com.github.jangalinski.tabweb.navigation.navbarFactory
 import com.github.jangalinski.tabweb.widget.ConfettiButton
 import com.github.jangalinski.tabweb.widget.DarkModeButton
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -32,7 +33,7 @@ fun AppEntry(content: @Composable () -> Unit) {
   KobwebTablerApp(
     site = TablerSiteConfig(
       shell = TablerShellConfig(
-        navbar = ::siteNavbar,
+        navbar = GeneratedSiteNavigation.data.navbarFactory(),
         navbarActions = {
           KDiv(modifier = Modifier.classNames("d-none", "d-md-flex", "me-3", "btn-list")) {
             KDiv(modifier = Modifier.classNames("nav-item")) {
