@@ -3,6 +3,8 @@ package com.github.jangalinski.tabweb.navigation
 import com.github.jangalinski.tabweb._app.TablerPageMeta
 import com.github.jangalinski.tabweb._foundation.Url
 import com.github.jangalinski.tabweb.breadcrumb.BreadcrumbItem
+import com.varabyte.kobweb.navigation.BasePath
+import com.varabyte.kobweb.navigation.remove
 
 /**
  * Creates a route-aware primary-navbar factory from this static navigation tree.
@@ -104,6 +106,7 @@ private fun Url.matchesRoute(activeRoute: String): Boolean =
   normalizeRoute(get()) == normalizeRoute(activeRoute)
 
 private fun normalizeRoute(route: String): String = route
+  .let { BasePath.remove(it) }
   .substringBefore('#')
   .trimEnd('/')
   .ifEmpty { "/" }
