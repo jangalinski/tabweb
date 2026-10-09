@@ -3,8 +3,9 @@ package com.github.jangalinski.tabweb._app
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.staticCompositionLocalOf
 import com.github.jangalinski.tabweb._foundation.Url
-import com.github.jangalinski.tabweb.navbar.TablerBrand
-import com.github.jangalinski.tabweb.navbar.TablerNavbarFactory
+import com.github.jangalinski.tabweb.navigation.TablerBrand
+import com.github.jangalinski.tabweb.navigation.TablerNavbarFactory
+import com.github.jangalinski.tabweb.navigation.TablerNavigation
 import com.varabyte.kobweb.core.AppGlobals
 
 /**
@@ -34,6 +35,8 @@ data class TablerShellConfig(
   ),
   /** Primary navigation rendered below the brand header for the active route. */
   val navbar: TablerNavbarFactory = TablerNavbarFactory.None,
+  /** Static route tree used for page metadata and generated navigation. */
+  val navigation: TablerNavigation? = null,
   /** Actions rendered at the right side of the navbar's first row. */
   val navbarActions: @Composable () -> Unit = {},
   val footer: TablerFooter = TablerFooter(),

@@ -4,17 +4,19 @@ import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb._foundation.compose.KDiv
 import com.github.jangalinski.tabweb._foundation.compose.KButton
 import com.github.jangalinski.tabweb._foundation.compose.KSpan
-import com.github.jangalinski.tabweb.navbar.TablerNavbar
 import com.github.jangalinski.tabweb.navigation.TablerSectionNavigation
+import com.github.jangalinski.tabweb.navigation.pageMeta
 import com.github.jangalinski.tabweb._foundation.css.ClassNames
 import com.github.jangalinski.tabweb._foundation.css.ClassNames.modifier
+import com.github.jangalinski.tabweb.navigation.TablerNavbar
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.attr
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.compose.ui.modifiers.dataAttr
 import com.varabyte.kobweb.core.PageContext
-import com.varabyte.kobweb.core.data.getValue
 import com.varabyte.kobweb.core.layout.Layout
+import com.varabyte.kobweb.navigation.BasePath
+import com.varabyte.kobweb.navigation.remove
 
 /**
  * Kobweb layout that renders the shared Tabler page shell around a route.
@@ -22,8 +24,9 @@ import com.varabyte.kobweb.core.layout.Layout
  * The composition follows the preview's major regions: `BEGIN SIDEBAR` or
  * `BEGIN NAVBAR`, then `page-wrapper`, `BEGIN PAGE HEADER`, `BEGIN PAGE BODY`,
  * and `BEGIN FOOTER`. The route itself is supplied through [content], while
- * shared navigation, footer content, and page metadata arrive through
- * `@InitRoute` data.
+ * shared navigation and page metadata arrive through the configured static
+ * navigation tree. Route-specific overrides remain available through the
+ * explicit overload below.
  *
  * Keeping this shell in a Kobweb `@Layout` lets pages focus on their own
  * content while preserving one stable DOM boundary for Tabler CSS and
@@ -47,12 +50,14 @@ fun TablerLayout(
   ctx: PageContext,
   content: @Composable () -> Unit
 ) {
-  val layoutData = ctx.data.getValue<TablerLayoutData>()
-  val pageMeta = ctx.data.getValue<TablerPageMeta>()
+  val site = LocalTablerSiteConfig.current
+  val activeRoute = BasePath.remove(ctx.route.path)
+  val pageMeta = site.shell.navigation?.pageMeta(activeRoute)
+    ?: TablerPageMeta(title = activeRoute)
 
   TablerLayout(
     ctx = ctx,
-    layoutData = layoutData,
+    layoutData = TablerLayoutData(activeRoute = activeRoute),
     pageMeta = pageMeta,
     content = content,
   )

@@ -9,21 +9,10 @@ import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
 import com.github.jangalinski.tabweb.avatar.Avatar
 import com.github.jangalinski.tabweb.avatar.AvatarStyle
 import com.github.jangalinski.tabweb.site.SiteRoutes
-import com.github.jangalinski.tabweb.site.siteLayoutData
-import com.github.jangalinski.tabweb.site.sitePageMeta
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.core.Page
-import com.varabyte.kobweb.core.data.add
-import com.varabyte.kobweb.core.init.InitRoute
-import com.varabyte.kobweb.core.init.InitRouteContext
 import org.jetbrains.compose.web.dom.Text
-
-@InitRoute
-fun initColorsPage(ctx: InitRouteContext) {
-  ctx.data.add(sitePageMeta("Colors", "The full color palette, with hex values, and a gradient builder."))
-  ctx.data.add(siteLayoutData(SiteRoutes.Colors))
-}
 
 
 @Composable

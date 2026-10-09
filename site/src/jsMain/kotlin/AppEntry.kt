@@ -34,6 +34,7 @@ fun AppEntry(content: @Composable () -> Unit) {
     site = TablerSiteConfig(
       shell = TablerShellConfig(
         navbar = GeneratedSiteNavigation.data.navbarFactory(),
+        navigation = GeneratedSiteNavigation.data,
         navbarActions = {
           KDiv(modifier = Modifier.classNames("d-none", "d-md-flex", "me-3", "btn-list")) {
             KDiv(modifier = Modifier.classNames("nav-item")) {

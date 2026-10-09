@@ -1,4 +1,4 @@
-package com.github.jangalinski.tabweb.navbar
+package com.github.jangalinski.tabweb.navigation
 
 import com.github.jangalinski.tabweb._foundation.css.CssClass
 import com.varabyte.kobweb.compose.ui.Modifier

@@ -1,4 +1,4 @@
-package com.github.jangalinski.tabweb.navbar
+package com.github.jangalinski.tabweb.navigation
 
 import com.github.jangalinski.tabweb.icon.Icon
 import com.github.jangalinski.tabweb._foundation.Url
@@ -20,14 +20,20 @@ fun interface TablerNavbarFactory {
   }
 }
 
-/** A primary-navigation entry rendered inside the navbar's semantic list. */
+/**
+ * A primary-navigation entry rendered inside the navbar's semantic list.
+ */
 sealed interface TablerNavbarItem {
   val title: String
   val caption: String?
   val icon: Icon?
   val badge: TablerNavbarBadge?
 
-  /** A destination that navigates directly to [url]. */
+  /**
+   * A destination that navigates directly to [url].
+   *
+   * @param url The destination's URL.
+   */
   data class Link(
     val url: Url,
     override val title: String,
@@ -37,7 +43,9 @@ sealed interface TablerNavbarItem {
     val active: Boolean = false,
   ) : TablerNavbarItem
 
-  /** A non-navigating group that opens a dropdown of links or nested sections. */
+  /**
+   * A non-navigating group that opens a dropdown of links or nested sections.
+   */
   data class Section(
     override val title: String,
     override val caption: String? = null,
@@ -55,7 +63,12 @@ sealed interface TablerNavbarItem {
   }
 }
 
-/** A compact label displayed alongside a navbar item. */
+/**
+ * A compact label displayed alongside a navbar item.
+ *
+ * @param label The badge's text.
+ * @param color The badge's color.
+ */
 data class TablerNavbarBadge(
   val label: String,
   val color: String = "primary",

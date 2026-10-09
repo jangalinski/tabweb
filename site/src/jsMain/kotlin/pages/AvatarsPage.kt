@@ -14,18 +14,7 @@ import com.github.jangalinski.tabweb.avatar.AvatarList
 import com.github.jangalinski.tabweb.avatar.AvatarListSize
 import com.github.jangalinski.tabweb.icon.TablerIcon
 import com.github.jangalinski.tabweb.site.SiteRoutes
-import com.github.jangalinski.tabweb.site.siteLayoutData
-import com.github.jangalinski.tabweb.site.sitePageMeta
 import com.varabyte.kobweb.core.Page
-import com.varabyte.kobweb.core.data.add
-import com.varabyte.kobweb.core.init.InitRoute
-import com.varabyte.kobweb.core.init.InitRouteContext
-
-@InitRoute
-fun initAvatarsPage(ctx: InitRouteContext) {
-  ctx.data.add(sitePageMeta("Avatars", "Avatars display a photo, icon, or initials to represent a person, brand, or status."))
-  ctx.data.add(siteLayoutData(SiteRoutes.Avatars))
-}
 
 @Page(routeOverride = SiteRoutes.Avatars)
 @Composable

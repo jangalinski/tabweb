@@ -6,7 +6,7 @@ import com.github.jangalinski.tabweb._foundation.css.cssClass
 /**
  * Selects the navbar's positioning behavior.
  */
-internal enum class NavbarBehavior(
+enum class NavbarBehavior(
   private val htmlValue: String?,
   private val sessionValue: String?,
 ) : SideEffectBehavior {

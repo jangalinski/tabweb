@@ -22,24 +22,13 @@ import com.github.jangalinski.tabweb.badge.BadgeSize
 import com.github.jangalinski.tabweb.badge.BadgeStyle
 import com.github.jangalinski.tabweb.icon.TablerIcon
 import com.github.jangalinski.tabweb.site.SiteRoutes
-import com.github.jangalinski.tabweb.site.siteLayoutData
-import com.github.jangalinski.tabweb.site.sitePageMeta
 import com.varabyte.kobweb.core.Page
-import com.varabyte.kobweb.core.data.add
-import com.varabyte.kobweb.core.init.InitRoute
-import com.varabyte.kobweb.core.init.InitRouteContext
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 
 private data object BadgesPageLink : Link {
   override val href = Url(SiteRoutes.Badges)
   override val text = "Badges"
-}
-
-@InitRoute
-fun initBadgesPage(ctx: InitRouteContext) {
-  ctx.data.add(sitePageMeta("Badges", "Badges highlight statuses, counts, and categories with a compact Tabler label."))
-  ctx.data.add(siteLayoutData(SiteRoutes.Badges))
 }
 
 @Page(routeOverride = SiteRoutes.Badges)

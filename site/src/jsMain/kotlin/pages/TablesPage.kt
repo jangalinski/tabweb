@@ -19,15 +19,10 @@ import com.github.jangalinski.tabweb.badge.Badge
 import com.github.jangalinski.tabweb.button.ButtonColor
 import com.github.jangalinski.tabweb.button.ButtonStyle
 import com.github.jangalinski.tabweb.site.SiteRoutes
-import com.github.jangalinski.tabweb.site.siteLayoutData
-import com.github.jangalinski.tabweb.site.sitePageMeta
 import com.github.jangalinski.tabweb.table.*
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.attr
 import com.varabyte.kobweb.core.Page
-import com.varabyte.kobweb.core.data.add
-import com.varabyte.kobweb.core.init.InitRoute
-import com.varabyte.kobweb.core.init.InitRouteContext
 import org.jetbrains.compose.web.attributes.InputType
 
 private data class InvoiceRow(
@@ -39,12 +34,6 @@ private data class InvoiceRow(
   val status: String,
   val price: String,
 )
-
-@InitRoute
-fun initTablesPage(ctx: InitRouteContext) {
-  ctx.data.add(sitePageMeta("Tables", "Tables display information in a grid-like format of rows and columns."))
-  ctx.data.add(siteLayoutData(SiteRoutes.Tables))
-}
 
 @Page(routeOverride = SiteRoutes.Tables)
 @Composable

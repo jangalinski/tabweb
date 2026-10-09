@@ -12,12 +12,7 @@ import com.github.jangalinski.tabweb.chart.BarChart.Companion.BarGrouping
 import com.github.jangalinski.tabweb.chart.BarChart.Companion.BarSeries
 import com.github.jangalinski.tabweb.element.Tooltip
 import com.github.jangalinski.tabweb.site.SiteRoutes
-import com.github.jangalinski.tabweb.site.siteLayoutData
-import com.github.jangalinski.tabweb.site.sitePageMeta
 import com.varabyte.kobweb.core.Page
-import com.varabyte.kobweb.core.data.add
-import com.varabyte.kobweb.core.init.InitRoute
-import com.varabyte.kobweb.core.init.InitRouteContext
 import org.jetbrains.compose.web.dom.H1
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
@@ -39,12 +34,6 @@ private fun barComponent(
   orientation = orientation,
   colors = colors,
 )
-
-@InitRoute
-fun initBarChartPage(ctx: InitRouteContext) {
-  ctx.data.add(sitePageMeta("Bar charts", "The first chart family to receive a typed ApexCharts specification."))
-  ctx.data.add(siteLayoutData(SiteRoutes.BarCharts))
-}
 
 /**
  * Shows the bar-chart variants that will become the first typed chart API.

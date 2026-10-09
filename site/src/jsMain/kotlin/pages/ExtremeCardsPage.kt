@@ -24,13 +24,8 @@ import com.github.jangalinski.tabweb.card.CardStatus
 import com.github.jangalinski.tabweb.icon.TablerIcon
 import com.github.jangalinski.tabweb.site.SiteRoutes
 import com.github.jangalinski.tabweb.site.chart.SiteChart
-import com.github.jangalinski.tabweb.site.siteLayoutData
-import com.github.jangalinski.tabweb.site.sitePageMeta
 import com.github.jangalinski.tabweb.table.TableResponsive
 import com.varabyte.kobweb.core.Page
-import com.varabyte.kobweb.core.data.add
-import com.varabyte.kobweb.core.init.InitRoute
-import com.varabyte.kobweb.core.init.InitRouteContext
 import kotlin.js.json
 
 private const val lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. " +
@@ -68,13 +63,6 @@ private fun section(title: String, description: String) {
     KH2 { KText(title) }
     KP { KText(description) }
   }
-}
-
-/** Registers the deliberately over-composed card gallery in the shared site layout. */
-@InitRoute
-fun initExtremeCardsPage(ctx: InitRouteContext) {
-  ctx.data.add(sitePageMeta("Extreme cards", "Stress tests for combinations of card DSL options."))
-  ctx.data.add(siteLayoutData(SiteRoutes.ExtremeCards))
 }
 
 /** Displays card combinations to evaluate where the card DSL needs stricter boundaries. */

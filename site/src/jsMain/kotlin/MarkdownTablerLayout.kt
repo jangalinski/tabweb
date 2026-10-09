@@ -5,6 +5,7 @@ import com.github.jangalinski.tabweb._app.TablerLayout
 import com.github.jangalinski.tabweb._app.TablerLayoutData
 import com.github.jangalinski.tabweb._app.TablerPageMeta
 import com.github.jangalinski.tabweb._foundation.compose.KDiv
+import com.github.jangalinski.tabweb.navigation.sectionNavigationFactory
 import com.varabyte.kobweb.core.PageContext
 import com.varabyte.kobweb.core.layout.Layout
 import com.varabyte.kobweb.navigation.BasePath
@@ -39,7 +40,7 @@ fun MarkdownTablerLayout(
     ctx = ctx,
     layoutData = TablerLayoutData(
       activeRoute = BasePath.remove(ctx.route.path),
-      sectionNavigation = siteDocumentationNavigation,
+      sectionNavigation = GeneratedSiteNavigation.data.sectionNavigationFactory(),
     ),
     pageMeta = TablerPageMeta(title = title, subtitle = subtitle),
     content = {

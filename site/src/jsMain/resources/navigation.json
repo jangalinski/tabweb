@@ -4,6 +4,7 @@
   "root": [
     {
       "name": "Home",
+      "description": "Documentation and things",
       "route": "/",
       "icon": "TI_HOME"
     },
@@ -14,54 +15,54 @@
       "children": [
         {
           "name": "Avatars",
-          "description": "Display a photo, icon, or initials",
+          "description": "Avatars display a photo, icon, or initials to represent a person, brand, or status.",
           "route": "/interfaces/avatars"
         },
         {
           "name": "Badges",
-          "description": "Show labels, statuses, and counts",
+          "description": "Badges highlight statuses, counts, and categories with a compact Tabler label.",
           "route": "/interfaces/badges"
         },
         {
           "name": "Buttons",
-          "description": "Invoke actions in every Tabler style",
+          "description": "Buttons invoke user actions with Tabler colors, sizes, shapes, and icons.",
           "route": "/interfaces/buttons"
         },
         {
           "name": "Cards",
-          "description": "Show different card layouts and content types",
+          "description": "Cards are flexible and extensible content containers with multiple variants and options.",
           "route": "/interfaces/cards"
         },
         {
           "name": "Extreme cards",
-          "description": "Stress-test combinations of card options",
+          "description": "Stress tests for combinations of card DSL options.",
           "route": "/interfaces/extreme-cards"
         },
         {
           "name": "Charts",
-          "description": "Explore ApexCharts inside Tabler cards",
+          "description": "Chart examples rendered in Tabler cards with ApexCharts.",
           "route": "/interfaces/charts",
           "children": [
             {
               "name": "Chart gallery",
-              "description": "Compare chart families and variants",
+              "description": "Chart examples rendered in Tabler cards with ApexCharts.",
               "route": "/interfaces/charts"
             },
             {
               "name": "Bar charts",
-              "description": "Explore the first typed chart spec",
+              "description": "The first chart family to receive a typed ApexCharts specification.",
               "route": "/interfaces/charts/bar"
             }
           ]
         },
         {
           "name": "Colors",
-          "description": "Show colors, gradients, and hex values",
+          "description": "The full color palette, with hex values, and a gradient builder.",
           "route": "/interfaces/colors"
         },
         {
           "name": "Tables",
-          "description": "Tabler table examples",
+          "description": "Tables display information in a grid-like format of rows and columns.",
           "route": "/interfaces/tables"
         }
       ]
@@ -74,7 +75,29 @@
         {
           "name": "Components",
           "description": "Reusable UI building blocks",
-          "route": "/components",
+          "route": "/components"
+        },
+        {
+          "name": "Empty",
+          "description": "an empty page",
+          "route": "/empty"
+        },
+        {
+          "name": "Elements",
+          "description": "Low-level Tabler elements",
+          "route": "/elements"
+        }
+      ]
+    },
+    {
+      "name": "Plugins",
+      "route": "/plugins",
+      "icon": "TI_PUZZLE",
+      "columns": 2,
+      "children": [
+        {
+          "name": "Markdown pages",
+          "route": "/markdown-pages",
           "sections": [
             {
               "name": "Tabweb",
@@ -112,28 +135,6 @@
               ]
             }
           ]
-        },
-        {
-          "name": "Empty",
-          "description": "An empty page",
-          "route": "/empty"
-        },
-        {
-          "name": "Elements",
-          "description": "Low-level Tabler elements",
-          "route": "/elements"
-        }
-      ]
-    },
-    {
-      "name": "Plugins",
-      "route": "/plugins",
-      "icon": "TI_PUZZLE",
-      "columns": 2,
-      "children": [
-        {
-          "name": "Markdown pages",
-          "route": "/markdown-pages"
         },
         {
           "name": "Marketplace",

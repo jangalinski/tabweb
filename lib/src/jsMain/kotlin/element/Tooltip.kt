@@ -5,6 +5,7 @@ import com.github.jangalinski.tabweb._foundation.TabwebText.Companion.plain
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.attrsModifier
 import com.varabyte.kobweb.compose.ui.modifiers.attr
+import com.varabyte.kobweb.compose.ui.modifiers.title
 import kotlinx.browser.window
 import org.w3c.dom.Element
 import org.w3c.dom.HTMLElement
@@ -57,7 +58,7 @@ interface Tooltip : AsModifier {
         Modifier
           .attr("data-tblr-toggle", CLASS)
           .attr("data-bs-placement", placement.get())
-          .attr("title", title)
+          .title(title)
           .attr("data-bs-html", "$isHtml")
           .attrsModifier {
             // Compose HTML refs only run on insertion; properties also run after recomposition.

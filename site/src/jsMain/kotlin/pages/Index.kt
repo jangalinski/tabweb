@@ -26,8 +26,6 @@ import com.github.jangalinski.tabweb.icon.TablerIcon.TI_FOOTSTEPS
 import com.github.jangalinski.tabweb.link.TablerLink
 import com.github.jangalinski.tabweb.site.SiteRoutes
 import com.github.jangalinski.tabweb.site.chart.SiteChart
-import com.github.jangalinski.tabweb.site.siteLayoutData
-import com.github.jangalinski.tabweb.site.sitePageMeta
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
@@ -35,9 +33,6 @@ import com.varabyte.kobweb.compose.ui.modifiers.color
 import com.varabyte.kobweb.compose.ui.modifiers.fontSize
 import com.varabyte.kobweb.compose.ui.modifiers.size
 import com.varabyte.kobweb.core.Page
-import com.varabyte.kobweb.core.data.add
-import com.varabyte.kobweb.core.init.InitRoute
-import com.varabyte.kobweb.core.init.InitRouteContext
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.A
 import org.jetbrains.compose.web.dom.H3
@@ -69,15 +64,6 @@ private fun VisitsChart() {
       )
     },
   )
-}
-
-/**
- * Registers the documentation home page metadata before the shared Tabler layout renders.
- */
-@InitRoute
-fun initIndexPage(ctx: InitRouteContext) {
-  ctx.data.add(sitePageMeta("tabweb", "Documentation and examples"))
-  ctx.data.add(siteLayoutData(SiteRoutes.Home))
 }
 
 /**

@@ -1,4 +1,4 @@
-package com.github.jangalinski.tabweb.navbar
+package com.github.jangalinski.tabweb.navigation
 
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb._app.LocalTablerAppState
@@ -6,14 +6,16 @@ import com.github.jangalinski.tabweb._foundation.compose.*
 import com.github.jangalinski.tabweb._foundation.css.BaseCss.CONTAINER_XL
 import com.github.jangalinski.tabweb._foundation.css.BaseCss.PRINT_NONE
 import com.github.jangalinski.tabweb._foundation.css.plus
-import com.github.jangalinski.tabweb.navbar.TablerBrand.Brand
-import com.github.jangalinski.tabweb.navbar.TablerNavbarCss.NAVBAR
-import com.github.jangalinski.tabweb.navbar.TablerNavbarCss.NAVBAR_EXPAND_MD
-import com.github.jangalinski.tabweb.navigation.NavbarBehavior
+import com.github.jangalinski.tabweb.navigation.TablerBrand.Brand
+import com.github.jangalinski.tabweb.navigation.TablerNavbarCss.NAVBAR
+import com.github.jangalinski.tabweb.navigation.TablerNavbarCss.NAVBAR_EXPAND_MD
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.modifiers.ariaLabel
 import com.varabyte.kobweb.compose.ui.modifiers.attr
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.compose.ui.modifiers.dataAttr
+import com.varabyte.kobweb.compose.ui.modifiers.id
+import com.varabyte.kobweb.compose.ui.modifiers.title
 
 /**
  * Renders the preview-style Tabler navbar: a brand and action row followed by
@@ -49,7 +51,7 @@ data object TablerNavbar {
               .dataAttr("bs-target", "#$menuId")
               .attr("aria-controls", menuId)
               .attr("aria-expanded", "false")
-              .attr("aria-label", "Toggle primary navigation"),
+              .ariaLabel("Toggle primary navigation"),
           ) {
             KSpan(modifier = Modifier.classNames("navbar-toggler-icon")) {}
           }
@@ -60,7 +62,7 @@ data object TablerNavbar {
         }
       }
       KDiv(NAVBAR_EXPAND_MD) {
-        KDiv(modifier = Modifier.classNames("collapse", "navbar-collapse").attr("id", menuId)) {
+        KDiv(modifier = Modifier.classNames("collapse", "navbar-collapse").id(menuId)) {
           KDiv(NAVBAR) {
             KDiv(CONTAINER_XL) {
               KNav(label = "Primary") {
@@ -103,7 +105,7 @@ data object TablerNavbar {
         href = item.url.get(),
         modifier = Modifier.classNames("nav-link").then(
           if (item.active) Modifier.classNames("active").attr("aria-current", "page") else Modifier,
-        ),
+        ).then(item.caption?.let { Modifier.title(it) } ?: Modifier),
       ) {
         renderItemContent(item)
       }
@@ -121,6 +123,7 @@ data object TablerNavbar {
         href = "#",
         modifier = Modifier.classNames("nav-link", "dropdown-toggle")
           .then(if (active) Modifier.classNames("active") else Modifier)
+          .then(item.caption?.let { Modifier.title(it) } ?: Modifier)
           .dataAttr("bs-toggle", "dropdown")
           .dataAttr("bs-auto-close", "outside")
           .attr("role", "button")
@@ -163,7 +166,7 @@ data object TablerNavbar {
           href = item.url.get(),
           modifier = Modifier.classNames("dropdown-item").then(
             if (item.active) Modifier.classNames("active").attr("aria-current", "page") else Modifier,
-          ),
+          ).then(item.caption?.let { Modifier.title(it) } ?: Modifier),
         ) {
           renderItemContent(item)
         }
@@ -179,6 +182,7 @@ data object TablerNavbar {
             href = "#",
             modifier = Modifier.classNames("dropdown-item", "dropdown-toggle")
               .then(if (active) Modifier.classNames("active") else Modifier)
+              .then(item.caption?.let { Modifier.title(it) } ?: Modifier)
               .dataAttr("bs-toggle", "dropdown")
               .dataAttr("bs-auto-close", "false")
               .attr("role", "button")
@@ -206,9 +210,6 @@ data object TablerNavbar {
     item.icon?.invoke(Modifier.classNames("nav-link-icon"))
     KDiv(modifier = Modifier.classNames("d-flex", "flex-column")) {
       KSpan(modifier = Modifier.classNames("nav-link-title"), text = item.title)
-      item.caption?.let { caption ->
-        KSpan(modifier = Modifier.classNames("text-secondary", "small"), text = caption)
-      }
     }
     item.badge?.let { badge ->
       KSpan(modifier = Modifier.classNames("badge", "bg-${badge.color}"), text = badge.label)

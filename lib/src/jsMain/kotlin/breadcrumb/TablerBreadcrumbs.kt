@@ -35,9 +35,8 @@ fun TablerBreadcrumbs(
       KOl(modifier = ClassNames.breadcrumb.modifier()) {
         items.forEachIndexed { index, item ->
           val isLast = index == items.lastIndex
-          val itemModifier = Modifier.classNames(
-            ClassNames.breadcrumbItem,
-            if (isLast || item.active) ClassNames.breadcrumbItemActive else "",
+          val itemModifier = Modifier.classNames(ClassNames.breadcrumbItem).then(
+            if (isLast || item.active) ClassNames.breadcrumbItemActive.modifier() else Modifier,
           )
           KLi(modifier = itemModifier) {
             when {
