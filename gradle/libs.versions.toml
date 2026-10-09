@@ -1,7 +1,6 @@
 [versions]
 kotlin = "2.4.20"
 kotlinx-serialization = "1.11.0"
-kaml = "0.104.0"
 kotlin-code-generation = "0.5.2"
 
 compose-html = "1.12.1"
@@ -24,7 +23,6 @@ tabweb = "main-SNAPSHOT"
 
 [libraries]
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
-kaml = { module = "com.charleskorn.kaml:kaml", version.ref = "kaml" }
 
 bom-kotlin-code-generation = { module = "io.toolisticon.kotlin.generation:kotlin-code-generation-bom", version.ref = "kotlin-code-generation" }
 

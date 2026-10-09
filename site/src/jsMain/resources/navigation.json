@@ -1,0 +1,180 @@
+{
+  "$schema": "https://jangalinski.github.io/tabweb/navigation.schema.json",
+  "version": 1,
+  "root": [
+    {
+      "name": "Home",
+      "route": "/",
+      "icon": "TI_HOME"
+    },
+    {
+      "name": "Interface",
+      "route": "/interface",
+      "icon": "TI_BOX",
+      "children": [
+        {
+          "name": "Avatars",
+          "description": "Display a photo, icon, or initials",
+          "route": "/interfaces/avatars"
+        },
+        {
+          "name": "Badges",
+          "description": "Show labels, statuses, and counts",
+          "route": "/interfaces/badges"
+        },
+        {
+          "name": "Buttons",
+          "description": "Invoke actions in every Tabler style",
+          "route": "/interfaces/buttons"
+        },
+        {
+          "name": "Cards",
+          "description": "Show different card layouts and content types",
+          "route": "/interfaces/cards"
+        },
+        {
+          "name": "Extreme cards",
+          "description": "Stress-test combinations of card options",
+          "route": "/interfaces/extreme-cards"
+        },
+        {
+          "name": "Charts",
+          "description": "Explore ApexCharts inside Tabler cards",
+          "route": "/interfaces/charts",
+          "children": [
+            {
+              "name": "Chart gallery",
+              "description": "Compare chart families and variants",
+              "route": "/interfaces/charts"
+            },
+            {
+              "name": "Bar charts",
+              "description": "Explore the first typed chart spec",
+              "route": "/interfaces/charts/bar"
+            }
+          ]
+        },
+        {
+          "name": "Colors",
+          "description": "Show colors, gradients, and hex values",
+          "route": "/interfaces/colors"
+        },
+        {
+          "name": "Tables",
+          "description": "Tabler table examples",
+          "route": "/interfaces/tables"
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure",
+      "route": "/infrastructure",
+      "icon": "TI_SERVER",
+      "children": [
+        {
+          "name": "Components",
+          "description": "Reusable UI building blocks",
+          "route": "/components",
+          "sections": [
+            {
+              "name": "Tabweb",
+              "elements": [
+                {
+                  "name": "Markdown pages",
+                  "route": "/markdown-pages"
+                },
+                {
+                  "name": "Components",
+                  "route": "/components",
+                  "children": [
+                    {
+                      "name": "Avatars",
+                      "route": "/interfaces/avatars"
+                    },
+                    {
+                      "name": "Badges",
+                      "route": "/interfaces/badges"
+                    },
+                    {
+                      "name": "Buttons",
+                      "route": "/interfaces/buttons"
+                    },
+                    {
+                      "name": "Cards",
+                      "route": "/interfaces/cards"
+                    },
+                    {
+                      "name": "Tables",
+                      "route": "/interfaces/tables"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Empty",
+          "description": "An empty page",
+          "route": "/empty"
+        },
+        {
+          "name": "Elements",
+          "description": "Low-level Tabler elements",
+          "route": "/elements"
+        }
+      ]
+    },
+    {
+      "name": "Plugins",
+      "route": "/plugins",
+      "icon": "TI_PUZZLE",
+      "children": [
+        {
+          "name": "Markdown pages",
+          "route": "/markdown-pages"
+        },
+        {
+          "name": "Marketplace",
+          "route": "/"
+        },
+        {
+          "name": "Installed",
+          "route": "/plugins/installed",
+          "children": [
+            {
+              "name": "Analytics",
+              "route": "/"
+            },
+            {
+              "name": "Backups",
+              "route": "/"
+            },
+            {
+              "name": "Monitoring",
+              "route": "/"
+            }
+          ]
+        },
+        {
+          "name": "Updates",
+          "route": "/"
+        },
+        {
+          "name": "Plugin settings",
+          "route": "/"
+        },
+        {
+          "name": "Developer tools",
+          "route": "/"
+        }
+      ]
+    },
+    {
+      "name": "Help",
+      "description": "Documentation and support",
+      "route": "/",
+      "icon": "TI_HELP_CIRCLE"
+    }
+  ]
+}

@@ -61,6 +61,7 @@ jobs:
           mkdir -p build/gh-pages/docs
           cp -R site/.kobweb/site/. build/gh-pages/
           cp site/src/jsMain/resources/public/favicon.ico build/gh-pages/favicon.ico
+          cp lib/src/jsMain/resources/navigation.schema.json build/gh-pages/navigation.schema.json
           cp -R lib/build/dokka/html/. build/gh-pages/docs/
 
       - name: Upload Pages artifact

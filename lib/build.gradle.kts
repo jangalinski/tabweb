@@ -63,7 +63,7 @@ kotlin {
         implementation(libs.kobweb.core)
         implementation(libs.kobweb.compose.js)
         implementation(libs.jetbrains.markdown)
-        implementation(libs.kaml)
+        implementation(libs.kotlinx.serialization.json)
       }
     }
 

@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tabweb.dev/schema/navigation.schema.json",
+  "title": "Tabweb navigation manifest",
+  "type": "object",
+  "required": ["version", "root"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri-reference"
+    },
+    "version": {
+      "const": 1
+    },
+    "root": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/element"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "element": {
+      "type": "object",
+      "required": ["name", "route"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string"
+        },
+        "route": {
+          "type": "string",
+          "minLength": 1
+        },
+        "icon": {
+          "type": ["string", "null"],
+          "pattern": "^TI_[A-Z0-9_]+$"
+        },
+        "badgeRef": {
+          "type": ["string", "null"]
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/element"
+          }
+        },
+        "sections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/sectionEntry"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "sectionEntry": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/section"
+        },
+        {
+          "type": "object",
+          "required": ["$include"],
+          "properties": {
+            "$include": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "section": {
+      "type": "object",
+      "required": ["name", "elements"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "elements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/element"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

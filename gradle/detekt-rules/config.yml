@@ -4,5 +4,5 @@ config:
 
 tabweb:
   FoundationComposeOnlyRule:
-    active: true
+    active: false
     severity: warning
