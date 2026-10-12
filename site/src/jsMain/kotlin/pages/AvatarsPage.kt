@@ -12,7 +12,7 @@ import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor.BASE.W
 import com.github.jangalinski.tabweb.avatar.Avatar
 import com.github.jangalinski.tabweb.avatar.AvatarList
 import com.github.jangalinski.tabweb.avatar.AvatarListSize
-import com.github.jangalinski.tabweb.icon.TablerIcon
+import com.github.jangalinski.tabweb.icon.TabwebIcon
 import com.github.jangalinski.tabweb.site.SiteRoutes
 import com.varabyte.kobweb.core.Page
 
@@ -25,7 +25,7 @@ fun AvatarsPage() {
       body {
         markdown("The base `.avatar` element — a placeholder box for a photo, icon, or initials.")
         AvatarList(
-          avatars = arrayOf(Avatar(content = TablerIcon.TI_USER), Avatar(content = Initials("AB")))
+          avatars = arrayOf(Avatar(content = TabwebIcon.TI_USER), Avatar(content = Initials("AB")))
         )()
       }
     }
@@ -37,14 +37,14 @@ fun AvatarsPage() {
         AvatarList(
           stacked = false,
           size = AvatarListSize.DEFAULT,
-          Avatar(content = TablerIcon.TI_USER, color = WHITE),
-          Avatar(content = TablerIcon.TI_SETTINGS, color = WHITE),
-          Avatar(content = TablerIcon.TI_CAR, color = WHITE),
-          Avatar(content = TablerIcon.TI_BALLOON, color = WHITE),
-          Avatar(content = TablerIcon.TI_USERS, color = WHITE),
-          Avatar(content = TablerIcon.TI_USERS_GROUP, color = WHITE),
-          Avatar(content = TablerIcon.TI_APPS, color = WHITE),
-          Avatar(content = TablerIcon.TI_GHOST, color = WHITE),
+          Avatar(content = TabwebIcon.TI_USER, color = WHITE),
+          Avatar(content = TabwebIcon.TI_SETTINGS, color = WHITE),
+          Avatar(content = TabwebIcon.TI_CAR, color = WHITE),
+          Avatar(content = TabwebIcon.TI_BALLOON, color = WHITE),
+          Avatar(content = TabwebIcon.TI_USERS, color = WHITE),
+          Avatar(content = TabwebIcon.TI_USERS_GROUP, color = WHITE),
+          Avatar(content = TabwebIcon.TI_APPS, color = WHITE),
+          Avatar(content = TabwebIcon.TI_GHOST, color = WHITE),
         )()
       }
     }
@@ -57,7 +57,7 @@ fun AvatarsPage() {
           stacked = false,
           size = AvatarListSize.DEFAULT,
           avatars = BackgroundColor.LIGHT.entries.map {
-            Avatar(content = TablerIcon.TI_USER, color = it)
+            Avatar(content = TabwebIcon.TI_USER, color = it)
           }
         )()
       }

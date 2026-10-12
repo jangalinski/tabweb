@@ -1,7 +1,7 @@
 package com.github.jangalinski.tabweb.button
 
 /**
- * Enumerates the supported Tabler corner shapes for a [Button].
+ * Enumerates the supported Tabweb corner shapes for a [Button].
  */
 enum class ButtonShape {
   DEFAULT,

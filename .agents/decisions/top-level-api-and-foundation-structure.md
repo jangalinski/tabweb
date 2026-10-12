@@ -63,7 +63,7 @@ without a more specific owner. There is no `_common` or `util` package.
 `_app` is the public application-integration boundary. Its prefix makes clear
 that it is application infrastructure rather than a Tabler design component.
 It owns
-`TablerSiteConfig`, `TablerShellConfig`, application state, settings, theme,
+`TablerSiteConfig`, `TabwebShellConfig`, application state, settings, theme,
 page-shell layout code, and associated route data. These types are not peer
 Tabler widgets such as `avatar` or `table`, and they do not belong in
 `_foundation`, because they are public, Tabler-specific, and intentionally

@@ -69,37 +69,13 @@ documentation](https://docs.jitpack.io/intro/#snapshots) for both forms.
 tabweb/
 ├── build.gradle.kts    ← shared container build
 ├── lib/                ← published Kobweb Tabler library
-├── site/               ← documentation/demo site exported to GitHub Pages
-└── _examples/          ← standalone Kobweb apps that consume the library
-    └── tagessieg/      ← example Kobweb app
+└── site/               ← documentation, demos, and examples exported to GitHub Pages
 ```
-
-`_examples` is a **separate Gradle build** — it has its own `settings.gradle.kts` and its own Gradle wrapper.
-It is not a sub-project of the root build; it references the `:lib` project via a
-[composite build](https://docs.gradle.org/current/userguide/composite_builds.html).
 
 The root build contains two subprojects:
 
 - `:lib` is the published library. Its artifact name remains `tabweb` for JitPack consumers.
-- `:site` is the repository documentation site. GitHub Pages publishes it at `/tabweb/`.
-
-GitHub Pages also publishes selected standalone examples below `/tabweb/examples/<example>/`. The first
-published example is `/tabweb/examples/tagessieg/`.
-
-### How the examples use the local library
-
-The examples' shared version catalog declares a local development coordinate:
-
-```kotlin
-implementation("com.github.jangalinski:tabweb:0.0.2-SNAPSHOT")
-```
-
-Its `settings.gradle.kts` uses `includeBuild("../")` with an explicit dependency substitution to replace that
-coordinate with the `:lib` project's source. Therefore, `_examples` never downloads the snapshot and does not need
-`publishToMavenLocal`; library changes are compiled directly when you build an example.
-
-This is intentional for development, but it also means `_examples` cannot prove that JitPack serves a release.
-Use a separate project without this `includeBuild` substitution for that check.
+- `:site` contains the repository documentation, demos, and examples. GitHub Pages publishes it at `/tabweb/`.
 
 ### How to run
 
@@ -109,35 +85,11 @@ The repo uses [just](https://just.systems/) for task automation. All recipes are
 just --list          # show all available recipes
 ```
 
-#### Working with examples
-
-```bash
-just run tagessieg        # run dev server (static layout, dev env)
-just export tagessieg     # export static site
-just preview tagessieg    # export + mirror + serve at http://localhost:10102/tagessieg/
-just stop                 # stop all local preview/dev servers
-```
-
-#### Working with the documentation site
-
 ```bash
 just run-site             # run docs dev server (static layout, dev env)
 just export-site          # export docs site
 just preview-site         # export + serve at http://localhost:13131/
 ```
-
-Backwards-compatible single-example aliases also exist:
-
-```bash
-just run-tagessieg
-just export-tagessieg
-just preview-tagessieg
-just stop-tagessieg
-```
-
-> **Note:** Because `_examples` wires the library directly from source via `includeBuild("../")`,
-> a `clean build` is only needed to force-recompile everything (e.g., after switching branches).
-> Incremental compilation works normally — Gradle rebuilds only what changed.
 
 ### Release to JitPack
 
@@ -179,28 +131,10 @@ Before tagging, it is also useful to compile the source-backed example and docum
 ```bash
 ./gradlew :lib:compileKotlinJs
 ./gradlew :site:compileKotlinJs
-./gradlew -p _examples :tagessieg:compileKotlinJs
 ```
 
 After pushing a release tag, JitPack publishes only `:lib` with Java 17 (see [`jitpack.yml`](jitpack.yml)).
 The Gradle subproject is named `lib`, but the published artifact remains `tabweb`.
-
-For a quick local verification using Tagessieg:
-
-1. In `gradle/libs.versions.toml`, change `tabweb` from `0.0.2-SNAPSHOT` to the release version, for example
-   `0.0.2`.
-2. Temporarily comment out the `includeBuild("../") { ... }` block in `_examples/settings.gradle.kts`.
-3. Run:
-
-   ```bash
-   ./gradlew -p _examples :tagessieg:compileKotlinJs --refresh-dependencies
-   ```
-
-4. Restore the snapshot version and the `includeBuild` block when finished.
-
-`_examples` already declares the JitPack repository, so disabling the composite substitution makes Gradle download the
-release. This check verifies JitPack resolution; with `includeBuild` enabled, the same build only verifies the local
-source replacement.
 
 ---
 

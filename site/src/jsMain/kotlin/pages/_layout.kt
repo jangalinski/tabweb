@@ -1,5 +1,5 @@
-// all pages in this package will use the TablerLayout as their layout
-@file:Layout(Tabweb.TABLER_LAYOUT)
+// all pages in this package will use the TabwebLayout as their layout
+@file:Layout(Tabweb.TABWEB_LAYOUT)
 
 package com.github.jangalinski.tabweb.site.pages
 

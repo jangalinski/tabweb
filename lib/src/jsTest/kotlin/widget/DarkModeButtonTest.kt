@@ -3,10 +3,10 @@ package com.github.jangalinski.tabweb.widget
 import assertk.assertThat
 import assertk.assertions.contains
 import assertk.assertions.isEqualTo
-import com.github.jangalinski.tabweb._app.ProvideTablerAppState
-import com.github.jangalinski.tabweb._app.TablerAppState
-import com.github.jangalinski.tabweb._app.TablerSettings
-import com.github.jangalinski.tabweb._app.TablerTheme
+import com.github.jangalinski.tabweb._app.ProvideTabwebAppState
+import com.github.jangalinski.tabweb._app.TabwebAppState
+import com.github.jangalinski.tabweb._app.TabwebSettings
+import com.github.jangalinski.tabweb._app.TabwebTheme
 import com.github.jangalinski.tabweb.element.TooltipRuntimeStub
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
@@ -21,10 +21,10 @@ class DarkModeButtonTest {
     val runtime = TooltipRuntimeStub()
     runtime.install()
     try {
-      val state = TablerAppState(TablerSettings(theme = TablerTheme.DARK))
+      val state = TabwebAppState(TabwebSettings(theme = TabwebTheme.DARK))
 
       composition {
-        ProvideTablerAppState(state) {
+        ProvideTabwebAppState(state) {
           DarkModeButton()
         }
       }
@@ -49,10 +49,10 @@ class DarkModeButtonTest {
     val runtime = TooltipRuntimeStub()
     runtime.install()
     try {
-      val state = TablerAppState(TablerSettings(theme = TablerTheme.LIGHT))
+      val state = TabwebAppState(TabwebSettings(theme = TabwebTheme.LIGHT))
 
       composition {
-        ProvideTablerAppState(state) {
+        ProvideTabwebAppState(state) {
           DarkModeButton()
         }
       }
@@ -77,10 +77,10 @@ class DarkModeButtonTest {
     val runtime = TooltipRuntimeStub()
     runtime.install()
     try {
-      val state = TablerAppState(TablerSettings(theme = TablerTheme.LIGHT))
+      val state = TabwebAppState(TabwebSettings(theme = TabwebTheme.LIGHT))
 
       composition {
-        ProvideTablerAppState(state) {
+        ProvideTabwebAppState(state) {
           DarkModeButton()
         }
       }
@@ -88,7 +88,7 @@ class DarkModeButtonTest {
       val link = root.querySelector("button.btn.btn-icon") as HTMLElement
       link.click()
 
-      assertThat(state.settings.theme).isEqualTo(TablerTheme.DARK)
+      assertThat(state.settings.theme).isEqualTo(TabwebTheme.DARK)
       waitForRecompositionComplete()
       assertThat(root.innerHTML).contains("ti-sun")
       assertThat(link.className).contains("btn-dark")
@@ -96,7 +96,7 @@ class DarkModeButtonTest {
         .isEqualTo("Enable light mode")
       link.click()
       waitForRecompositionComplete()
-      assertThat(state.settings.theme).isEqualTo(TablerTheme.LIGHT)
+      assertThat(state.settings.theme).isEqualTo(TabwebTheme.LIGHT)
       assertThat(link.className).contains("btn-light")
       assertThat(runtime.state.created[runtime.state.created.length - 1].options.title as String)
         .isEqualTo("Enable dark mode")

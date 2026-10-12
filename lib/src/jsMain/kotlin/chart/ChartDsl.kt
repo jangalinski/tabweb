@@ -1,7 +1,7 @@
 package com.github.jangalinski.tabweb.chart
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.tabweb._foundation.TablerColors
+import com.github.jangalinski.tabweb._foundation.TabwebColors
 import com.github.jangalinski.tabweb._foundation.TabwebComponentDsl
 import com.github.jangalinski.tabweb._foundation.TabwebDirection.Orientation
 import com.github.jangalinski.tabweb.chart.BarChart.Companion.BarSeries
@@ -23,7 +23,7 @@ internal data object ChartDsl : TabwebComponentDsl, ChartComposable {
    * @param height chart height passed to ApexCharts.
    * @param dataLabels whether values are rendered on the bars.
    * @param borderRadius border radius applied to the bars.
-   * @param colors Tabler colors assigned to the series in order.
+   * @param colors Tabweb colors assigned to the series in order.
    * @param modifier additional attributes and styles applied to the chart root.
    * @return `Unit` after the chart has been emitted into the current composition.
    */
@@ -36,7 +36,7 @@ internal data object ChartDsl : TabwebComponentDsl, ChartComposable {
     height: CSSLengthValue,
     dataLabels: Boolean,
     borderRadius: Int,
-    colors: List<TablerColors>,
+    colors: List<TabwebColors>,
     modifier: Modifier,
   ) {
     BarChart(

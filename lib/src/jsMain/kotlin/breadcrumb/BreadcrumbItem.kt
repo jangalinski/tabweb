@@ -1,7 +1,7 @@
 package com.github.jangalinski.tabweb.breadcrumb
 
 /**
- * A single crumb in a Tabler breadcrumb trail.
+ * A single crumb in a Tabweb breadcrumb trail.
  *
  * Crumbs may be clickable or active.
  */

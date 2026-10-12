@@ -4,7 +4,7 @@ Small chart wrappers that integrate browser-side JavaScript chart libraries with
 
 Charts expose typed component interfaces whose properties declare the supported values and defaults.
 The `BarChart` component models categories, typed `BarSeries`, orientation, grouping, sizing,
-labels, radius, and a `TablerColors` palette. Its companion creates anonymous implementations,
+labels, radius, and a `TabwebColors` palette. Its companion creates anonymous implementations,
 matching the other Tabweb components.
 
 Chart dimensions use Compose Web's `CSSLengthValue` (for example, `240.px`)

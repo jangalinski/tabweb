@@ -2,7 +2,7 @@ package com.github.jangalinski.tabweb.site.chart
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
-import com.github.jangalinski.tabweb._app.LocalTablerAppState
+import com.github.jangalinski.tabweb._app.LocalTabwebAppState
 import com.github.jangalinski.tabweb._foundation.compose.KDiv
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.attr
@@ -26,7 +26,7 @@ private external class ApexCharts(element: dynamic, options: dynamic) {
  */
 @Composable
 fun SiteChart(id: String, label: String, options: () -> dynamic) {
-  val theme = LocalTablerAppState.current.settings.theme
+  val theme = LocalTabwebAppState.current.settings.theme
   KDiv(
     modifier = Modifier.classNames("chart-lg", "position-relative")
       .attr("id", id)
@@ -37,7 +37,7 @@ fun SiteChart(id: String, label: String, options: () -> dynamic) {
   DisposableEffect(id, theme) {
     val element = document.getElementById(id) ?: error("Chart container '$id' was not found")
     check(js("typeof ApexCharts !== 'undefined'") as Boolean) {
-      "ApexCharts is not loaded; check the Tabler CDN script"
+      "ApexCharts is not loaded; check the Tabweb CDN script"
     }
     val chart = ApexCharts(element, options())
     chart.render()

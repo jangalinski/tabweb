@@ -48,7 +48,7 @@ displayed, usually through attributes on `<html>`, for example:
 ```
 
 Because `Layout` already has a specific meaning in Kobweb, avoid a
-public type named simply `TablerLayout` if it creates ambiguity. Prefer
+public type named simply `TabwebLayout` if it creates ambiguity. Prefer
 names that describe the actual Tabler concern, such as
 `TablerContainer`, `TablerPageVariant`, `NavbarPosition`, etc.
 
@@ -637,7 +637,7 @@ NavbarTheme
 SidebarMode
 ```
 
-Use `TablerLayout` only if the intended meaning is unambiguous in the
+Use `TabwebLayout` only if the intended meaning is unambiguous in the
 actual API. Since Kobweb has `@Layout`, a more specific name is
 preferable.
 

@@ -2,7 +2,7 @@ package com.github.jangalinski.tabweb.site.pages
 
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb.Tabweb.cardDeck
-import com.github.jangalinski.tabweb.icon.TablerIcon
+import com.github.jangalinski.tabweb.icon.TabwebIcon
 import com.github.jangalinski.tabweb.site.SiteRoutes
 import com.github.jangalinski.tabweb._foundation.css.GridWidth.HALF
 import com.varabyte.kobweb.core.Page
@@ -23,7 +23,7 @@ fun Components() {
       header(title = "Statistics ..... 1")
       body {
         P { Text("Stat cards are useful for compact values and summaries.") }
-        TablerIcon.entries.forEach { icon -> icon() }
+        TabwebIcon.entries.forEach { icon -> icon() }
       }
     }
   }

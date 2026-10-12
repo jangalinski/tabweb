@@ -4,7 +4,7 @@ import com.github.jangalinski.tabweb._foundation.css.ClassNames.modifier
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**
- * Widths for columns in Tabler's 12-column responsive grid.
+ * Widths for columns in Tabweb's 12-column responsive grid.
  *
  * `sm` applies from 576px, `md` from 768px, and `lg` from 992px.
  * A width set at one breakpoint continues to apply until a larger breakpoint overrides it.

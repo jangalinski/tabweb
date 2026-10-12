@@ -6,7 +6,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 
 /**
- * Enumerates the supported Tabler sizes for an [AvatarList].
+ * Enumerates the supported Tabweb sizes for an [AvatarList].
  */
 enum class AvatarListSize(private val value: String) : TabwebSize, TabwebValue<String>, Modifier {
   XXS("avatar-list-xxs"),

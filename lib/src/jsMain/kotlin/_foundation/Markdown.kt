@@ -11,7 +11,7 @@ import org.intellij.markdown.parser.CancellationToken
 import org.intellij.markdown.parser.MarkdownParser
 
 /**
- * A Tabler component that renders Markdown text as HTML.
+ * A Tabweb component that renders Markdown text as HTML.
  */
 data class Markdown(
   val markdown: String

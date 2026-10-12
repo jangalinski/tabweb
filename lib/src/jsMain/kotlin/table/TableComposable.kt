@@ -37,11 +37,11 @@ interface TableComposable : TabwebComposable {
   )
 
   /**
-   * Creates and renders a [Table] from a [TablerTableData] configuration model.
+   * Creates and renders a [Table] from a [TabwebTableData] configuration model.
    */
   @Composable
   fun table(
-    data: TablerTableData,
+    data: TabwebTableData,
     modifier: Modifier = Modifier,
   )
 }

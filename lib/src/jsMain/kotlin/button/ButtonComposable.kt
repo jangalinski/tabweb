@@ -17,7 +17,7 @@ interface ButtonComposable : TabwebComposable {
    * @param style visual treatment for the button.
    * @param size size of the button.
    * @param shape corner shape for the button.
-   * @param loading whether the button shows the Tabler loading indicator and is disabled.
+   * @param loading whether the button shows the Tabweb loading indicator and is disabled.
    * @param disabled whether the button is disabled.
    * @param onClick action invoked after a user clicks an enabled button.
    * @param modifier additional attributes and styles applied to the button root.
@@ -46,7 +46,7 @@ interface ButtonComposable : TabwebComposable {
    * @param style visual treatment for the button.
    * @param size size of the button.
    * @param shape corner shape for the button.
-   * @param loading whether the button shows the Tabler loading indicator and is disabled.
+   * @param loading whether the button shows the Tabweb loading indicator and is disabled.
    * @param disabled whether the button is disabled.
    * @param onClick action invoked after a user clicks an enabled button.
    * @param modifier additional attributes and styles applied to the button root.
@@ -76,7 +76,7 @@ interface ButtonComposable : TabwebComposable {
    * @param style visual treatment for the button.
    * @param size size of the button.
    * @param shape corner shape for the button.
-   * @param loading whether the button shows the Tabler loading indicator and is disabled.
+   * @param loading whether the button shows the Tabweb loading indicator and is disabled.
    * @param disabled whether the button is disabled.
    * @param onClick action invoked after a user clicks an enabled button.
    * @param modifier additional attributes and styles applied to the button root.

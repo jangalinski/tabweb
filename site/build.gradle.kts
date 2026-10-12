@@ -28,7 +28,7 @@ kobweb {
   }
 
   markdown {
-    defaultLayout.set("com.github.jangalinski.tabweb.site.MarkdownTablerLayout")
+    defaultLayout.set("com.github.jangalinski.tabweb.site.MarkdownTabwebLayout")
     defaultPackage.set(".com.github.jangalinski.tabweb.site.pages")
   }
 }

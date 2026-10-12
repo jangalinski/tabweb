@@ -19,7 +19,7 @@ annotation class TabwebDsl
  * Marker interface for interfaces that declare composable functions.
  * These interfaces are used to support feature propagation; they are implemented by
  * a data object in a component package but also (using `by` delegation), by the
- * `KobwebTabler` object in the root package.
+ * `Tabweb` object in the root package.
  *
  * All public methods in implementing interfaces are expected to be annotated with `@Composable` and to be implemented by the data object in the component package.
  */

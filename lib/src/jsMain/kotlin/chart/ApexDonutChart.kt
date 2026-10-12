@@ -25,7 +25,7 @@ data class DonutSlice(
 )
 
 /**
- * Renders a simple ApexCharts donut chart inside a Tabler-friendly container.
+ * Renders a simple ApexCharts donut chart inside a Tabweb-friendly container.
  *
  * The ApexCharts runtime is expected to be available globally through the library script layer.
  *

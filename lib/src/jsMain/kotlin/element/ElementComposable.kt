@@ -5,7 +5,7 @@ import com.github.jangalinski.tabweb._foundation.TabwebComposable
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**
- * A composable interface that provides methods for rendering Tabler UI elements.
+ * A composable interface that provides methods for rendering Tabweb UI elements.
  */
 interface ElementComposable : TabwebComposable {
 

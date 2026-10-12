@@ -6,10 +6,10 @@ import com.github.jangalinski.tabweb._foundation.TabwebDsl
 import com.github.jangalinski.tabweb._foundation.Image
 
 /**
- * Hierarchical navigation model for Tabler menus.
+ * Hierarchical navigation model for Tabweb menus.
  */
 @Deprecated(
-  message = "Use navbar.TablerNavbarItem for new navbar work. This legacy model remains for sidebar compatibility.",
+  message = "Use navbar.TabwebNavbarItem for new navbar work. This legacy model remains for sidebar compatibility.",
 )
 sealed interface NavigationItem {
 
@@ -46,7 +46,7 @@ sealed interface NavigationItem {
 }
 
 /**
- * Builder for hierarchical Tabler navigation items.
+ * Builder for hierarchical Tabweb navigation items.
  */
 @TabwebDsl
 class NavigationItemsBuilder internal constructor() {

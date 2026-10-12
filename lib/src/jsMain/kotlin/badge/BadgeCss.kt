@@ -5,7 +5,7 @@ import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**
- * Maps the badge model to the Tabler CSS classes used by its renderers.
+ * Maps the badge model to the Tabweb CSS classes used by its renderers.
  */
 internal data object BadgeCss {
   val badge = cssClass("badge")

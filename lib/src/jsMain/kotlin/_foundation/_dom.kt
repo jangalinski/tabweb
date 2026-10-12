@@ -7,7 +7,7 @@ import org.w3c.dom.Document
 import org.w3c.dom.Window
 
 /**
- * Marks a side effect behavior that is managed by [com.github.jangalinski.tabweb._app.TablerSettings] and can control its own htm and session state.
+ * Marks a side effect behavior that is managed by [com.github.jangalinski.tabweb._app.TabwebSettings] and can control its own htm and session state.
  */
 fun interface SideEffectBehavior {
   operator fun invoke(

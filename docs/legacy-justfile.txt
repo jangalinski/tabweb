@@ -1,24 +1,24 @@
 # Run an example via kobweb dev server in static layout (hot-reload, no export needed), for example: `just run tagessieg`
 [group("examples")]
 run example:
-    kobweb run -p _examples/{{ example }} -l static --env=dev
+    kobweb run -p site/{{ example }} -l static --env=dev
 
 # Run an example using the direct kobweb server (fullstack mode), for example: `just serve tagessieg`
 [group("examples")]
 serve example:
-    kobweb run -p _examples/{{ example }}
+    kobweb run -p site/{{ example }}
 
 # Export an example, for example: `just export tagessieg`
 [group("examples")]
 export example:
     just clean-preview-artifacts
-    @GRADLE_USER_HOME=/private/tmp/{{ example }}-gradle ./gradlew --no-daemon --no-watch-fs -p _examples :{{ example }}:kobwebExport -PkobwebReuseServer=false -PkobwebEnv=DEV -PkobwebRunLayout=STATIC -PkobwebBuildTarget=RELEASE -PkobwebExportLayout=STATIC --console=plain
+    @GRADLE_USER_HOME=/private/tmp/{{ example }}-gradle ./gradlew --no-daemon --no-watch-fs -p site :{{ example }}:kobwebExport -PkobwebReuseServer=false -PkobwebEnv=DEV -PkobwebRunLayout=STATIC -PkobwebBuildTarget=RELEASE -PkobwebExportLayout=STATIC --console=plain
 
 # Export and preview an example, for example: `just preview tagessieg`
 [group("examples")]
 preview example:
     just clean-preview-artifacts
     just export {{ example }}
-    @GRADLE_USER_HOME=/private/tmp/{{ example }}-gradle ./gradlew --no-daemon --no-watch-fs -p _examples :{{ example }}:mirrorExportForPlainStaticServer --console=plain
+    @GRADLE_USER_HOME=/private/tmp/{{ example }}-gradle ./gradlew --no-daemon --no-watch-fs -p site :{{ example }}:mirrorExportForPlainStaticServer --console=plain
     echo "Preview at http://localhost:10102/{{ example }}/"
-    python3 -m http.server 10102 --directory ./_examples/{{ example }}/.kobweb/site
+    python3 -m http.server 10102 --directory ./site/{{ example }}/.kobweb/site

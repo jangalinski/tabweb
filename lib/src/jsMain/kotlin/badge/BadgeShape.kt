@@ -1,16 +1,16 @@
 package com.github.jangalinski.tabweb.badge
 
 /**
- * Enumerates the supported Tabler shapes for a [Badge].
+ * Enumerates the supported Tabweb shapes for a [Badge].
  */
 enum class BadgeShape {
   /**
-   * Uses Tabler's default badge corners.
+   * Uses Tabweb's default badge corners.
    */
   DEFAULT,
 
   /**
-   * Uses fully rounded Tabler badge ends.
+   * Uses fully rounded Tabweb badge ends.
    */
   PILL,
 }

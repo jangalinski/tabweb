@@ -1,7 +1,7 @@
 package com.github.jangalinski.tabweb.button
 
 /**
- * Enumerates the supported Tabler sizes for a [Button].
+ * Enumerates the supported Tabweb sizes for a [Button].
  */
 enum class ButtonSize {
   SMALL,

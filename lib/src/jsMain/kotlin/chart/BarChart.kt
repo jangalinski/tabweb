@@ -1,7 +1,7 @@
 package com.github.jangalinski.tabweb.chart
 
 import com.github.jangalinski.tabweb._foundation.DynamicJson
-import com.github.jangalinski.tabweb._foundation.TablerColors
+import com.github.jangalinski.tabweb._foundation.TabwebColors
 import com.github.jangalinski.tabweb._foundation.TabwebDirection
 import com.github.jangalinski.tabweb._foundation.TabwebDirection.Orientation
 import com.github.jangalinski.tabweb._foundation.TabwebDirection.VERTICAL
@@ -30,7 +30,7 @@ data class BarChart(
   val height: CSSLengthValue = 240.px,
   val dataLabels: Boolean = false,
   val borderRadius: Int = 3,
-  val colors: List<TablerColors> = DEFAULT_COLORS
+  val colors: List<TabwebColors> = DEFAULT_COLORS
 ) : ApexChart {
   companion object {
 
@@ -64,11 +64,11 @@ data class BarChart(
     }
 
     private val DEFAULT_COLORS = listOf(
-      TablerColors.BLUE,
-      TablerColors.GREEN,
-      TablerColors.AZURE,
-      TablerColors.PURPLE,
-      TablerColors.ORANGE,
+      TabwebColors.BLUE,
+      TabwebColors.GREEN,
+      TabwebColors.AZURE,
+      TabwebColors.PURPLE,
+      TabwebColors.ORANGE,
     )
   }
 

@@ -90,31 +90,31 @@ class TableTest {
 
   @Test
   fun rendersTableDataWithAllSealedCellTypes() = runTest {
-    val tableData = TablerTableData(
+    val tableData = TabwebTableData(
       columns = listOf(
-        TablerTableColumn("User"),
-        TablerTableColumn("Status"),
-        TablerTableColumn("Tags"),
-        TablerTableColumn("Select"),
+        TabwebTableColumn("User"),
+        TabwebTableColumn("Status"),
+        TabwebTableColumn("Tags"),
+        TabwebTableColumn("Select"),
       ),
       rows = listOf(
-        TablerTableRow(
+        TabwebTableRow(
           cells = listOf(
-            TablerTableCell.AvatarName(
+            TabwebTableCell.AvatarName(
               avatar = Avatar(Initials("PK")),
               name = "Paweł Kuna",
               description = "pawel@example.com",
             ),
-            TablerTableCell.Badge("Active", "bg-success"),
-            TablerTableCell.Tags(listOf("admin", "staff")),
-            TablerTableCell.Checkbox(checked = true, label = "Selected"),
+            TabwebTableCell.Badge("Active", "bg-success"),
+            TabwebTableCell.Tags(listOf("admin", "staff")),
+            TabwebTableCell.Checkbox(checked = true, label = "Selected"),
           ),
         ),
       ),
     )
 
     composition {
-      TablerTable(data = tableData)
+      TabwebTable(data = tableData)
     }
 
     val html = root.innerHTML
@@ -138,23 +138,23 @@ class TableTest {
   }
 
   @Test
-  fun rendersTablerTableCardWithoutCardBody() = runTest {
-    val tableData = TablerTableData(
+  fun rendersTabwebTableCardWithoutCardBody() = runTest {
+    val tableData = TabwebTableData(
       columns = listOf(
-        TablerTableColumn("Name"),
-        TablerTableColumn("Role"),
+        TabwebTableColumn("Name"),
+        TabwebTableColumn("Role"),
       ),
       rows = listOf(
-        TablerTableRow(
+        TabwebTableRow(
           cells = listOf(
-            TablerTableCell.Text("Alice"),
-            TablerTableCell.Text("Engineer", muted = true),
+            TabwebTableCell.Text("Alice"),
+            TabwebTableCell.Text("Engineer", muted = true),
           ),
         ),
       ),
     )
 
-    val pagination = TablerPaginationData(
+    val pagination = TabwebPaginationData(
       currentPage = 1,
       totalPages = 5,
       pageSize = 10,
@@ -162,7 +162,7 @@ class TableTest {
     )
 
     composition {
-      TablerTableCard(
+      TabwebTableCard(
         title = "Team Members",
         subtitle = "Current active staff",
         data = tableData,

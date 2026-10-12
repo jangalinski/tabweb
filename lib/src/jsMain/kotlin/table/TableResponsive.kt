@@ -26,4 +26,4 @@ enum class TableResponsive(internal val modifier: Modifier) {
 /**
  * Backward compatibility alias for [TableResponsive].
  */
-typealias TablerTableResponsive = TableResponsive
+typealias TabwebTableResponsive = TableResponsive

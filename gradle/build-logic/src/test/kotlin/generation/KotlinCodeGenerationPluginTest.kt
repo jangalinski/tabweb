@@ -19,7 +19,7 @@ class KotlinCodeGenerationPluginTest {
 
     val task = project.tasks.findByName("generateKotlinCode")
     assertThat(task?.group).isEqualTo("generation")
-    assertThat(task?.description).isEqualTo("Generates Kotlin code for Tabler CSS.")
+    assertThat(task?.description).isEqualTo("Generates Kotlin code for Tabweb CSS.")
     assertThat(project.tasks.names).contains("generateKotlinCode")
   }
 

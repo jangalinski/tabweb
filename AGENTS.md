@@ -22,9 +22,9 @@ This repository is a Kotlin Multiplatform Kobweb component library with a Tagess
 
 ## Table And Pagination Notes
 
-- `TablerTable(data: TablerTableData)` is the data/configuration API and must remain backward compatible.
-- Rich structured table cells belong in the sealed `TablerTableCell` model.
-- Arbitrary composable cell content belongs in the `TablerTable { header { } row { cell { } } }` DSL overload.
+- `TabwebTable(data: TabwebTableData)` is the data/configuration API and must remain backward compatible.
+- Rich structured table cells belong in the sealed `TabwebTableCell` model.
+- Arbitrary composable cell content belongs in the `TabwebTable { header { } row { cell { } } }` DSL overload.
 - Pagination is a table-card sub-feature. Do not add a standalone pagination component unless the user explicitly changes that decision.
 - Pagination must work in a generated static site without a backend server. This means client-side state and `onPageChange` handlers are expected; pure HTML with JavaScript disabled is not a supported interactive mode.
 
@@ -40,16 +40,16 @@ approval rules.
 .agents/bin/gradlew-agent jsBrowserTest --console=plain
 ```
 
-- Tagessieg example compile:
+- Site compile:
 
 ```bash
-.agents/bin/gradlew-agent -p _examples :tagessieg:compileKotlinJs --console=plain
+.agents/bin/gradlew-agent :site:compileKotlinJs --console=plain
 ```
 
-- Tagessieg static export:
+- Site static export:
 
 ```bash
-.agents/bin/gradlew-agent -p _examples :tagessieg:kobwebExport --console=plain
+.agents/bin/gradlew-agent :site:kobwebExport --console=plain
 ```
 
 - Whitespace check:

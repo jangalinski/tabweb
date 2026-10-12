@@ -1,7 +1,7 @@
 package com.github.jangalinski.tabweb.button
 
 /**
- * Enumerates the Tabler theme, palette, and social colors available to a [Button].
+ * Enumerates the Tabweb theme, palette, and social colors available to a [Button].
  */
 enum class ButtonColor(private val className: String) {
   PRIMARY("primary"),
@@ -54,7 +54,7 @@ enum class ButtonColor(private val className: String) {
     val THEME = listOf(PRIMARY, SECONDARY, SUCCESS, WARNING, DANGER, INFO, DARK, LIGHT)
 
     /**
-     * Additional Tabler palette colors.
+     * Additional Tabweb palette colors.
      */
     val PALETTE = listOf(BLUE, AZURE, INDIGO, PURPLE, PINK, RED, ORANGE, YELLOW, LIME, GREEN, TEAL, CYAN)
 

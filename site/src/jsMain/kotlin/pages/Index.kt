@@ -20,10 +20,10 @@ import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
 import com.github.jangalinski.tabweb.avatar.Avatar
 import com.github.jangalinski.tabweb.element.Status
 import com.github.jangalinski.tabweb.element.Tracking
-import com.github.jangalinski.tabweb.icon.TablerIcon
-import com.github.jangalinski.tabweb.icon.TablerIcon.TI_BRAND_GITHUB
-import com.github.jangalinski.tabweb.icon.TablerIcon.TI_FOOTSTEPS
-import com.github.jangalinski.tabweb.link.TablerLink
+import com.github.jangalinski.tabweb.icon.TabwebIcon
+import com.github.jangalinski.tabweb.icon.TabwebIcon.TI_BRAND_GITHUB
+import com.github.jangalinski.tabweb.icon.TabwebIcon.TI_FOOTSTEPS
+import com.github.jangalinski.tabweb.link.TabwebLink
 import com.github.jangalinski.tabweb.site.SiteRoutes
 import com.github.jangalinski.tabweb.site.chart.SiteChart
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -87,7 +87,7 @@ fun Index() {
       body {
         KH1(modifier = ClassNames.h1Mb2.modifier()) { KText("24") }
         KP(modifier = ClassNames.textSecondaryM0.modifier()) {
-          KText("Low-level Tabler elements")
+          KText("Low-level Tabweb elements")
         }
       }
     }
@@ -101,10 +101,10 @@ fun Index() {
           }
         }
         P {
-          TablerLink(href = "https://jangalinski.github.io/tabweb/docs/")
+          TabwebLink(href = "https://jangalinski.github.io/tabweb/docs/")
         }
         P {
-          TablerLink(href = SiteRoutes.Elements)
+          TabwebLink(href = SiteRoutes.Elements)
         }
       }
     }
@@ -113,7 +113,7 @@ fun Index() {
       header(title = "Icons")
       body {
         Avatar(Image.Resource("/avatars/jan-g-avatar.png"))()
-        Avatar(TablerIcon.TI_HOME)()
+        Avatar(TabwebIcon.TI_HOME)()
         Avatar(Initials("JGX"))()
 
         Image.Resource(
@@ -137,7 +137,7 @@ fun Index() {
     }
 
     card(width = HALF) {
-      header(title = "Service availability", subtitle = "Tracking blocks with Tabler tooltips.")
+      header(title = "Service availability", subtitle = "Tracking blocks with Tabweb tooltips.")
       body {
         KP {
           KText("Hover over a day to see its status. Open another page and return here to compare tooltip behavior after navigation.")
@@ -180,7 +180,7 @@ fun Index() {
   card(width = GridWidth.FULL) {
     header(title = "Colors")
     body {
-      Text("The Tabler color palette with base colors, light variants, the gray scale and social brand colors, each with background and text utilities.")
+      Text("The Tabweb color palette with base colors, light variants, the gray scale and social brand colors, each with background and text utilities.")
 
       divider(text = "Color palette")
 
@@ -207,7 +207,7 @@ fun Index() {
       divider()
 
       H3 { Text("Gray palette") }
-      Text("The gray scale is used for backgrounds, borders and muted text. Tabler ships several gray palettes and switches between them with data-bs-theme-base.")
+      Text("The gray scale is used for backgrounds, borders and muted text. Tabweb ships several gray palettes and switches between them with data-bs-theme-base.")
 
       KDiv(modifier = Modifier.classNames("row", "row-cols-4", "row-cols-md-6", "g-3", "g-md-4")) {
         BackgroundColor.GRAY.entries.forEach { color ->

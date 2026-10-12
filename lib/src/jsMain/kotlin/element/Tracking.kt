@@ -12,9 +12,9 @@ import com.github.jangalinski.tabweb._foundation.plus
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**
- * Renders Tabler's compact activity-monitoring display.
+ * Renders Tabweb's compact activity-monitoring display.
  *
- * When a [Tracking.Block.text] is supplied, the block is configured for Tabler's top-positioned
+ * When a [Tracking.Block.text] is supplied, the block is configured for Tabweb's top-positioned
  * Bootstrap tooltip and retains its native `title` text as a non-JavaScript fallback.
  *
  * https://docs.tabler.io/ui/components/tracking

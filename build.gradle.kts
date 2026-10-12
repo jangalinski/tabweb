@@ -1,9 +1,9 @@
 import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin
 import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension
-import com.github.jangalinski.tabweb.gradle.buildlogic.TablerCssDocumentationExtension
+import com.github.jangalinski.tabweb.gradle.buildlogic.TabwebCssDocumentationExtension
 
 plugins {
-  id("com.github.jangalinski.tabweb.buildlogic.tabler-css-documentation")
+  id("com.github.jangalinski.tabweb.buildlogic.tabweb-css-documentation")
   alias(libs.plugins.kotlin.multiplatform) apply false
   alias(libs.plugins.compose.compiler) apply false
   alias(libs.plugins.detekt) apply false
@@ -13,7 +13,7 @@ plugins {
   alias(libs.plugins.kobweb.library) apply false
 }
 
-extensions.configure<TablerCssDocumentationExtension> {
+extensions.configure<TabwebCssDocumentationExtension> {
   tablerVersion.set(libs.versions.cdn.tabler.core)
 }
 

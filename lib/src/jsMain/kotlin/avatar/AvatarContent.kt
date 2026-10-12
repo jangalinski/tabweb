@@ -1,6 +1,6 @@
 package com.github.jangalinski.tabweb.avatar
 
-import com.github.jangalinski.tabweb._foundation.Tabler
+import com.github.jangalinski.tabweb._foundation.Tabweb
 import com.github.jangalinski.tabweb._foundation.TabwebComponent
 import com.github.jangalinski.tabweb._foundation.TabwebContent
 import com.github.jangalinski.tabweb._foundation.TabwebFoundationComponent

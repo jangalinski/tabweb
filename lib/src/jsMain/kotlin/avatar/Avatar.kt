@@ -3,7 +3,7 @@ package com.github.jangalinski.tabweb.avatar
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb._foundation.Image
 import com.github.jangalinski.tabweb._foundation.Initials
-import com.github.jangalinski.tabweb._foundation.Tabler
+import com.github.jangalinski.tabweb._foundation.Tabweb
 import com.github.jangalinski.tabweb._foundation.TabwebComponent
 import com.github.jangalinski.tabweb._foundation.compose.KSpan
 import com.github.jangalinski.tabweb._foundation.css.plus

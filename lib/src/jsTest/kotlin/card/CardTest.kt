@@ -16,7 +16,7 @@ import com.github.jangalinski.tabweb._foundation.compose.KText
 import com.github.jangalinski.tabweb._foundation.css.GridWidth
 import com.github.jangalinski.tabweb._foundation.css.cssClass
 import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
-import com.github.jangalinski.tabweb.icon.TablerIcon
+import com.github.jangalinski.tabweb.icon.TabwebIcon
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
 import kotlin.test.Test
@@ -124,7 +124,7 @@ class CardTest {
       card(
         status = CardStatus.top(BackgroundColor.SEMANTIC.DANGER),
         ribbon = CardRibbon(text = "NEW", color = BackgroundColor.SEMANTIC.SUCCESS, position = CardRibbonPosition.TOP),
-        stamp = CardStamp(icon = TablerIcon.TI_STAR, color = BackgroundColor.BASE.YELLOW, size = CardStampSize.LG),
+        stamp = CardStamp(icon = TabwebIcon.TI_STAR, color = BackgroundColor.BASE.YELLOW, size = CardStampSize.LG),
         progress = CardProgress(value = 45, color = BackgroundColor.SEMANTIC.PRIMARY),
       ) {
         body {

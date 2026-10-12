@@ -50,7 +50,7 @@ internal data object TableDsl : TabwebComponentDsl, TableComposable {
   }
 
   @Composable
-  override fun table(data: TablerTableData, modifier: Modifier) {
-    TablerTable(data = data, modifier = modifier)
+  override fun table(data: TabwebTableData, modifier: Modifier) {
+    TabwebTable(data = data, modifier = modifier)
   }
 }

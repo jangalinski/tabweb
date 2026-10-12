@@ -14,10 +14,10 @@ import org.w3c.dom.events.MouseEvent
 import kotlin.js.json
 
 /**
- * Adds a Tabler tooltip without occupying the element's `data-bs-toggle` attribute.
+ * Adds a Tabweb tooltip without occupying the element's `data-bs-toggle` attribute.
  *
  * Initializes the tooltip when the element enters the composition and disposes it when the
- * modifier changes or the element leaves. Requires the Tabler JavaScript bundle to be loaded.
+ * modifier changes or the element leaves. Requires the Tabweb JavaScript bundle to be loaded.
  * Pointer clicks dismiss the tooltip and release focus; keyboard activation retains focus.
  */
 interface Tooltip : AsModifier {

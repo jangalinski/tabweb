@@ -3,7 +3,7 @@ package com.github.jangalinski.tabweb.site.pages
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb.Tabweb.barChart
 import com.github.jangalinski.tabweb.Tabweb.cardDeck
-import com.github.jangalinski.tabweb._foundation.TablerColors
+import com.github.jangalinski.tabweb._foundation.TabwebColors
 import com.github.jangalinski.tabweb._foundation.TabwebDirection
 import com.github.jangalinski.tabweb._foundation.compose.KDiv
 import com.github.jangalinski.tabweb._foundation.css.GridWidth
@@ -26,7 +26,7 @@ private fun barComponent(
   series: List<BarSeries>,
   grouping: BarGrouping = BarGrouping.GROUPED,
   orientation: TabwebDirection.Orientation = TabwebDirection.VERTICAL,
-  colors: List<TablerColors> = listOf(TablerColors.GREEN),
+  colors: List<TabwebColors> = listOf(TabwebColors.GREEN),
 ): BarChart = BarChart(
   categories = barCategories,
   series = series,
@@ -52,8 +52,8 @@ fun BarChartPage() {
         P {
           Text(
             "These examples define the first typed ApexCharts surface: categories, series, " +
-              "orientation, grouping, stacking, labels, and chart height. Tabler supplies the " +
-              "series colors through the typed Tabler palette.",
+              "orientation, grouping, stacking, labels, and chart height. Tabweb supplies the " +
+              "series colors through the typed Tabweb palette.",
           )
         }
       }
@@ -64,7 +64,7 @@ fun BarChartPage() {
         barChart(
           categories = barCategories,
           series = listOf(barSeries("Completed", 12, 18, 16, 24, 21, 29, 33)),
-          colors = listOf(TablerColors.GREEN),
+          colors = listOf(TabwebColors.GREEN),
           dataLabels = true
         )
       }
@@ -76,7 +76,7 @@ fun BarChartPage() {
         barComponent(
           listOf(barSeries("Completed", 12, 18, 16, 24, 21, 29, 33)),
           orientation = TabwebDirection.HORIZONTAL,
-          colors = listOf(TablerColors.ORANGE),
+          colors = listOf(TabwebColors.ORANGE),
         )()
       }
     }
@@ -89,7 +89,7 @@ fun BarChartPage() {
             barSeries("Completed", 12, 18, 16, 24, 21, 29, 33),
             barSeries("Reopened", 5, 7, 6, 10, 8, 11, 9),
           ),
-          colors = listOf(TablerColors.TEAL, TablerColors.PURPLE),
+          colors = listOf(TabwebColors.TEAL, TabwebColors.PURPLE),
         )()
       }
     }
@@ -103,7 +103,7 @@ fun BarChartPage() {
             barSeries("Reopened", 5, 7, 6, 10, 8, 11, 9),
           ),
           grouping = BarGrouping.STACKED,
-          colors = listOf(TablerColors.GREEN, TablerColors.ORANGE),
+          colors = listOf(TabwebColors.GREEN, TabwebColors.ORANGE),
         )()
       }
     }

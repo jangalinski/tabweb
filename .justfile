@@ -6,7 +6,7 @@ _list:
 
 # Refresh the local Tabler preview reference from its private source repository. The snapshot is intentionally ignored by Git and is only used for local HTML and CSS comparisons.
 [group("project")]
-fetch-tabler-preview:
+fetch-tabweb-preview:
     #!/usr/bin/env zsh
     set -euo pipefail
     tmp_dir="$(mktemp -d)"
@@ -88,8 +88,8 @@ generate-dokka-markdown:
 
 # tabler icon from css
 [group("project")]
-generate-tabler-icon:
-    @./gradlew --no-daemon --no-watch-fs --console=plain :lib:generateTablerIcon
+generate-tabweb-icon:
+    @./gradlew --no-daemon --no-watch-fs --console=plain :lib:generateTabwebIcon
 
 # generate kotlin code for tabler css
 [group("project")]
@@ -98,8 +98,8 @@ generate-kotlin-code:
 
 # Generate the complete, version-pinned Tabler CSS reference for API planning.
 [group("project")]
-generate-tabler-css-docs:
-    @.agents/bin/gradlew-agent --no-watch-fs --console=plain generateTablerCssDocumentation
+generate-tabweb-css-docs:
+    @.agents/bin/gradlew-agent --no-watch-fs --console=plain generateTabwebCssDocumentation
 
 # build project
 [group("gradle")]
@@ -109,7 +109,7 @@ build:
 # evaluate detekt rules
 [group("gradle")]
 detekt strict="false":
-    ./gradlew --no-daemon --no-watch-fs --console=plain :lib:check -PtablerDetekt.strict={{ strict }} --rerun-tasks
+    ./gradlew --no-daemon --no-watch-fs --console=plain :lib:check -PtabwebDetekt.strict={{ strict }} --rerun-tasks
 
 # Export the documentation site from an isolated temporary Kobweb project so an existing run-site server can keep running.
 [group("site")]

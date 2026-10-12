@@ -5,7 +5,7 @@ import assertk.assertions.contains
 import assertk.assertions.isEqualTo
 import com.github.jangalinski.tabweb.Tabweb.button
 import com.github.jangalinski.tabweb.Tabweb.buttons
-import com.github.jangalinski.tabweb.icon.TablerIcon
+import com.github.jangalinski.tabweb.icon.TabwebIcon
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
 import kotlin.test.Test
@@ -20,7 +20,7 @@ class ButtonTest {
       button(text = "Outline", color = ButtonColor.GREEN, style = ButtonStyle.OUTLINE, size = ButtonSize.LARGE)
       buttons {
         button(text = "Pill", color = ButtonColor.PURPLE, shape = ButtonShape.PILL)
-        button(text = "Right", icon = TablerIcon.TI_ARROW_RIGHT, iconPosition = ButtonIconPosition.RIGHT)
+        button(text = "Right", icon = TabwebIcon.TI_ARROW_RIGHT, iconPosition = ButtonIconPosition.RIGHT)
       }
     }
 
@@ -34,13 +34,14 @@ class ButtonTest {
     assertThat(html).contains("btn-list")
     assertThat(html).contains("btn-pill")
     assertThat(html).contains("ti-arrow-right")
+    assertThat(html).contains("ti-arrow-right ms-2")
     assertThat(root.querySelectorAll("button.btn").length).isEqualTo(4)
   }
 
   @Test
   fun rendersAccessibleIconOnlyAndLoadingButtons() = runTest {
     composition {
-      Button(icon = TablerIcon.TI_STAR, ariaLabel = "Favorite", color = ButtonColor.YELLOW)()
+      Button(icon = TabwebIcon.TI_STAR, ariaLabel = "Favorite", color = ButtonColor.YELLOW)()
       Button(text = "Saving", loading = true)()
     }
 

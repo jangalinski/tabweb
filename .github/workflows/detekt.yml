@@ -33,7 +33,7 @@ jobs:
         run: >
           ./gradlew
           :lib:detektJsMainSourceSet
-          -PtablerDetekt.strict=true
+          -PtabwebDetekt.strict=true
           --no-daemon
           --console=plain
 

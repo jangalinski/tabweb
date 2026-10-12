@@ -10,7 +10,7 @@ import com.github.jangalinski.tabweb.button.ButtonIconPosition
 import com.github.jangalinski.tabweb.button.ButtonShape
 import com.github.jangalinski.tabweb.button.ButtonSize
 import com.github.jangalinski.tabweb.button.ButtonStyle
-import com.github.jangalinski.tabweb.icon.TablerIcon
+import com.github.jangalinski.tabweb.icon.TabwebIcon
 import com.github.jangalinski.tabweb.site.SiteRoutes
 import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -25,9 +25,9 @@ fun ButtonsPage() {
       body {
         buttons {
           button(text = "Button")
-          button(text = "Left icon", icon = TablerIcon.TI_STAR)
-          button(text = "Right icon", icon = TablerIcon.TI_ARROW_RIGHT, iconPosition = ButtonIconPosition.RIGHT)
-          button(icon = TablerIcon.TI_STAR, ariaLabel = "Icon only")
+          button(text = "Left icon", icon = TabwebIcon.TI_STAR)
+          button(text = "Right icon", icon = TabwebIcon.TI_ARROW_RIGHT, iconPosition = ButtonIconPosition.RIGHT)
+          button(icon = TabwebIcon.TI_STAR, ariaLabel = "Icon only")
         }
       }
     }
@@ -38,9 +38,9 @@ fun ButtonsPage() {
           button(text = "Default")
           button(text = "Pill", shape = ButtonShape.PILL)
           button(text = "Square", shape = ButtonShape.SQUARE)
-          button(icon = TablerIcon.TI_STAR, ariaLabel = "Default icon")
-          button(icon = TablerIcon.TI_STAR, ariaLabel = "Pill icon", shape = ButtonShape.PILL)
-          button(icon = TablerIcon.TI_STAR, ariaLabel = "Square icon", shape = ButtonShape.SQUARE)
+          button(icon = TabwebIcon.TI_STAR, ariaLabel = "Default icon")
+          button(icon = TabwebIcon.TI_STAR, ariaLabel = "Pill icon", shape = ButtonShape.PILL)
+          button(icon = TabwebIcon.TI_STAR, ariaLabel = "Square icon", shape = ButtonShape.SQUARE)
         }
       }
     }
@@ -60,8 +60,8 @@ fun ButtonsPage() {
           ButtonSize.entries.forEach { size ->
             buttons {
               button(text = "Button", size = size)
-              button(icon = TablerIcon.TI_STAR, ariaLabel = "${size.name.lowercase()} icon", size = size)
-              button(text = "Icon", icon = TablerIcon.TI_STAR, size = size)
+              button(icon = TabwebIcon.TI_STAR, ariaLabel = "${size.name.lowercase()} icon", size = size)
+              button(text = "Icon", icon = TabwebIcon.TI_STAR, size = size)
             }
           }
         }
@@ -131,11 +131,11 @@ fun ButtonsPage() {
       header(title = "Social colors")
       body {
         buttons {
-          button(text = "Facebook", icon = TablerIcon.TI_BRAND_FACEBOOK, color = ButtonColor.FACEBOOK)
-          button(text = "X", icon = TablerIcon.TI_BRAND_X, color = ButtonColor.X)
-          button(text = "LinkedIn", icon = TablerIcon.TI_BRAND_LINKEDIN, color = ButtonColor.LINKEDIN)
-          button(text = "GitHub", icon = TablerIcon.TI_BRAND_GITHUB, color = ButtonColor.GITHUB)
-          button(text = "YouTube", icon = TablerIcon.TI_BRAND_YOUTUBE, color = ButtonColor.YOUTUBE)
+          button(text = "Facebook", icon = TabwebIcon.TI_BRAND_FACEBOOK, color = ButtonColor.FACEBOOK)
+          button(text = "X", icon = TabwebIcon.TI_BRAND_X, color = ButtonColor.X)
+          button(text = "LinkedIn", icon = TabwebIcon.TI_BRAND_LINKEDIN, color = ButtonColor.LINKEDIN)
+          button(text = "GitHub", icon = TabwebIcon.TI_BRAND_GITHUB, color = ButtonColor.GITHUB)
+          button(text = "YouTube", icon = TabwebIcon.TI_BRAND_YOUTUBE, color = ButtonColor.YOUTUBE)
         }
       }
     }
@@ -143,14 +143,14 @@ fun ButtonsPage() {
       header(title = "Icon buttons")
       body {
         buttons {
-          button(icon = TablerIcon.TI_BRAND_FACEBOOK, ariaLabel = "Facebook", color = ButtonColor.FACEBOOK)
-          button(icon = TablerIcon.TI_BRAND_TWITTER, ariaLabel = "Twitter", color = ButtonColor.TWITTER)
-          button(icon = TablerIcon.TI_BRAND_X, ariaLabel = "X", color = ButtonColor.X)
-          button(icon = TablerIcon.TI_BRAND_LINKEDIN, ariaLabel = "LinkedIn", color = ButtonColor.LINKEDIN)
-          button(icon = TablerIcon.TI_BRAND_GOOGLE, ariaLabel = "Google", color = ButtonColor.GOOGLE)
-          button(icon = TablerIcon.TI_BRAND_YOUTUBE, ariaLabel = "YouTube", color = ButtonColor.YOUTUBE)
-          button(icon = TablerIcon.TI_BRAND_GITHUB, ariaLabel = "GitHub", color = ButtonColor.GITHUB)
-          button(icon = TablerIcon.TI_BRAND_INSTAGRAM, ariaLabel = "Instagram", color = ButtonColor.INSTAGRAM)
+          button(icon = TabwebIcon.TI_BRAND_FACEBOOK, ariaLabel = "Facebook", color = ButtonColor.FACEBOOK)
+          button(icon = TabwebIcon.TI_BRAND_TWITTER, ariaLabel = "Twitter", color = ButtonColor.TWITTER)
+          button(icon = TabwebIcon.TI_BRAND_X, ariaLabel = "X", color = ButtonColor.X)
+          button(icon = TabwebIcon.TI_BRAND_LINKEDIN, ariaLabel = "LinkedIn", color = ButtonColor.LINKEDIN)
+          button(icon = TabwebIcon.TI_BRAND_GOOGLE, ariaLabel = "Google", color = ButtonColor.GOOGLE)
+          button(icon = TabwebIcon.TI_BRAND_YOUTUBE, ariaLabel = "YouTube", color = ButtonColor.YOUTUBE)
+          button(icon = TabwebIcon.TI_BRAND_GITHUB, ariaLabel = "GitHub", color = ButtonColor.GITHUB)
+          button(icon = TabwebIcon.TI_BRAND_INSTAGRAM, ariaLabel = "Instagram", color = ButtonColor.INSTAGRAM)
         }
       }
     }

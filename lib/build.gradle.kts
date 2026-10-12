@@ -7,10 +7,10 @@ import kotlinx.html.script
 import kotlinx.html.style
 
 val TABWEB = "tabweb"
-val strictDetekt = providers.gradleProperty("tablerDetekt.strict")
+val strictDetekt = providers.gradleProperty("tabwebDetekt.strict")
   .map { value ->
     value.toBooleanStrictOrNull()
-      ?: error("tablerDetekt.strict must be true or false, but was '$value'.")
+      ?: error("tabwebDetekt.strict must be true or false, but was '$value'.")
   }
   .getOrElse(false)
 
@@ -116,7 +116,7 @@ dokka {
       }
     )
     suppressedFiles.from(
-      file("src/jsMain/kotlin/icon/TablerIcon.kt")
+      file("src/jsMain/kotlin/icon/TabwebIcon.kt")
     )
   }
 }

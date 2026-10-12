@@ -74,7 +74,7 @@ interface AvatarComposable : TabwebComposable{
   /**
    * Creates and renders an [AvatarList] from typed child declarations.
    *
-   * @param stacked whether child avatars overlap in the Tabler stacked-list layout.
+   * @param stacked whether child avatars overlap in the Tabweb stacked-list layout.
    * @param size the size applied to every avatar in the list.
    * @param modifier additional attributes and styles applied to the list root.
    * @param content the DSL block that adds avatars to the list.

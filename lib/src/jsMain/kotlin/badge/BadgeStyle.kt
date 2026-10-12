@@ -5,7 +5,7 @@ import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**
- * Enumerates the supported Tabler visual treatments for a [Badge].
+ * Enumerates the supported Tabweb visual treatments for a [Badge].
  */
 enum class BadgeStyle {
   /**

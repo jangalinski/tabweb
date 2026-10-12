@@ -1,7 +1,7 @@
 package com.github.jangalinski.tabweb.chart
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.tabweb._foundation.TablerColors
+import com.github.jangalinski.tabweb._foundation.TabwebColors
 import com.github.jangalinski.tabweb._foundation.TabwebComposable
 import com.github.jangalinski.tabweb._foundation.TabwebDirection.Orientation
 import com.github.jangalinski.tabweb._foundation.TabwebDirection.VERTICAL
@@ -27,7 +27,7 @@ interface ChartComposable : TabwebComposable {
    * @param height chart height passed to ApexCharts.
    * @param dataLabels whether values are rendered on the bars.
    * @param borderRadius border radius applied to bars.
-   * @param colors Tabler colors assigned to the series in order.
+   * @param colors Tabweb colors assigned to the series in order.
    * @param modifier additional attributes and styles applied to the chart root.
    * @return `Unit` after the chart has been emitted into the current composition.
    */
@@ -40,12 +40,12 @@ interface ChartComposable : TabwebComposable {
     height: CSSLengthValue = 240.px,
     dataLabels: Boolean = false,
     borderRadius: Int = 3,
-    colors: List<TablerColors> = listOf(
-      TablerColors.BLUE,
-      TablerColors.GREEN,
-      TablerColors.AZURE,
-      TablerColors.PURPLE,
-      TablerColors.ORANGE,
+    colors: List<TabwebColors> = listOf(
+      TabwebColors.BLUE,
+      TabwebColors.GREEN,
+      TabwebColors.AZURE,
+      TabwebColors.PURPLE,
+      TabwebColors.ORANGE,
     ),
     modifier: Modifier = Modifier,
   )

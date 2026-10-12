@@ -1,17 +1,18 @@
 package com.github.jangalinski.tabweb.button
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.tabweb._foundation.Tabler
+import com.github.jangalinski.tabweb._foundation.Tabweb
 import com.github.jangalinski.tabweb._foundation.TabwebComponent
 import com.github.jangalinski.tabweb._foundation.ariaLabel
 import com.github.jangalinski.tabweb._foundation.compose.KButton
 import com.github.jangalinski.tabweb._foundation.compose.KSpan
+import com.github.jangalinski.tabweb._foundation.css.cssClass
 import com.github.jangalinski.tabweb._foundation.css.plus
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.attr
 
 /**
- * A Tabler button for invoking a user action.
+ * A Tabweb button for invoking a user action.
  */
 interface Button : TabwebComponent {
   companion object {
@@ -23,7 +24,7 @@ interface Button : TabwebComponent {
      * @param style visual treatment for the button.
      * @param size size of the button.
      * @param shape corner shape for the button.
-     * @param loading whether the button shows the Tabler loading indicator and is disabled.
+     * @param loading whether the button shows the Tabweb loading indicator and is disabled.
      * @param disabled whether the button is disabled.
      * @return a configured [Button] component instance.
      */
@@ -55,7 +56,7 @@ interface Button : TabwebComponent {
      * @param style visual treatment for the button.
      * @param size size of the button.
      * @param shape corner shape for the button.
-     * @param loading whether the button shows the Tabler loading indicator and is disabled.
+     * @param loading whether the button shows the Tabweb loading indicator and is disabled.
      * @param disabled whether the button is disabled.
      * @return a configured [Button] component instance.
      */
@@ -88,7 +89,7 @@ interface Button : TabwebComponent {
      * @param style visual treatment for the button.
      * @param size size of the button.
      * @param shape corner shape for the button.
-     * @param loading whether the button shows the Tabler loading indicator and is disabled.
+     * @param loading whether the button shows the Tabweb loading indicator and is disabled.
      * @param disabled whether the button is disabled.
      * @return a configured [Button] component instance.
      */
@@ -156,7 +157,7 @@ interface Button : TabwebComponent {
   val shape: ButtonShape
 
   /**
-   * Whether the button displays Tabler's loading treatment.
+   * Whether the button displays Tabweb's loading treatment.
    */
   val loading: Boolean
 
@@ -179,9 +180,9 @@ interface Button : TabwebComponent {
       when (val content = content) {
         is ButtonContent.Text -> KSpan(text = content.value)
         is ButtonContent.TextWithIcon -> {
-          if (content.position == ButtonIconPosition.LEFT) content.icon()
+          if (content.position == ButtonIconPosition.LEFT) content.icon(cssClass("me-2"))
           KSpan(text = content.text)
-          if (content.position == ButtonIconPosition.RIGHT) content.icon()
+          if (content.position == ButtonIconPosition.RIGHT) content.icon(cssClass("ms-2"))
         }
         is ButtonContent.IconOnly -> {
           content.icon()

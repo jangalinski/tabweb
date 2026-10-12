@@ -45,7 +45,7 @@ interface ApexChart : TabwebComponent {
       val element = document.getElementById(chartId)
         ?: error("Chart container '$chartId' was not found")
       check(js("typeof ApexCharts !== 'undefined'") as Boolean) {
-        "ApexCharts is not loaded; check the Tabler CDN script"
+        "ApexCharts is not loaded; check the Tabweb CDN script"
       }
       val chart = ApexCharts(element, options).apply {
         render()

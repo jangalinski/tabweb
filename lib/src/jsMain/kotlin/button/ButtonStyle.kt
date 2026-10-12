@@ -1,7 +1,7 @@
 package com.github.jangalinski.tabweb.button
 
 /**
- * Enumerates the supported Tabler visual treatments for a [Button].
+ * Enumerates the supported Tabweb visual treatments for a [Button].
  */
 enum class ButtonStyle {
   SOLID,

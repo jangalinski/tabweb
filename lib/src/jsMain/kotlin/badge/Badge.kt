@@ -13,7 +13,7 @@ import com.github.jangalinski.tabweb.icon.Icon
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**
- * A small Tabler label used to show a status, count, or tag.
+ * A small Tabweb label used to show a status, count, or tag.
  */
 interface Badge : TabwebComponent {
   companion object {

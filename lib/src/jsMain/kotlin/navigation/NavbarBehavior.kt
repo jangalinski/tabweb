@@ -12,7 +12,7 @@ enum class NavbarBehavior(
 ) : SideEffectBehavior {
 
   /**
-   * Use Tabler's normal document-flow navbar behavior.
+   * Use Tabweb's normal document-flow navbar behavior.
    */
   DEFAULT(null, null),
 

@@ -21,7 +21,7 @@ import com.github.jangalinski.tabweb.card.CardSize
 import com.github.jangalinski.tabweb.card.CardStamp
 import com.github.jangalinski.tabweb.card.CardStampSize
 import com.github.jangalinski.tabweb.card.CardStatus
-import com.github.jangalinski.tabweb.icon.TablerIcon
+import com.github.jangalinski.tabweb.icon.TabwebIcon
 import com.github.jangalinski.tabweb.site.SiteRoutes
 import com.github.jangalinski.tabweb.site.chart.SiteChart
 import com.github.jangalinski.tabweb.table.TableResponsive
@@ -78,7 +78,7 @@ fun ExtremeCardsPage() {
   cardRow {
     card(
       width = GridWidth.MD_HALF_LG_QUARTER,
-      stamp = CardStamp(TablerIcon.TI_STAR, BackgroundColor.BASE.YELLOW),
+      stamp = CardStamp(TabwebIcon.TI_STAR, BackgroundColor.BASE.YELLOW),
     ) {
       imageTop(photo("extreme-top-stamp"), "Landscape above a stamped card")
       header(title = "Header title", subtitle = "Header subtitle")
@@ -127,7 +127,7 @@ fun ExtremeCardsPage() {
   cardRow {
     card(
       width = GridWidth.LG_HALF,
-      stamp = CardStamp(TablerIcon.TI_CHART_LINE, BackgroundColor.BASE.AZURE, CardStampSize.LG),
+      stamp = CardStamp(TabwebIcon.TI_CHART_LINE, BackgroundColor.BASE.AZURE, CardStampSize.LG),
       status = CardStatus.top(BackgroundColor.SEMANTIC.PRIMARY),
     ) {
       header(title = "Chart + stamp", subtitle = "The watermark occupies chart space")
@@ -147,7 +147,7 @@ fun ExtremeCardsPage() {
         SiteChart("extreme-chart-area", "Visits and orders area chart", { chartOptions("area") })
       }
     }
-    card(width = GridWidth.LG_HALF, stamp = CardStamp(TablerIcon.TI_TABLE, BackgroundColor.BASE.PURPLE)) {
+    card(width = GridWidth.LG_HALF, stamp = CardStamp(TabwebIcon.TI_TABLE, BackgroundColor.BASE.PURPLE)) {
       header(title = "Table + stamp", subtitle = "A dense card with no body wrapper")
       table(cardTable = true, hover = true) {
         header { cell("Plan"); cell("Users"); cell("Revenue") }
@@ -196,7 +196,7 @@ fun ExtremeCardsPage() {
     card(
       width = GridWidth.MD_HALF_LG_QUARTER,
       inactive = true,
-      stamp = CardStamp(TablerIcon.TI_BELL, BackgroundColor.BASE.YELLOW, CardStampSize.LG),
+      stamp = CardStamp(TabwebIcon.TI_BELL, BackgroundColor.BASE.YELLOW, CardStampSize.LG),
     ) {
       imageTop(photo("extreme-inactive"), "Photo in an inactive stamped card")
       header(title = "Inactive image + stamp", subtitle = "Muted content still has a watermark")
@@ -217,7 +217,7 @@ fun ExtremeCardsPage() {
       width = GridWidth.MD_HALF_LG_QUARTER,
       active = true,
       borderless = true,
-      stamp = CardStamp(TablerIcon.TI_STAR, BackgroundColor.BASE.GREEN),
+      stamp = CardStamp(TabwebIcon.TI_STAR, BackgroundColor.BASE.GREEN),
       ribbon = CardRibbon(text = "ACTIVE", position = CardRibbonPosition.BOTTOM),
     ) {
       header(title = "Active + borderless", subtitle = "What does a ribbon attach to?")
@@ -234,7 +234,7 @@ fun ExtremeCardsPage() {
     card(
       width = GridWidth.LG_HALF,
       size = CardSize.LG,
-      stamp = CardStamp(TablerIcon.TI_STAR, BackgroundColor.BASE.ORANGE, CardStampSize.LG),
+      stamp = CardStamp(TabwebIcon.TI_STAR, BackgroundColor.BASE.ORANGE, CardStampSize.LG),
       ribbon = CardRibbon(text = "ALL IN", color = BackgroundColor.SEMANTIC.DANGER),
       status = CardStatus.start(BackgroundColor.SEMANTIC.SUCCESS),
       stacked = true,
@@ -257,7 +257,7 @@ fun ExtremeCardsPage() {
       }
       footer { KText("Footer after everything else") }
     }
-    card(width = GridWidth.LG_HALF, stamp = CardStamp(TablerIcon.TI_BOX, BackgroundColor.BASE.TEAL)) {
+    card(width = GridWidth.LG_HALF, stamp = CardStamp(TabwebIcon.TI_BOX, BackgroundColor.BASE.TEAL)) {
       header(title = "Nested + scrollable", subtitle = "A card containing more cards and long copy")
       body(scrollable = true) {
         title("Body title")
@@ -269,7 +269,7 @@ fun ExtremeCardsPage() {
             imageTop(photo("extreme-nested"), "Photo in a nested card")
             body { KText(lorem) }
           }
-          card(width = GridWidth.LG_HALF, stamp = CardStamp(TablerIcon.TI_STAR, BackgroundColor.BASE.GREEN)) {
+          card(width = GridWidth.LG_HALF, stamp = CardStamp(TabwebIcon.TI_STAR, BackgroundColor.BASE.GREEN)) {
             header(title = "Nested stamp", subtitle = "Inside an already stamped parent")
             body { KText(lorem) }
           }

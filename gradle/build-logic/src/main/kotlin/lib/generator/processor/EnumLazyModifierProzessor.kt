@@ -1,6 +1,6 @@
 package com.github.jangalinski.tabweb.gradle.buildlogic.lib.generator.processor
 
-import com.github.jangalinski.tabweb.gradle.buildlogic.lib.generator.TablerContext
+import com.github.jangalinski.tabweb.gradle.buildlogic.lib.generator.TabwebContext
 import com.github.jangalinski.tabweb.gradle.buildlogic.lib.generator.TabwebLibGenerator.Companion.MODIFIER_CLASS_NAMES
 import com.github.jangalinski.tabweb.gradle.buildlogic.lib.generator.TabwebLibGenerator.Companion.MODIFIER_TYPE
 import com.squareup.kotlinpoet.*
@@ -10,7 +10,7 @@ import io.toolisticon.kotlin.generation.builder.KotlinEnumClassSpecBuilder
 import io.toolisticon.kotlin.generation.spi.processor.KotlinEnumClassSpecProcessor
 
 @OptIn(ExperimentalKotlinPoetApi::class)
-class EnumLazyModifierProzessor : KotlinEnumClassSpecProcessor<TablerContext, String>(TablerContext::class, String::class) {
+class EnumLazyModifierProzessor : KotlinEnumClassSpecProcessor<TabwebContext, String>(TabwebContext::class, String::class) {
   val rType = TypeVariableName("R")
   val modifierElement = ClassName("com.varabyte.kobweb.compose.ui", "Modifier", "Element")
   val operationLambda = LambdaTypeName.get(
@@ -19,7 +19,7 @@ class EnumLazyModifierProzessor : KotlinEnumClassSpecProcessor<TablerContext, St
   )
 
   override fun invoke(
-    context: TablerContext,
+    context: TabwebContext,
     input: String,
     builder: KotlinEnumClassSpecBuilder
   ): KotlinEnumClassSpecBuilder = builder.apply {

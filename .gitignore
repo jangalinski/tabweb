@@ -6,13 +6,10 @@ java_pid*.hprof
 
 gradle/kotlin-js-store/
 
-_examples/gradle/kotlin-js-store/
-_examples/.idea/
-
 **/.kobweb/server/
 **/.kobweb/site/
 
-# Local-only Tabler preview reference; refresh with `just fetch-tabler-preview`.
+# Local-only Tabler preview reference; refresh with `just fetch-tabweb-preview`.
 docs/preview.tabler.io/
 
 # Local-only KotlinBootstrap reference; refresh with `just fetch-kobweb-bootstrap`.
@@ -28,7 +25,7 @@ docs/kobweb-bootstrap/
 # Kotlin ignores
 .kotlin/
 __pycache__/
-lib/.generated
+.generated
 
 .junie/
 .env.agent

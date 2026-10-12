@@ -9,19 +9,19 @@ import com.github.jangalinski.tabweb.button.ButtonShape
 import com.github.jangalinski.tabweb.button.ButtonSize
 import com.github.jangalinski.tabweb.button.ButtonStyle
 import com.github.jangalinski.tabweb.icon.Icon
-import com.github.jangalinski.tabweb.icon.TablerIcon
+import com.github.jangalinski.tabweb.icon.TabwebIcon
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.attr
 
 /**
- * A [Button] widget that triggers Tabler's confetti shower effect when clicked.
+ * A [Button] widget that triggers Tabweb's confetti shower effect when clicked.
  *
  * @param content typed text or icon content rendered by the button.
  * @param color theme, palette, or social color applied to the button.
  * @param style visual treatment for the button.
  * @param size size of the button.
  * @param shape corner shape for the button.
- * @param loading whether the button displays Tabler's loading indicator and is disabled.
+ * @param loading whether the button displays Tabweb's loading indicator and is disabled.
  * @param disabled whether the button is disabled.
  * @param count number of confetti pieces poured.
  * @param duration duration of the confetti shower in milliseconds.
@@ -31,7 +31,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.attr
  */
 data class ConfettiButton(
   override val content: ButtonContent = ButtonContent.IconOnly(
-    icon = TablerIcon.TI_CONFETTI,
+    icon = TabwebIcon.TI_CONFETTI,
     ariaLabel = "Confetti button",
   ),
   override val color: ButtonColor = ButtonColor.LIGHT,
@@ -56,7 +56,7 @@ data class ConfettiButton(
      * @param style visual treatment for the button.
      * @param size size of the button.
      * @param shape corner shape for the button.
-     * @param loading whether the button shows the Tabler loading indicator and is disabled.
+     * @param loading whether the button shows the Tabweb loading indicator and is disabled.
      * @param disabled whether the button is disabled.
      * @param count number of confetti pieces poured.
      * @param duration duration of the confetti shower in milliseconds.
@@ -103,7 +103,7 @@ data class ConfettiButton(
      * @param style visual treatment for the button.
      * @param size size of the button.
      * @param shape corner shape for the button.
-     * @param loading whether the button shows the Tabler loading indicator and is disabled.
+     * @param loading whether the button shows the Tabweb loading indicator and is disabled.
      * @param disabled whether the button is disabled.
      * @param count number of confetti pieces poured.
      * @param duration duration of the confetti shower in milliseconds.
@@ -151,7 +151,7 @@ data class ConfettiButton(
      * @param style visual treatment for the button.
      * @param size size of the button.
      * @param shape corner shape for the button.
-     * @param loading whether the button shows the Tabler loading indicator and is disabled.
+     * @param loading whether the button shows the Tabweb loading indicator and is disabled.
      * @param disabled whether the button is disabled.
      * @param count number of confetti pieces poured.
      * @param duration duration of the confetti shower in milliseconds.
@@ -161,7 +161,7 @@ data class ConfettiButton(
      * @return a configured [ConfettiButton] component instance.
      */
     operator fun invoke(
-      icon: Icon = TablerIcon.TI_CONFETTI,
+      icon: Icon = TabwebIcon.TI_CONFETTI,
       ariaLabel: String = "Confetti button",
       color: ButtonColor = ButtonColor.LIGHT,
       style: ButtonStyle = ButtonStyle.DEFAULT,

@@ -4,7 +4,7 @@ import com.github.jangalinski.tabweb._foundation.css.cssClass
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**
- * Tabler semantic background variants for table rows.
+ * Tabweb semantic background variants for table rows.
  */
 enum class TableRowVariant(internal val modifier: Modifier) {
   PRIMARY(cssClass("table-primary")),
@@ -21,4 +21,4 @@ enum class TableRowVariant(internal val modifier: Modifier) {
 /**
  * Backward compatibility alias for [TableRowVariant].
  */
-typealias TablerTableRowVariant = TableRowVariant
+typealias TabwebTableRowVariant = TableRowVariant

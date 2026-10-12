@@ -8,7 +8,7 @@ import com.github.jangalinski.tabweb._foundation.takeIf
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**
- * A Tabler avatar list component keeps all [Avatar]s in the same line together.
+ * A Tabweb avatar list component keeps all [Avatar]s in the same line together.
  */
 interface AvatarList : TabwebComponent {
   companion object {
@@ -16,7 +16,7 @@ interface AvatarList : TabwebComponent {
      * Creates a list containing one configured [Avatar].
      *
      * @param avatars the single avatar in the list.
-     * @param stacked whether child avatars overlap in the Tabler stacked-list layout.
+     * @param stacked whether child avatars overlap in the Tabweb stacked-list layout.
      * @param size the size applied to every avatar in the list.
      * @return an [AvatarList] containing [avatars].
      */
@@ -29,7 +29,7 @@ interface AvatarList : TabwebComponent {
     /**
      * Creates a list containing the supplied avatars.
      *
-     * @param stacked whether child avatars overlap in the Tabler stacked-list layout.
+     * @param stacked whether child avatars overlap in the Tabweb stacked-list layout.
      * @param size the size applied to every avatar in the list.
      * @param avatars the avatars in display order.
      * @return an [AvatarList] containing [avatars].
@@ -43,7 +43,7 @@ interface AvatarList : TabwebComponent {
     /**
      * Creates a list containing the supplied avatars.
      *
-     * @param stacked whether child avatars overlap in the Tabler stacked-list layout.
+     * @param stacked whether child avatars overlap in the Tabweb stacked-list layout.
      * @param size the size applied to every avatar in the list.
      * @param avatars the avatars in display order.
      * @return an [AvatarList] containing [avatars].
@@ -60,7 +60,7 @@ interface AvatarList : TabwebComponent {
   }
 
   /**
-   * Whether child avatars overlap in the Tabler stacked-list layout.
+   * Whether child avatars overlap in the Tabweb stacked-list layout.
    */
   val stacked: Boolean
 

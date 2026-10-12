@@ -3,7 +3,7 @@ package com.github.jangalinski.tabweb.table
 import com.github.jangalinski.tabweb._foundation.css.cssClass
 
 /**
- * CSS class constants for Tabler tables.
+ * CSS class constants for Tabweb tables.
  */
 data object TableCss {
   val TABLE = cssClass("table")

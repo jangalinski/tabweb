@@ -1,0 +1,68 @@
+package com.github.jangalinski.tabweb.navigation
+
+import androidx.compose.runtime.Composable
+import com.github.jangalinski.tabweb.Tabweb.HOME
+import com.github.jangalinski.tabweb._foundation.TabwebComponent
+import com.github.jangalinski.tabweb._foundation.Url
+import com.github.jangalinski.tabweb._foundation.ariaLabel
+import com.github.jangalinski.tabweb._foundation.compose.KAnchor
+import com.github.jangalinski.tabweb._foundation.compose.KDiv
+import com.github.jangalinski.tabweb._foundation.compose.KImg
+import com.github.jangalinski.tabweb._foundation.compose.KText
+import com.github.jangalinski.tabweb._foundation.css.PE_0
+import com.github.jangalinski.tabweb._foundation.css.PE_MD_3
+import com.github.jangalinski.tabweb._foundation.css.plus
+import com.github.jangalinski.tabweb.navigation.TabwebNavbarCss.NAVBAR_BRAND
+import com.github.jangalinski.tabweb.navigation.TabwebNavbarCss.NAVBAR_BRAND_AUTODARK
+import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.modifiers.classNames
+
+
+/**
+ * Renders the brand area used by a Tabweb navbar.
+ */
+data object TabwebBrand {
+  sealed interface Brand : TabwebComponent {
+    val image: Url
+    val href: Url get() = HOME
+
+    /**
+     * A compact logo accompanied by a textual caption.
+     */
+    data class Logo(override val image: Url, val caption: String = "Tabweb") : Brand {
+      @Composable
+      override fun invoke(modifier: Modifier) {
+        KAnchor(
+          href = href.get(),
+          modifier = Modifier.classNames("text-reset", "text-decoration-none")
+            .ariaLabel(caption),
+        ) {
+          KImg(src = image.get(), alt = "", modifier = Modifier.classNames("navbar-brand-image"))
+          KText(caption)
+        }
+      }
+    }
+
+    /**
+     * A wordmark image without additional text.
+     */
+    data class Wordmark(override val image: Url) : Brand {
+      @Composable
+      override fun invoke(modifier: Modifier) {
+        KAnchor(
+          href = href.get(),
+          modifier = Modifier.classNames("text-reset", "text-decoration-none").ariaLabel("Home"),
+        ) {
+          KImg(src = image.get(), alt = "", modifier = Modifier.classNames("navbar-brand-image"))
+        }
+      }
+    }
+  }
+
+  @Composable
+  operator fun invoke(brand: Brand) {
+    KDiv(NAVBAR_BRAND + NAVBAR_BRAND_AUTODARK + PE_0 + PE_MD_3) {
+      brand()
+    }
+  }
+}

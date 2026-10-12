@@ -4,22 +4,22 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 
 /**
- * Keeps static string names of Tabler classes.
+ * Keeps static string names of Tabweb classes.
  */
 data object ClassNames {
 
   /**
-   * Converts a documented Tabler class-name constant into a Kobweb [Modifier].
+   * Converts a documented Tabweb class-name constant into a Kobweb [Modifier].
    *
    * Compound constants are split on whitespace so a single documented constant can still
-   * represent a bundled Tabler class set.
+   * represent a bundled Tabweb class set.
    */
   fun String.modifier(): Modifier = Modifier.classNames(*trim().split(Regex("\\s+")).toTypedArray())
 
-  /** Root page container used by Tabler layouts. */
+  /** Root page container used by Tabweb layouts. */
   const val page = "page"
 
-  /** Wrapper that anchors page header/body sections inside the Tabler page shell. */
+  /** Wrapper that anchors page header/body sections inside the Tabweb page shell. */
   const val pageWrapper = "page-wrapper"
 
   /** Main content area inside the page wrapper. */
@@ -58,7 +58,7 @@ data object ClassNames {
   /** Standard fluid content container used by the sidebar navbar shell. */
   const val containerFluid = "container-fluid"
 
-  /** Navbar brand area with Tabler autolight treatment and responsive padding. */
+  /** Navbar brand area with Tabweb autolight treatment and responsive padding. */
   const val navbarBrand = "navbar-brand navbar-brand-autodark pe-0 pe-md-3"
 
   /** Header navbar brand area with horizontal layout hiding. */
@@ -178,7 +178,7 @@ data object ClassNames {
   /** Header row with compact spacing and vertical centering. */
   const val pageHeaderRow = "row g-2 align-items-center"
 
-  /** Base row class used for Tabler header layout. */
+  /** Base row class used for Tabweb header layout. */
   const val row = "row"
 
   /** Compact spacing between items. */
@@ -199,10 +199,10 @@ data object ClassNames {
   /** Subtitle style used under the page title. */
   const val subheader = "subheader"
 
-  /** Card deck row with Tabler spacing between cards. */
+  /** Card deck row with Tabweb spacing between cards. */
   const val rowCards = "row row-deck row-cards g-3 mb-4"
 
-  /** Tabler deck layout that keeps cards aligned and equal height. */
+  /** Tabweb deck layout that keeps cards aligned and equal height. */
   const val rowDeck = "row-deck"
 
   /** Card grouping style for a row of cards. */
@@ -214,7 +214,7 @@ data object ClassNames {
   /** Bottom spacing after the card grid. */
   const val mb4 = "mb-4"
 
-  /** Standard Tabler card container. */
+  /** Standard Tabweb card container. */
   const val card = "card"
 
   /** Card container that stretches to full height. */
@@ -262,7 +262,7 @@ data object ClassNames {
   /** Generic inline icon class. */
   const val icon = "icon"
 
-  /** Base Tabler avatar. */
+  /** Base Tabweb avatar. */
   const val avatar = "avatar"
   const val avatarList = "avatar-list"
   const val avatarListStacked = "avatar-list-stacked"
@@ -307,7 +307,7 @@ data object ClassNames {
   /** Small padding used inside the horizontal header content area. */
   const val ps2 = "ps-2"
 
-  /** Extra-large breakpoint visibility helper used by Tabler layouts. */
+  /** Extra-large breakpoint visibility helper used by Tabweb layouts. */
   const val dNoneXlBlock = "d-none d-xl-block"
 
   /** Small text size. */
@@ -397,7 +397,7 @@ data object ClassNames {
   /** Wrapper that enables horizontal scrolling for wide tables. */
   const val tableResponsive = "table-responsive"
 
-  /** Tabler table with card styling and vertical cell alignment. */
+  /** Tabweb table with card styling and vertical cell alignment. */
   const val table = "table card-table table-vcenter"
 
   /** Empty body row used to keep paginated table height stable on short pages. */
@@ -421,7 +421,7 @@ data object ClassNames {
   /** Right column of the pagination footer — holds the `ul.pagination` list. */
   const val paginationLinksCol = "col-auto"
 
-  /** Tabler/Bootstrap pagination list with auto left margin. */
+  /** Tabweb/Bootstrap pagination list with auto left margin. */
   const val pagination = "pagination m-0 ms-auto"
 
   /** A single pagination list item (page number or prev/next button). */

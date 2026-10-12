@@ -2,12 +2,12 @@ package com.github.jangalinski.tabweb.site
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import com.github.jangalinski.tabweb.Tabweb.KobwebTablerApp
-import com.github.jangalinski.tabweb._app.LocalTablerAppState
-import com.github.jangalinski.tabweb._app.TablerSettings
-import com.github.jangalinski.tabweb._app.TablerShellConfig
-import com.github.jangalinski.tabweb._app.TablerSiteConfig
-import com.github.jangalinski.tabweb._app.TablerTheme
+import com.github.jangalinski.tabweb.Tabweb.TabwebApp
+import com.github.jangalinski.tabweb._app.LocalTabwebAppState
+import com.github.jangalinski.tabweb._app.TabwebSettings
+import com.github.jangalinski.tabweb._app.TabwebShellConfig
+import com.github.jangalinski.tabweb._app.TabwebSiteConfig
+import com.github.jangalinski.tabweb._app.TabwebTheme
 import com.github.jangalinski.tabweb._foundation.compose.KDiv
 import com.github.jangalinski.tabweb.button.ButtonColor
 import com.github.jangalinski.tabweb.element.Tooltip
@@ -30,9 +30,9 @@ fun AppEntry(content: @Composable () -> Unit) {
     document.body?.className = "bg-body"
   }
 
-  KobwebTablerApp(
-    site = TablerSiteConfig(
-      shell = TablerShellConfig(
+  TabwebApp(
+    site = TabwebSiteConfig(
+      shell = TabwebShellConfig(
         navbar = GeneratedSiteNavigation.data.navbarFactory(),
         navigation = GeneratedSiteNavigation.data,
         navbarActions = {
@@ -41,7 +41,7 @@ fun AppEntry(content: @Composable () -> Unit) {
               DarkModeButton()
             }
             KDiv(modifier = Modifier.classNames("nav-item")) {
-              val color = if (LocalTablerAppState.current.settings.theme == TablerTheme.DARK) {
+              val color = if (LocalTabwebAppState.current.settings.theme == TabwebTheme.DARK) {
                 ButtonColor.DARK
               } else {
                 ButtonColor.LIGHT
@@ -53,7 +53,7 @@ fun AppEntry(content: @Composable () -> Unit) {
         footer = siteFooter(),
       ),
     ),
-    settings = TablerSettings(
+    settings = TabwebSettings(
       navbarBehavior = NavbarBehavior.STICKY_TOP,
     ),
   ) {

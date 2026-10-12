@@ -1,15 +1,14 @@
 package com.github.jangalinski.tabweb
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.tabweb._app.TablerLayout
-import com.github.jangalinski.tabweb._app.TablerSiteConfig
-import com.github.jangalinski.tabweb._app.ProvideTablerAppState
-import com.github.jangalinski.tabweb._app.ProvideTablerSiteConfig
-import com.github.jangalinski.tabweb._app.TablerSettings
-import com.github.jangalinski.tabweb._app.rememberTablerAppState
+import com.github.jangalinski.tabweb._app.TabwebLayout
+import com.github.jangalinski.tabweb._app.TabwebSiteConfig
+import com.github.jangalinski.tabweb._app.ProvideTabwebAppState
+import com.github.jangalinski.tabweb._app.ProvideTabwebSiteConfig
+import com.github.jangalinski.tabweb._app.TabwebSettings
+import com.github.jangalinski.tabweb._app.rememberTabwebAppState
 import com.github.jangalinski.tabweb._foundation.Markdown
 import com.github.jangalinski.tabweb._foundation.Url
-import com.github.jangalinski.tabweb._foundation.Url.Internal
 import com.github.jangalinski.tabweb.avatar.AvatarComposable
 import com.github.jangalinski.tabweb.avatar.AvatarDsl
 import com.github.jangalinski.tabweb.badge.BadgeComposable
@@ -39,8 +38,8 @@ data object Tabweb :
   ElementComposable by ElementDsl,
   TableComposable by TableDsl {
 
-  const val TABLER_LAYER = "tabweb"
-  const val TABLER_LAYOUT = "com.github.jangalinski.tabweb.Tabweb.Layout"
+  const val TABWEB_LAYER = "tabweb"
+  const val TABWEB_LAYOUT = "com.github.jangalinski.tabweb.Tabweb.Layout"
   val HOME = Url("/")
 
   @Composable
@@ -51,26 +50,26 @@ data object Tabweb :
   @Layout
   @Composable
   fun Layout(ctx: PageContext, content: @Composable () -> Unit) {
-    TablerLayout(ctx, content)
+    TabwebLayout(ctx, content)
   }
 
   /**
-   * Installs Kobweb, site defaults, and reactive Tabler settings for an application.
+   * Installs Kobweb, site defaults, and reactive Tabweb settings for an application.
    *
    * Applications that already own their [KobwebApp] wrapper can instead use
-   * [ProvideTablerAppState] and [ProvideTablerSiteConfig].
+   * [ProvideTabwebAppState] and [ProvideTabwebSiteConfig].
    */
   @Composable
-  fun KobwebTablerApp(
-    site: TablerSiteConfig = TablerSiteConfig(),
-    settings: TablerSettings = TablerSettings(),
+  fun TabwebApp(
+    site: TabwebSiteConfig = TabwebSiteConfig(),
+    settings: TabwebSettings = TabwebSettings(),
     content: @Composable () -> Unit,
   ) {
-    val state = rememberTablerAppState(settings)
+    val state = rememberTabwebAppState(settings)
 
     KobwebApp {
-      ProvideTablerAppState(state) {
-        ProvideTablerSiteConfig(site, content)
+      ProvideTabwebAppState(state) {
+        ProvideTabwebSiteConfig(site, content)
       }
     }
   }

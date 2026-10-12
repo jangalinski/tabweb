@@ -14,7 +14,7 @@ abstract class GenerateLibCodeTask : DefaultTask(), () -> Unit {
   companion object {
     const val GROUP = "lib"
     const val NAME = "generateLibCode"
-    const val DESCRIPTION = "Generates Kotlin code for Tabler."
+    const val DESCRIPTION = "Generates Kotlin code for Tabweb."
   }
 
   @get:Input

@@ -4,7 +4,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 
 /**
- * Enumerates the supported Tabler sizes for a [Badge].
+ * Enumerates the supported Tabweb sizes for a [Badge].
  */
 enum class BadgeSize(private val className: String) {
   S("badge-sm"),

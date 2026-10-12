@@ -13,7 +13,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.attr
 import org.jetbrains.compose.web.attributes.InputType
 
 /**
- * Receiver scope for building a Tabler table.
+ * Receiver scope for building a Tabweb table.
  */
 @TabwebDsl
 interface TableScope : TabwebComponentScope {

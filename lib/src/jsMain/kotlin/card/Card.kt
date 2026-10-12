@@ -10,7 +10,7 @@ import com.github.jangalinski.tabweb._foundation.css.plus
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**
- * Tabler card component that acts as a container for headers, bodies, footers, status bars, and stamps.
+ * Tabweb card component that acts as a container for headers, bodies, footers, status bars, and stamps.
  */
 interface Card : TabwebComponent {
   val size: CardSize get() = CardSize.DEFAULT

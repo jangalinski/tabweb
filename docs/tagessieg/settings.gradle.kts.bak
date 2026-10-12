@@ -18,7 +18,7 @@ dependencyResolutionManagement {
     }
   }
 
-  // `_examples` is its own Gradle build, so it needs to import the shared version catalog explicitly.
+  // `site` is its own Gradle build, so it needs to import the shared version catalog explicitly.
   versionCatalogs {
     create("libs") {
       from(files("../gradle/libs.versions.toml"))

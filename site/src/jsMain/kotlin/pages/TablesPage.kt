@@ -40,52 +40,52 @@ private data class InvoiceRow(
 fun TablesPage() {
   val sampleRows = rememberPaginatedTableRows(
     rows = listOf(
-      TablerTableRow(
+      TabwebTableRow(
         listOf(
-          TablerTableCell.AvatarName(Avatar(Initials("PK")), "Paweł Kuna", "UI Designer"),
-          TablerTableCell.Text("Operations"),
-          TablerTableCell.Badge("Active", "bg-success"),
-          TablerTableCell.Text("pawel@example.com", muted = true),
+          TabwebTableCell.AvatarName(Avatar(Initials("PK")), "Paweł Kuna", "UI Designer"),
+          TabwebTableCell.Text("Operations"),
+          TabwebTableCell.Badge("Active", "bg-success"),
+          TabwebTableCell.Text("pawel@example.com", muted = true),
         ),
       ),
-      TablerTableRow(
+      TabwebTableRow(
         listOf(
-          TablerTableCell.AvatarName(Avatar(Initials("ML")), "Mallory Lu", "Frontend Developer"),
-          TablerTableCell.Text("Engineering"),
-          TablerTableCell.Badge("Active", "bg-success"),
-          TablerTableCell.Text("mallory@example.com", muted = true),
+          TabwebTableCell.AvatarName(Avatar(Initials("ML")), "Mallory Lu", "Frontend Developer"),
+          TabwebTableCell.Text("Engineering"),
+          TabwebTableCell.Badge("Active", "bg-success"),
+          TabwebTableCell.Text("mallory@example.com", muted = true),
         ),
       ),
-      TablerTableRow(
+      TabwebTableRow(
         listOf(
-          TablerTableCell.AvatarName(Avatar(Initials("DK")), "Dunn Kearney", "Backend Engineer"),
-          TablerTableCell.Text("Engineering"),
-          TablerTableCell.Badge("Pending", "bg-warning"),
-          TablerTableCell.Text("dunn@example.com", muted = true),
+          TabwebTableCell.AvatarName(Avatar(Initials("DK")), "Dunn Kearney", "Backend Engineer"),
+          TabwebTableCell.Text("Engineering"),
+          TabwebTableCell.Badge("Pending", "bg-warning"),
+          TabwebTableCell.Text("dunn@example.com", muted = true),
         ),
       ),
-      TablerTableRow(
+      TabwebTableRow(
         listOf(
-          TablerTableCell.AvatarName(Avatar(Initials("ER")), "Emmy Levet", "Product Manager"),
-          TablerTableCell.Text("Management"),
-          TablerTableCell.Badge("Active", "bg-success"),
-          TablerTableCell.Text("emmy@example.com", muted = true),
+          TabwebTableCell.AvatarName(Avatar(Initials("ER")), "Emmy Levet", "Product Manager"),
+          TabwebTableCell.Text("Management"),
+          TabwebTableCell.Badge("Active", "bg-success"),
+          TabwebTableCell.Text("emmy@example.com", muted = true),
         ),
       ),
-      TablerTableRow(
+      TabwebTableRow(
         listOf(
-          TablerTableCell.AvatarName(Avatar(Initials("MR")), "Maryjo Reisen", "Office Manager"),
-          TablerTableCell.Text("Operations"),
-          TablerTableCell.Badge("Inactive", "bg-secondary"),
-          TablerTableCell.Text("maryjo@example.com", muted = true),
+          TabwebTableCell.AvatarName(Avatar(Initials("MR")), "Maryjo Reisen", "Office Manager"),
+          TabwebTableCell.Text("Operations"),
+          TabwebTableCell.Badge("Inactive", "bg-secondary"),
+          TabwebTableCell.Text("maryjo@example.com", muted = true),
         ),
       ),
-      TablerTableRow(
+      TabwebTableRow(
         listOf(
-          TablerTableCell.AvatarName(Avatar(Initials("JL")), "Jeffie Lewzey", "Chemical Engineer"),
-          TablerTableCell.Text("Support"),
-          TablerTableCell.Badge("Active", "bg-success"),
-          TablerTableCell.Text("jeffie@example.com", muted = true),
+          TabwebTableCell.AvatarName(Avatar(Initials("JL")), "Jeffie Lewzey", "Chemical Engineer"),
+          TabwebTableCell.Text("Support"),
+          TabwebTableCell.Badge("Active", "bg-success"),
+          TabwebTableCell.Text("jeffie@example.com", muted = true),
         ),
       ),
     ),
@@ -478,7 +478,7 @@ fun TablesPage() {
             InvoiceRow("001403", "New Dashboard", "Bluewolf", "87952621", "23 Oct 2024", "Pending", "$534"),
             InvoiceRow("001404", "Landing Page", "Salesforce", "87953421", "2 Sep 2024", "Paid", "$1,500"),
             InvoiceRow("001405", "Marketing Site", "Printic", "87956621", "29 Jan 2024", "Paid", "$890"),
-            InvoiceRow("001406", "Sales App", "Tabler", "87956621", "4 Feb 2024", "Failed", "$2,400"),
+            InvoiceRow("001406", "Sales App", "Tabweb", "87956621", "4 Feb 2024", "Failed", "$2,400"),
             InvoiceRow("001407", "Brand Guidelines", "Apple", "87956621", "22 Mar 2024", "Paid", "$3,100"),
             InvoiceRow("001408", "Mobile App", "Google", "87956621", "18 May 2024", "Paid", "$5,400"),
           )
@@ -514,14 +514,14 @@ fun TablesPage() {
 
     // 7. Paginated Table Card
     col(width = GridWidth.FULL) {
-      TablerTableCard(
+      TabwebTableCard(
         title = "Employees",
         subtitle = "Paginated table card with responsive layout and status tags",
         columns = listOf(
-          TablerTableColumn("Name"),
-          TablerTableColumn("Department"),
-          TablerTableColumn("Status"),
-          TablerTableColumn("Email"),
+          TabwebTableColumn("Name"),
+          TabwebTableColumn("Department"),
+          TabwebTableColumn("Status"),
+          TabwebTableColumn("Email"),
         ),
         rows = sampleRows,
       )

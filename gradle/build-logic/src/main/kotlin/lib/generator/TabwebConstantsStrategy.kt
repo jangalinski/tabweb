@@ -9,10 +9,10 @@ import io.toolisticon.kotlin.generation.spi.strategy.KotlinFileSpecListStrategy
 
 
 @OptIn(ExperimentalKotlinPoetApi::class)
-class TabwebConstantsStrategy : KotlinFileSpecListStrategy<TablerContext, Unit>(contextType = TablerContext::class, inputType = Unit::class) {
+class TabwebConstantsStrategy : KotlinFileSpecListStrategy<TabwebContext, Unit>(contextType = TabwebContext::class, inputType = Unit::class) {
 
-  override fun invoke(context: TablerContext, input: Unit): KotlinFileSpecList {
-    val colorsClass = className(context.foundationPackage, "TablerColors")
+  override fun invoke(context: TabwebContext, input: Unit): KotlinFileSpecList {
+    val colorsClass = className(context.foundationPackage, "TabwebColors")
 
     val colors = enumClassBuilder(colorsClass) {
       addConstructorProperty("value", String::class)

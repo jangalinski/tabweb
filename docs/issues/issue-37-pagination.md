@@ -107,7 +107,7 @@ src/jsMain/kotlin/
 src/jsTest/kotlin/components/
   TablerTableCardTest.kt       ← extend: pagination test cases
 
-_examples/tagessieg/src/jsMain/kotlin/pages/
+site/tagessieg/src/jsMain/kotlin/pages/
   Index.kt                    ← update: add paginated table example
 ```
 

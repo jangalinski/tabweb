@@ -10,7 +10,7 @@ import com.github.jangalinski.tabweb._foundation.Link
 import com.github.jangalinski.tabweb._foundation.TabwebDirection
 import com.github.jangalinski.tabweb._foundation.Url
 import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
-import com.github.jangalinski.tabweb.icon.TablerIcon
+import com.github.jangalinski.tabweb.icon.TabwebIcon
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
 import kotlin.test.Test
@@ -30,7 +30,7 @@ class BadgeTest {
       badge(text = "Large", color = BackgroundColor.BASE.BLUE, size = BadgeSize.L)
       badges {
         badge(text = "Outline", color = BackgroundColor.BASE.GREEN, style = BadgeStyle.OUTLINE)
-        badge(text = "Star", icon = TablerIcon.TI_STAR, color = BackgroundColor.BASE.YELLOW)
+        badge(text = "Star", icon = TabwebIcon.TI_STAR, color = BackgroundColor.BASE.YELLOW)
       }
     }
 
@@ -60,9 +60,9 @@ class BadgeTest {
   fun rendersLeftRightAndIconOnlyBadgeContent() = runTest {
     composition {
       badges {
-        badge(text = "Left", icon = TablerIcon.TI_CHECK)
-        badge(text = "Right", icon = TablerIcon.TI_ARROW_RIGHT, iconPosition = TabwebDirection.RIGHT)
-        badge(icon = TablerIcon.TI_STAR)
+        badge(text = "Left", icon = TabwebIcon.TI_CHECK)
+        badge(text = "Right", icon = TabwebIcon.TI_ARROW_RIGHT, iconPosition = TabwebDirection.RIGHT)
+        badge(icon = TabwebIcon.TI_STAR)
       }
     }
 

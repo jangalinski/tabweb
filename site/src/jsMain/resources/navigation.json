@@ -6,6 +6,7 @@
       "name": "Home",
       "description": "Documentation and things",
       "route": "/",
+      "badgeRef": "new",
       "icon": "TI_HOME"
     },
     {
@@ -20,12 +21,12 @@
         },
         {
           "name": "Badges",
-          "description": "Badges highlight statuses, counts, and categories with a compact Tabler label.",
+          "description": "Badges highlight statuses, counts, and categories with a compact Tabweb label.",
           "route": "/interfaces/badges"
         },
         {
           "name": "Buttons",
-          "description": "Buttons invoke user actions with Tabler colors, sizes, shapes, and icons.",
+          "description": "Buttons invoke user actions with Tabweb colors, sizes, shapes, and icons.",
           "route": "/interfaces/buttons"
         },
         {
@@ -40,12 +41,12 @@
         },
         {
           "name": "Charts",
-          "description": "Chart examples rendered in Tabler cards with ApexCharts.",
+          "description": "Chart examples rendered in Tabweb cards with ApexCharts.",
           "route": "/interfaces/charts",
           "children": [
             {
               "name": "Chart gallery",
-              "description": "Chart examples rendered in Tabler cards with ApexCharts.",
+              "description": "Chart examples rendered in Tabweb cards with ApexCharts.",
               "route": "/interfaces/charts"
             },
             {
@@ -84,7 +85,7 @@
         },
         {
           "name": "Elements",
-          "description": "Low-level Tabler elements",
+          "description": "Low-level Tabweb elements",
           "route": "/elements"
         }
       ]

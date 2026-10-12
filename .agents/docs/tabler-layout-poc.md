@@ -1,6 +1,6 @@
 # Tabler Layout POC Summary
 
-This note records the first pass of the shared `TablerLayout` implementation.
+This note records the first pass of the shared `TabwebLayout` implementation.
 
 ## What it does
 
@@ -16,6 +16,6 @@ This note records the first pass of the shared `TablerLayout` implementation.
 
 ## What was executed
 
-- `TablerLayout` was expanded to own the full Tabler shell directly.
+- `TabwebLayout` was expanded to own the full Tabler shell directly.
 - The site module now provides page metadata through `@InitRoute`.
 - The first site pages compile and export successfully with the new layout flow.

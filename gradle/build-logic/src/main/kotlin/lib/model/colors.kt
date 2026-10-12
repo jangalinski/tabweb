@@ -8,7 +8,7 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.serializer
 
 
-sealed interface TablerColorModel : TabwebModel {
+sealed interface TabwebColorModel : TabwebModel {
   val name: String
   val value: String
   val short: String
@@ -21,7 +21,7 @@ sealed interface TablerColorModel : TabwebModel {
     override val short: String,
     override val value: String = name.lowercase(),
     val hasLightMode: Boolean = true
-  ) : TablerColorModel
+  ) : TabwebColorModel
 
   @Serializable
   data class Semantic(
@@ -29,13 +29,13 @@ sealed interface TablerColorModel : TabwebModel {
     override val short: String,
     override val value: String = name.lowercase(),
     val hasLightMode: Boolean = true
-  ) : TablerColorModel
+  ) : TabwebColorModel
 
 
   @Serializable
   data class Gray(
     val occupance: Int
-  ) : TablerColorModel {
+  ) : TabwebColorModel {
     override val name: String = "Gray $occupance"
     override val short: String = "$occupance"
     override val value: String = "gray-$occupance"
@@ -47,16 +47,16 @@ sealed interface TablerColorModel : TabwebModel {
     override val short: String,
     override val value: String = name.lowercase(),
     val icon : String = "brand-$value"
-  ) : TablerColorModel
+  ) : TabwebColorModel
 
 }
 
 @Serializable
 data class ColorsModel(
-  val base: List<TablerColorModel.Base>,
-  val gray: List<TablerColorModel.Gray>,
-  val semantic: List<TablerColorModel.Semantic>,
-  val social: List<TablerColorModel.Social>,
+  val base: List<TabwebColorModel.Base>,
+  val gray: List<TabwebColorModel.Gray>,
+  val semantic: List<TabwebColorModel.Semantic>,
+  val social: List<TabwebColorModel.Social>,
 ) : TabwebModel {
 
   companion object {

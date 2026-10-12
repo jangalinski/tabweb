@@ -4,7 +4,7 @@ import assertk.assertThat
 import assertk.assertions.contains
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
-import com.github.jangalinski.tabweb.KobwebTablerFixture
+import com.github.jangalinski.tabweb.KobwebTabwebFixture
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
 import kotlin.test.Test
@@ -18,7 +18,7 @@ class ModifierTest {
     lateinit var classes: List<String>
 
     composition {
-      classes = KobwebTablerFixture.extractClasses(modifier).value
+      classes = KobwebTabwebFixture.extractClasses(modifier).value
     }
 
     waitForRecompositionComplete()

@@ -6,4 +6,4 @@ The library contributes Tabler CSS, Tabler Icons CSS, Tabler JavaScript, and Ape
 
 Public UI APIs are organized by Tabler concept, for example `navbar`, `card`, `table`, and `avatar`. Application integration belongs to `_app`; shared DOM, semantic, and CSS infrastructure belongs to `_foundation`.
 
-For tables, use `TablerTable(data: TablerTableData)` for structured data, or `TablerTable { header { } row { cell { } } }` when cells require arbitrary composable content.
+For tables, use `TabwebTable(data: TabwebTableData)` for structured data, or `TabwebTable { header { } row { cell { } } }` when cells require arbitrary composable content.

@@ -7,7 +7,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 
 
 /**
- * Applies Tabler's standard extra-large content container.
+ * Applies Tabweb's standard extra-large content container.
  *
  * This is the repeated `.container-xl` block visible inside the preview's
  * page header, page body, and footer regions. It is kept as a small Kobweb

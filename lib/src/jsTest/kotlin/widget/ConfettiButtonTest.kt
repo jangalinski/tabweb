@@ -8,7 +8,7 @@ import com.github.jangalinski.tabweb.button.ButtonIconPosition
 import com.github.jangalinski.tabweb.button.ButtonShape
 import com.github.jangalinski.tabweb.button.ButtonSize
 import com.github.jangalinski.tabweb.button.ButtonStyle
-import com.github.jangalinski.tabweb.icon.TablerIcon
+import com.github.jangalinski.tabweb.icon.TabwebIcon
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
 import org.w3c.dom.HTMLElement
@@ -61,7 +61,7 @@ class ConfettiButtonTest {
     composition {
       ConfettiButton(
         text = "Shower",
-        icon = TablerIcon.TI_CONFETTI,
+        icon = TabwebIcon.TI_CONFETTI,
         iconPosition = ButtonIconPosition.LEFT,
         color = ButtonColor.PRIMARY,
         style = ButtonStyle.OUTLINE,

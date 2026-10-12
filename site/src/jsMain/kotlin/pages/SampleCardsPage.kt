@@ -17,7 +17,7 @@ import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
 import com.github.jangalinski.tabweb.button.ButtonColor
 import com.github.jangalinski.tabweb.button.ButtonStyle
 import com.github.jangalinski.tabweb.card.*
-import com.github.jangalinski.tabweb.icon.TablerIcon
+import com.github.jangalinski.tabweb.icon.TabwebIcon
 import com.github.jangalinski.tabweb.site.SiteRoutes
 import com.github.jangalinski.tabweb.site.data.LoremPicsum
 import com.varabyte.kobweb.core.Page
@@ -109,7 +109,7 @@ fun SampleCardsPage() {
         cardRow {
           card(
             width = GridWidth.MD_HALF_LG_THIRD,
-            stamp = CardStamp(icon = TablerIcon.TI_BELL, color = BackgroundColor.BASE.YELLOW, size = CardStampSize.DEFAULT),
+            stamp = CardStamp(icon = TabwebIcon.TI_BELL, color = BackgroundColor.BASE.YELLOW, size = CardStampSize.DEFAULT),
           ) {
             body {
               title("Card with icon bg")
@@ -131,7 +131,7 @@ fun SampleCardsPage() {
           }
           card(
             width = GridWidth.MD_HALF_LG_THIRD,
-            stamp = CardStamp(icon = TablerIcon.TI_STAR, color = BackgroundColor.BASE.GREEN, size = CardStampSize.LG),
+            stamp = CardStamp(icon = TabwebIcon.TI_STAR, color = BackgroundColor.BASE.GREEN, size = CardStampSize.LG),
           ) {
             body {
               title("Card with large stamp")
@@ -187,7 +187,7 @@ fun SampleCardsPage() {
           card(
             width = GridWidth.MD_HALF_LG_QUARTER,
             ribbon = CardRibbon(
-              icon = TablerIcon.TI_STAR,
+              icon = TabwebIcon.TI_STAR,
               position = CardRibbonPosition.TOP,
               bookmark = true,
               color = BackgroundColor.BASE.YELLOW,

@@ -4,7 +4,7 @@ import com.github.jangalinski.tabweb._foundation.css.cssClass
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**
- * Maps button options to the Tabler CSS classes used by its renderers.
+ * Maps button options to the Tabweb CSS classes used by its renderers.
  */
 internal data object ButtonCss {
   val button = cssClass("btn")

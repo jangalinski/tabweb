@@ -12,7 +12,7 @@ private val CSS_FOOTER = cssClass("footer")
 private val CSS_FOOTER_TRANSPARENT = cssClass("footer")
 
 /**
- * Renders the standard Tabler footer landmark and its responsive container.
+ * Renders the standard Tabweb footer landmark and its responsive container.
  *
  * @param modifier additional attributes, classes, and styles for the footer.
  * @param content composable footer content.

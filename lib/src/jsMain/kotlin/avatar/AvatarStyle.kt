@@ -1,13 +1,13 @@
 package com.github.jangalinski.tabweb.avatar
 
-import com.github.jangalinski.tabweb._foundation.Tabler
+import com.github.jangalinski.tabweb._foundation.Tabweb
 import com.github.jangalinski.tabweb._foundation.TabwebStyle
 import com.github.jangalinski.tabweb._foundation.TabwebValue
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 
 /**
- * Enumerates the supported Tabler shape and presentation styles for an [Avatar].
+ * Enumerates the supported Tabweb shape and presentation styles for an [Avatar].
  */
 enum class AvatarStyle(private val value: String) : TabwebStyle, TabwebValue<String>, Modifier {
   CIRCLE("avatar-circle"),

@@ -8,7 +8,7 @@ import com.github.jangalinski.tabweb._foundation.css.plus
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**
- * Tabler table component for laying out rows and columns of data.
+ * Tabweb table component for laying out rows and columns of data.
  */
 interface Table : TabwebComponent {
   val responsive: TableResponsive get() = TableResponsive.NONE

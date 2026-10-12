@@ -1,14 +1,14 @@
 package com.github.jangalinski.tabweb.badge
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.tabweb._foundation.Tabler
+import com.github.jangalinski.tabweb._foundation.Tabweb
 import com.github.jangalinski.tabweb._foundation.TabwebComponent
 import com.github.jangalinski.tabweb._foundation.compose.KDiv
 import com.github.jangalinski.tabweb._foundation.css.plus
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**
- * A Tabler wrapper that spaces [Badge]s inline.
+ * A Tabweb wrapper that spaces [Badge]s inline.
  */
 interface BadgeList : TabwebComponent {
   companion object {

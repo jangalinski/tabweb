@@ -10,10 +10,10 @@ import com.varabyte.kobweb.compose.ui.Modifier
 val CSS_ICON = cssClass("icon")
 
 /**
- * A Tabler icon component.
+ * A Tabweb icon component.
  *
- * @see [TablerIcon] for a list of all available icons.
- * @see https://docs.tabler.io/ui/components/icons for more information about Tabler icons.
+ * @see [TabwebIcon] for a list of all available icons.
+ * @see https://docs.tabler.io/ui/components/icons for more information about Tabweb icons.
  */
 interface Icon : TabwebFoundationComponent
 

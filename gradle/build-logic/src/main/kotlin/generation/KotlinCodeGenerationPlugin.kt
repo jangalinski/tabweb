@@ -13,7 +13,7 @@ import org.gradle.api.tasks.TaskAction
 import java.nio.file.Files
 
 /**
- * Generates Kotlin code for Tabler CSS.
+ * Generates Kotlin code for Tabweb CSS.
  */
 @OptIn(ExperimentalKotlinPoetApi::class)
 abstract class GenerateKotlinCodeTask : DefaultTask() {
@@ -52,7 +52,7 @@ class KotlinCodeGenerationPlugin : Plugin<Project> {
   override fun apply(project: Project) {
     project.tasks.register("generateKotlinCode", GenerateKotlinCodeTask::class.java) {
       group = "generation"
-      description = "Generates Kotlin code for Tabler CSS."
+      description = "Generates Kotlin code for Tabweb CSS."
       outputDirectory.convention(project.layout.buildDirectory.dir("generated/sources/lib/src/jsMain/kotlin"))
     }
   }
