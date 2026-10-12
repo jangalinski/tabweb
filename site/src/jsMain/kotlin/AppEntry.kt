@@ -33,8 +33,8 @@ fun AppEntry(content: @Composable () -> Unit) {
   TabwebApp(
     site = TabwebSiteConfig(
       shell = TabwebShellConfig(
-        navbar = GeneratedSiteNavigation.data.navbarFactory(),
-        navigation = GeneratedSiteNavigation.data,
+        navbar = GeneratedSiteNavigation.navbarFactory(),
+        navigation = GeneratedSiteNavigation,
         navbarActions = {
           KDiv(modifier = Modifier.classNames("d-none", "d-md-flex", "me-3", "btn-list")) {
             KDiv(modifier = Modifier.classNames("nav-item")) {

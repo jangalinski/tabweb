@@ -19,7 +19,7 @@ fun TabwebNavigation.navbarFactory(
   badgeResolver: (String) -> TabwebNavbarBadge? = { null },
 ): TabwebNavbarFactory = TabwebNavbarFactory { activeRoute ->
   TabwebNavbarData(
-    items = root.map { it.toNavbarItem(activeRoute, badgeResolver) },
+    items = map { it.toNavbarItem(activeRoute, badgeResolver) },
   )
 }
 
@@ -55,7 +55,7 @@ private data class NavigationRouteMatch(
 )
 
 private fun TabwebNavigation.findRoute(route: String): NavigationRouteMatch? =
-  root.asSequence().firstNotNullOfOrNull { it.findRoute(route, emptyList()) }
+  asSequence().firstNotNullOfOrNull { it.findRoute(route, emptyList()) }
 
 private fun TabwebNavigationElement.findRoute(
   route: String,
@@ -66,7 +66,7 @@ private fun TabwebNavigationElement.findRoute(
     return NavigationRouteMatch(this, path)
   }
 
-  children.asSequence().mapNotNull { it.findRoute(route, path) }.firstOrNull()?.let { return it }
+  children.firstNotNullOfOrNull { it.findRoute(route, path) }?.let { return it }
   return sections.asSequence()
     .flatMap { it.elements.asSequence() }
     .firstNotNullOfOrNull { it.findRoute(route, path) }

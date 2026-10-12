@@ -40,7 +40,7 @@ fun MarkdownTabwebLayout(
     ctx = ctx,
     layoutData = TabwebLayoutData(
       activeRoute = BasePath.remove(ctx.route.path),
-      sectionNavigation = GeneratedSiteNavigation.data.sectionNavigationFactory(),
+      sectionNavigation = GeneratedSiteNavigation.sectionNavigationFactory(),
     ),
     pageMeta = TabwebPageMeta(title = title, subtitle = subtitle),
     content = {

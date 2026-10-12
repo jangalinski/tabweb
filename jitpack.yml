@@ -1,6 +1,7 @@
 jdk:
   - openjdk17
 install:
-  - echo "Building only the tabweb library"
+  - echo "Building the tabweb library and Gradle plugin"
   - chmod +x gradlew
   - ./gradlew :lib:clean :lib:publishToMavenLocal
+  - ./gradlew -p plugin clean publishToMavenLocal

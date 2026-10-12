@@ -12,7 +12,7 @@ class TabwebNavigationNavbarTest {
 
   @Test
   fun derivesActiveLeafAndAncestorSectionsFromTheCurrentRoute() {
-    val factory = TabwebNavigation(
+    val factory = TabwebNavigationData(
       root = listOf(
         TabwebNavigationElement(
           title = "Interface",
@@ -34,7 +34,7 @@ class TabwebNavigationNavbarTest {
 
   @Test
   fun marksASectionActiveWhenItsOwnRouteMatches() {
-    val section = TabwebNavigation(
+    val section = TabwebNavigationData(
       root = listOf(
         TabwebNavigationElement(
           title = "Interface",
@@ -51,7 +51,7 @@ class TabwebNavigationNavbarTest {
 
   @Test
   fun looksUpMetadataThroughNestedSectionEntries() {
-    val navigation = TabwebNavigation(
+    val navigation = TabwebNavigationData(
       root = listOf(
         TabwebNavigationElement(
           title = "Components",
@@ -83,7 +83,7 @@ class TabwebNavigationNavbarTest {
 
   @Test
   fun buildsSectionNavigationFromEmbeddedSections() {
-    val factory = TabwebNavigation(
+    val factory = TabwebNavigationData(
       root = listOf(
         TabwebNavigationElement(
           title = "Components",

@@ -1,15 +1,3 @@
-import java.io.File
-
-buildscript {
-  repositories {
-    gradlePluginPortal()
-    mavenCentral()
-  }
-  dependencies {
-    classpath("ca.esmcelroy.schema2class:schema2class-gradle-plugin:0.1.0")
-  }
-}
-
 plugins {
   `kotlin-dsl`
   `java-gradle-plugin`
@@ -21,48 +9,10 @@ dependencies {
 
   implementation(libs.kotlinx.serialization.json)
   implementation(libs.kotlin.code.generation)
-  implementation("ca.esmcelroy.schema2class:ca.esmcelroy.schema2class.gradle.plugin:0.1.0")
   implementation(libs.dokka.gradle.plugin)
 
   testImplementation(kotlin("test-junit5"))
   testImplementation(libs.test.assertk)
-}
-
-val navigationSchemaInput = layout.projectDirectory.file(
-  "../../lib/src/jsMain/resources/navigation.schema.json",
-)
-val navigationSchemaOutput = layout.buildDirectory.dir("generated/source/tabweb")
-val generateNavigationSchemaCode = tasks.register("generateNavigationSchemaCode") {
-  inputs.file(navigationSchemaInput)
-  outputs.dir(navigationSchemaOutput)
-
-  doLast {
-    val schema = objects.newInstance(
-      ca.esmcelroy.schema2class.gradle.SchemaSpec::class.java,
-      "navigation",
-    )
-    schema.source.set(navigationSchemaInput)
-    schema.packageName.set(
-      "com.github.jangalinski.tabweb.gradle.buildlogic.site.navigation.schema",
-    )
-    schema.annotationMode.set("KOTLINX_SERIALIZATION")
-
-    val generatorClass = Class.forName(
-      "ca.esmcelroy.schema2class.gradle.Schema2ClassGenerator",
-    )
-    val generator = generatorClass.getField("INSTANCE").get(null)
-    generatorClass
-      .getMethod("generate", Iterable::class.java, File::class.java)
-      .invoke(generator, listOf(schema), navigationSchemaOutput.get().asFile)
-  }
-}
-
-kotlin.sourceSets.named("main") {
-  kotlin.srcDir(navigationSchemaOutput)
-}
-
-tasks.named("compileKotlin") {
-  dependsOn(generateNavigationSchemaCode)
 }
 
 configurations.all {
@@ -79,10 +29,6 @@ gradlePlugin {
     create("sitePreview") {
       id = "com.github.jangalinski.tabweb.buildlogic.site-preview"
       implementationClass = "com.github.jangalinski.tabweb.gradle.buildlogic.SitePreviewPlugin"
-    }
-    create("tabwebSite") {
-      id = "com.github.jangalinski.tabweb.buildlogic.site"
-      implementationClass = "com.github.jangalinski.tabweb.gradle.buildlogic.site.TabwebSitePlugin"
     }
     create("tabwebIcons") {
       id = "com.github.jangalinski.tabweb.buildlogic.tabweb-icons"

@@ -11,7 +11,7 @@ package com.github.jangalinski.tabweb.navigation
  */
 fun TabwebNavigation.sectionNavigationFactory(): TabwebSectionNavigationFactory =
   TabwebSectionNavigationConfig(
-    sections = root.flatMap { it.collectSections() },
+    sections = flatMap { it.collectSections() },
   ).factory()
 
 private fun TabwebNavigationElement.collectSections(): List<TabwebSectionNavigationConfig.Section> =

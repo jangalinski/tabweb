@@ -1,6 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://jangalinski.github.io/tabweb/navigation.schema.json",
+  "version": 1,
   "title": "Tabweb navigation manifest",
   "type": "object",
   "required": ["version", "root"],

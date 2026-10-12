@@ -41,6 +41,23 @@ dependencies {
 }
 ```
 
+The optional Gradle plugin generates typed navigation from `src/jsMain/resources/navigation.json`:
+
+```kotlin
+plugins {
+  id("com.github.jangalinski.tabweb.plugin") version "0.0.2"
+}
+
+tabweb {
+  navigation.packageName.set("com.example.site")
+  navigation.objectName.set("GeneratedNavigation")
+}
+```
+
+It registers `generateNavigation` and adds the generated Kotlin source to the `jsMain` source set of a Kotlin
+Multiplatform project. The generated object exposes a `data` property containing the library's typed
+`TabwebNavigation` model.
+
 The repository is public: consumers and GitHub Actions do not need JitPack credentials.
 
 ### Development snapshots
@@ -69,12 +86,15 @@ documentation](https://docs.jitpack.io/intro/#snapshots) for both forms.
 tabweb/
 ├── build.gradle.kts    ← shared container build
 ├── lib/                ← published Kobweb Tabler library
+├── plugin/             ← published Tabweb Gradle plugin
 └── site/               ← documentation, demos, and examples exported to GitHub Pages
 ```
 
 The root build contains two subprojects:
 
 - `:lib` is the published library. Its artifact name remains `tabweb` for JitPack consumers.
+- `plugin/` is the published Gradle plugin. It is a composite build so the site can use the local plugin while
+  JitPack publishes it with the same version as `:lib`.
 - `:site` contains the repository documentation, demos, and examples. GitHub Pages publishes it at `/tabweb/`.
 
 ### How to run
@@ -133,8 +153,8 @@ Before tagging, it is also useful to compile the source-backed example and docum
 ./gradlew :site:compileKotlinJs
 ```
 
-After pushing a release tag, JitPack publishes only `:lib` with Java 17 (see [`jitpack.yml`](jitpack.yml)).
-The Gradle subproject is named `lib`, but the published artifact remains `tabweb`.
+After pushing a release tag, JitPack publishes `:lib` and the standalone `plugin/` build with Java 17 (see
+[`jitpack.yml`](jitpack.yml)). Both use the same `VERSION` supplied by JitPack.
 
 ---
 

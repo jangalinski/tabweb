@@ -24,6 +24,7 @@ pluginManagement {
   }
 
   includeBuild("gradle/build-logic")
+  includeBuild("plugin")
 }
 
 includeBuild("gradle/detekt-rules")

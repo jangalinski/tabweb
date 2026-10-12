@@ -2,6 +2,7 @@
 kotlin = "2.4.20"
 kotlinx-serialization = "1.11.0"
 kotlin-code-generation = "0.5.2"
+schema2class = "0.1.0"
 
 compose-html = "1.12.1"
 kobweb = "0.25.1"
@@ -23,6 +24,7 @@ tabweb = "main-SNAPSHOT"
 
 [libraries]
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 
 bom-kotlin-code-generation = { module = "io.toolisticon.kotlin.generation:kotlin-code-generation-bom", version.ref = "kotlin-code-generation" }
 
@@ -40,6 +42,7 @@ tabweb = { module = "com.github.jangalinski:tabweb", version.ref = "tabweb" }
 jetbrains-markdown = { module = "org.jetbrains:markdown", version.ref = "markdown" }
 dokka-gradle-plugin = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "dokka" }
 kotlin-code-generation = { module = "io.toolisticon.kotlin.generation:kotlin-code-generation" }
+schema2class-gradle-plugin = { module = "ca.esmcelroy.schema2class:ca.esmcelroy.schema2class.gradle.plugin", version.ref = "schema2class" }
 
 test-assertk = { module = "com.willowtreeapps.assertk:assertk", version.ref = "assertk" }
 detekt-api = { module = "dev.detekt:detekt-api", version.ref = "detekt" }
@@ -50,6 +53,7 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinx-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+schema2class = { id = "ca.esmcelroy.schema2class", version.ref = "schema2class" }
 
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "jetbrains-compose" }
