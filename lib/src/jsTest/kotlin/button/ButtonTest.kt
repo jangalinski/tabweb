@@ -5,6 +5,7 @@ import assertk.assertions.contains
 import assertk.assertions.isEqualTo
 import com.github.jangalinski.tabweb.Tabweb.button
 import com.github.jangalinski.tabweb.Tabweb.buttons
+import com.github.jangalinski.tabweb._foundation.TabwebDirection
 import com.github.jangalinski.tabweb.icon.TabwebIcon
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
@@ -20,7 +21,7 @@ class ButtonTest {
       button(text = "Outline", color = ButtonColor.GREEN, style = ButtonStyle.OUTLINE, size = ButtonSize.LARGE)
       buttons {
         button(text = "Pill", color = ButtonColor.PURPLE, shape = ButtonShape.PILL)
-        button(text = "Right", icon = TabwebIcon.TI_ARROW_RIGHT, iconPosition = ButtonIconPosition.RIGHT)
+        button(text = "Right", icon = TabwebIcon.TI_ARROW_RIGHT, iconPosition = TabwebDirection.RIGHT)
       }
     }
 

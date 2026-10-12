@@ -1,8 +1,8 @@
 package com.github.jangalinski.tabweb.button
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.tabweb._foundation.Tabweb
 import com.github.jangalinski.tabweb._foundation.TabwebComponent
+import com.github.jangalinski.tabweb._foundation.TabwebDirection
 import com.github.jangalinski.tabweb._foundation.ariaLabel
 import com.github.jangalinski.tabweb._foundation.compose.KButton
 import com.github.jangalinski.tabweb._foundation.compose.KSpan
@@ -63,7 +63,7 @@ interface Button : TabwebComponent {
     operator fun invoke(
       text: String,
       icon: com.github.jangalinski.tabweb.icon.Icon,
-      iconPosition: ButtonIconPosition = ButtonIconPosition.LEFT,
+      iconPosition: TabwebDirection.Horizontal = TabwebDirection.LEFT,
       color: ButtonColor = ButtonColor.DEFAULT,
       style: ButtonStyle = ButtonStyle.DEFAULT,
       size: ButtonSize = ButtonSize.DEFAULT,
@@ -180,9 +180,9 @@ interface Button : TabwebComponent {
       when (val content = content) {
         is ButtonContent.Text -> KSpan(text = content.value)
         is ButtonContent.TextWithIcon -> {
-          if (content.position == ButtonIconPosition.LEFT) content.icon(cssClass("me-2"))
+          if (content.position == TabwebDirection.LEFT) content.icon(cssClass("me-2"))
           KSpan(text = content.text)
-          if (content.position == ButtonIconPosition.RIGHT) content.icon(cssClass("ms-2"))
+          if (content.position == TabwebDirection.RIGHT) content.icon(cssClass("ms-2"))
         }
         is ButtonContent.IconOnly -> {
           content.icon()

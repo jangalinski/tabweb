@@ -29,6 +29,12 @@ import com.varabyte.kobweb.core.PageContext
 import com.varabyte.kobweb.core.layout.Layout
 import com.varabyte.kobweb.navigation.BasePath
 
+/**
+ * The main entry point for Tabweb applications.
+ *
+ * This object provides access to all Tabweb composables, as well as the [TabwebApp] wrapper
+ * that installs Kobweb and Tabweb defaults for an application.
+ */
 data object Tabweb :
   AvatarComposable by AvatarDsl,
   BadgeComposable by BadgeDsl,
@@ -73,9 +79,4 @@ data object Tabweb :
       }
     }
   }
-
-  fun publicResourcePath(fileName: String) : String = if (fileName.startsWith("/"))
-    BasePath.prependTo(fileName)
-  else
-    publicResourcePath("/$fileName")
 }

@@ -1,10 +1,10 @@
 package com.github.jangalinski.tabweb.widget
 
 import androidx.compose.runtime.Composable
+import com.github.jangalinski.tabweb._foundation.TabwebDirection
 import com.github.jangalinski.tabweb.button.Button
 import com.github.jangalinski.tabweb.button.ButtonColor
 import com.github.jangalinski.tabweb.button.ButtonContent
-import com.github.jangalinski.tabweb.button.ButtonIconPosition
 import com.github.jangalinski.tabweb.button.ButtonShape
 import com.github.jangalinski.tabweb.button.ButtonSize
 import com.github.jangalinski.tabweb.button.ButtonStyle
@@ -115,7 +115,7 @@ data class ConfettiButton(
     operator fun invoke(
       text: String,
       icon: Icon,
-      iconPosition: ButtonIconPosition = ButtonIconPosition.LEFT,
+      iconPosition: TabwebDirection.Horizontal = TabwebDirection.LEFT,
       color: ButtonColor = ButtonColor.LIGHT,
       style: ButtonStyle = ButtonStyle.DEFAULT,
       size: ButtonSize = ButtonSize.DEFAULT,

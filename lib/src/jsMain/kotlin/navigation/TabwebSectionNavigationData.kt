@@ -85,25 +85,46 @@ data class TabwebSectionNavigationConfig(
 data class TabwebSectionNavigationData(
   val sections: List<Section> = emptyList(),
 ) {
-  /** A labelled group of rendered navigation items. */
+  /**
+   * A labelled group of rendered navigation items.
+   *
+   * @param title the title of the section.
+   * @param items rendered links and nested groups.
+   */
   data class Section(
     val title: String,
     val items: List<Item>,
   )
 
-  /** A rendered link or nested group. */
+  /**
+   * A rendered link or nested group.
+   */
   sealed interface Item {
     val title: String
     val active: Boolean
 
-    /** A rendered documentation link. */
+    /**
+     * A rendered documentation link.
+     *
+     * @param title the link text.
+     * @param url the link URL.
+     * @param active true if this link is the current route.
+     */
     data class Link(
       override val title: String,
       val url: Url,
       override val active: Boolean = false,
     ) : Item
 
-    /** A rendered nested group. */
+    /**
+     * A rendered nested group.
+     *
+     * @param title the group heading.
+     * @param url optional group URL.
+     * @param items the group's child links and groups.
+     * @param active true if this group or any of its descendants is active.
+     * @param expanded true if this group should be expanded in the renderer.
+     */
     data class Group(
       override val title: String,
       val url: Url?,
@@ -114,7 +135,9 @@ data class TabwebSectionNavigationData(
   }
 }
 
-/** Creates route-specific data for a section navigation. */
+/**
+ * Creates route-specific data for a section navigation.
+ */
 fun interface TabwebSectionNavigationFactory {
   /**
    * Creates navigation data for [activeRoute].

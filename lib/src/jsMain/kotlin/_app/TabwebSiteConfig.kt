@@ -25,6 +25,7 @@ data class TabwebSiteConfig(
  *
  * @param brand Primary brand header rendered at the top of the page.
  * @param navbar Primary navigation rendered below the brand header for the active route.
+ * @param navigation Static route tree used for page metadata and generated navigation.
  * @param navbarActions Actions rendered at the right side of the navbar's first row.
  * @param footer structured footer rendered at the bottom of the page.
  */
@@ -33,11 +34,8 @@ data class TabwebShellConfig(
     image = Url("/tabweb/tabweb-logo.svg"),
     caption = AppGlobals["title"] ?: "tabweb"
   ),
-  /** Primary navigation rendered below the brand header for the active route. */
   val navbar: TabwebNavbarFactory = TabwebNavbarFactory.None,
-  /** Static route tree used for page metadata and generated navigation. */
   val navigation: TabwebNavigation? = null,
-  /** Actions rendered at the right side of the navbar's first row. */
   val navbarActions: @Composable () -> Unit = {},
   val footer: TabwebFooter = TabwebFooter(),
 )

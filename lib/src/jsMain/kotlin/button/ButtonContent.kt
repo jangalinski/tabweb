@@ -1,5 +1,6 @@
 package com.github.jangalinski.tabweb.button
 
+import com.github.jangalinski.tabweb._foundation.TabwebDirection
 import com.github.jangalinski.tabweb.icon.Icon
 
 /**
@@ -23,7 +24,7 @@ sealed interface ButtonContent {
   data class TextWithIcon(
     val text: String,
     val icon: Icon,
-    val position: ButtonIconPosition,
+    val position: TabwebDirection.Horizontal,
   ) : ButtonContent
 
   /**

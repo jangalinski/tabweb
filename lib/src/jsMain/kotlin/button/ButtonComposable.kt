@@ -2,6 +2,7 @@ package com.github.jangalinski.tabweb.button
 
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb._foundation.TabwebComposable
+import com.github.jangalinski.tabweb._foundation.TabwebDirection
 import com.github.jangalinski.tabweb.icon.Icon
 import com.varabyte.kobweb.compose.ui.Modifier
 
@@ -56,7 +57,7 @@ interface ButtonComposable : TabwebComposable {
   fun button(
     text: String,
     icon: Icon,
-    iconPosition: ButtonIconPosition = ButtonIconPosition.LEFT,
+    iconPosition: TabwebDirection.Horizontal = TabwebDirection.LEFT,
     color: ButtonColor = ButtonColor.DEFAULT,
     style: ButtonStyle = ButtonStyle.DEFAULT,
     size: ButtonSize = ButtonSize.DEFAULT,

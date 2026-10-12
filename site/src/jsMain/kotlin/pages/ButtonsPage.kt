@@ -3,10 +3,10 @@ package com.github.jangalinski.tabweb.site.pages
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb.Tabweb.buttons
 import com.github.jangalinski.tabweb.Tabweb.cardDeck
+import com.github.jangalinski.tabweb._foundation.TabwebDirection
 import com.github.jangalinski.tabweb._foundation.compose.KDiv
 import com.github.jangalinski.tabweb._foundation.css.GridWidth
 import com.github.jangalinski.tabweb.button.ButtonColor
-import com.github.jangalinski.tabweb.button.ButtonIconPosition
 import com.github.jangalinski.tabweb.button.ButtonShape
 import com.github.jangalinski.tabweb.button.ButtonSize
 import com.github.jangalinski.tabweb.button.ButtonStyle
@@ -26,7 +26,7 @@ fun ButtonsPage() {
         buttons {
           button(text = "Button")
           button(text = "Left icon", icon = TabwebIcon.TI_STAR)
-          button(text = "Right icon", icon = TabwebIcon.TI_ARROW_RIGHT, iconPosition = ButtonIconPosition.RIGHT)
+          button(text = "Right icon", icon = TabwebIcon.TI_ARROW_RIGHT, iconPosition = TabwebDirection.RIGHT)
           button(icon = TabwebIcon.TI_STAR, ariaLabel = "Icon only")
         }
       }

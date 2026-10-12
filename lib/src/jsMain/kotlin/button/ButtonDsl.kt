@@ -2,6 +2,7 @@ package com.github.jangalinski.tabweb.button
 
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb._foundation.TabwebComponentDsl
+import com.github.jangalinski.tabweb._foundation.TabwebDirection
 import com.github.jangalinski.tabweb.icon.Icon
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.onClick
@@ -29,7 +30,7 @@ internal data object ButtonDsl : TabwebComponentDsl, ButtonComposable {
   override fun button(
     text: String,
     icon: Icon,
-    iconPosition: ButtonIconPosition,
+    iconPosition: TabwebDirection.Horizontal,
     color: ButtonColor,
     style: ButtonStyle,
     size: ButtonSize,

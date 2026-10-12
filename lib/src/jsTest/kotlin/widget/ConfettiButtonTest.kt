@@ -3,8 +3,8 @@ package com.github.jangalinski.tabweb.widget
 import assertk.assertThat
 import assertk.assertions.contains
 import assertk.assertions.isEqualTo
+import com.github.jangalinski.tabweb._foundation.TabwebDirection
 import com.github.jangalinski.tabweb.button.ButtonColor
-import com.github.jangalinski.tabweb.button.ButtonIconPosition
 import com.github.jangalinski.tabweb.button.ButtonShape
 import com.github.jangalinski.tabweb.button.ButtonSize
 import com.github.jangalinski.tabweb.button.ButtonStyle
@@ -62,7 +62,7 @@ class ConfettiButtonTest {
       ConfettiButton(
         text = "Shower",
         icon = TabwebIcon.TI_CONFETTI,
-        iconPosition = ButtonIconPosition.LEFT,
+        iconPosition = TabwebDirection.LEFT,
         color = ButtonColor.PRIMARY,
         style = ButtonStyle.OUTLINE,
         size = ButtonSize.LARGE,

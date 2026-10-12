@@ -1,5 +1,6 @@
 package com.github.jangalinski.tabweb.button
 
+import com.github.jangalinski.tabweb._foundation.TabwebDirection
 import com.github.jangalinski.tabweb._foundation.TabwebDsl
 import com.github.jangalinski.tabweb.icon.Icon
 
@@ -61,7 +62,7 @@ class ButtonListScope internal constructor() {
   fun button(
     text: String,
     icon: Icon,
-    iconPosition: ButtonIconPosition = ButtonIconPosition.LEFT,
+    iconPosition: TabwebDirection.Horizontal = TabwebDirection.LEFT,
     color: ButtonColor = ButtonColor.DEFAULT,
     style: ButtonStyle = ButtonStyle.DEFAULT,
     size: ButtonSize = ButtonSize.DEFAULT,
