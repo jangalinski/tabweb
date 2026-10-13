@@ -3,8 +3,12 @@ package com.github.jangalinski.tabweb.site.pages
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb.Tabweb.cardRow
 import com.github.jangalinski.tabweb.Tabweb.table
+import com.github.jangalinski.tabweb._foundation.alignment.BOTTOM
 import com.github.jangalinski.tabweb._foundation.Image
 import com.github.jangalinski.tabweb._foundation.Link
+import com.github.jangalinski.tabweb._foundation.alignment.RIGHT
+import com.github.jangalinski.tabweb._foundation.alignment.START
+import com.github.jangalinski.tabweb._foundation.alignment.TOP
 import com.github.jangalinski.tabweb._foundation.Url
 import com.github.jangalinski.tabweb._foundation.compose.KDiv
 import com.github.jangalinski.tabweb._foundation.compose.KH2
@@ -15,8 +19,6 @@ import com.github.jangalinski.tabweb._foundation.css.cssClass
 import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
 import com.github.jangalinski.tabweb.card.CardLinkType
 import com.github.jangalinski.tabweb.card.CardRibbon
-import com.github.jangalinski.tabweb.card.CardRibbonPosition
-import com.github.jangalinski.tabweb.card.CardRotate
 import com.github.jangalinski.tabweb.card.CardSize
 import com.github.jangalinski.tabweb.card.CardStamp
 import com.github.jangalinski.tabweb.card.CardStampSize
@@ -139,7 +141,7 @@ fun ExtremeCardsPage() {
     }
     card(
       width = GridWidth.LG_HALF,
-      ribbon = CardRibbon(text = "LIVE", position = CardRibbonPosition.TOP),
+      ribbon = CardRibbon(text = "LIVE", position = TOP),
     ) {
       imageTop(photo("extreme-chart-image"), "Photo above a chart")
       header(title = "Image + chart", subtitle = "Two competing hero visuals")
@@ -162,7 +164,7 @@ fun ExtremeCardsPage() {
     card(
       width = GridWidth.LG_HALF,
       status = CardStatus.start(BackgroundColor.SEMANTIC.DANGER),
-      ribbon = CardRibbon(text = "AUDIT", position = CardRibbonPosition.END),
+      ribbon = CardRibbon(text = "AUDIT", position = RIGHT),
     ) {
       header(title = "Table in body", subtitle = "Extra headings around a compact table")
       body {
@@ -185,7 +187,7 @@ fun ExtremeCardsPage() {
     card(
       width = GridWidth.MD_HALF_LG_QUARTER,
       stacked = true,
-      rotate = CardRotate.START,
+      rotate = START,
       ribbon = CardRibbon(text = "NEW", color = BackgroundColor.BASE.ORANGE),
       status = CardStatus.top(BackgroundColor.SEMANTIC.WARNING),
     ) {
@@ -206,7 +208,7 @@ fun ExtremeCardsPage() {
       width = GridWidth.MD_HALF_LG_QUARTER,
       link = cardsLink,
       linkType = CardLinkType.POP,
-      ribbon = CardRibbon(text = "LINK", position = CardRibbonPosition.TOP),
+      ribbon = CardRibbon(text = "LINK", position = TOP),
       status = CardStatus.end(BackgroundColor.SEMANTIC.INFO),
     ) {
       header(title = "Whole-card link", subtitle = "Pop, ribbon, status, and image")
@@ -218,7 +220,7 @@ fun ExtremeCardsPage() {
       active = true,
       borderless = true,
       stamp = CardStamp(TabwebIcon.TI_STAR, BackgroundColor.BASE.GREEN),
-      ribbon = CardRibbon(text = "ACTIVE", position = CardRibbonPosition.BOTTOM),
+      ribbon = CardRibbon(text = "ACTIVE", position = BOTTOM),
     ) {
       header(title = "Active + borderless", subtitle = "What does a ribbon attach to?")
       body {

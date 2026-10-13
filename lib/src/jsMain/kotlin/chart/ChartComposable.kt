@@ -1,10 +1,10 @@
 package com.github.jangalinski.tabweb.chart
 
 import androidx.compose.runtime.Composable
+import com.github.jangalinski.tabweb._foundation.alignment.Orientation
+import com.github.jangalinski.tabweb._foundation.alignment.VERTICAL
 import com.github.jangalinski.tabweb._foundation.TabwebColors
 import com.github.jangalinski.tabweb._foundation.TabwebComposable
-import com.github.jangalinski.tabweb._foundation.TabwebDirection.Orientation
-import com.github.jangalinski.tabweb._foundation.TabwebDirection.VERTICAL
 import com.github.jangalinski.tabweb.chart.BarChart.Companion.BarSeries
 import com.varabyte.kobweb.compose.ui.Modifier
 import org.jetbrains.compose.web.css.CSSLengthValue

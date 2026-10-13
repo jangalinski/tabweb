@@ -1,6 +1,12 @@
 package com.github.jangalinski.tabweb.button
 
 import com.github.jangalinski.tabweb._foundation.css.cssClass
+import com.github.jangalinski.tabweb._foundation.size.DEFAULT
+import com.github.jangalinski.tabweb._foundation.size.LARGE
+import com.github.jangalinski.tabweb._foundation.size.LARGE_X
+import com.github.jangalinski.tabweb._foundation.size.MEDIUM
+import com.github.jangalinski.tabweb._foundation.size.SMALL
+import com.github.jangalinski.tabweb._foundation.size.SmallToLargeX
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**
@@ -15,10 +21,11 @@ internal data object ButtonCss {
   private val colors by lazy { ButtonColor.entries.associateWith { cssClass("btn-${it.cssName()}") } }
   private val sizes by lazy {
     mapOf(
-      ButtonSize.SMALL to cssClass("btn-sm"),
-      ButtonSize.MEDIUM to Modifier,
-      ButtonSize.LARGE to cssClass("btn-lg"),
-      ButtonSize.EXTRA_LARGE to cssClass("btn-xl"),
+      DEFAULT to Modifier,
+      SMALL to cssClass("btn-sm"),
+      MEDIUM to Modifier,
+      LARGE to cssClass("btn-lg"),
+      LARGE_X to cssClass("btn-xl"),
     )
   }
   private val styles by lazy {
@@ -39,7 +46,7 @@ internal data object ButtonCss {
 
   fun color(color: ButtonColor): Modifier = colors.getValue(color)
 
-  fun size(size: ButtonSize): Modifier = sizes.getValue(size)
+  fun size(size: SmallToLargeX): Modifier = sizes.getValue(size)
 
   fun style(style: ButtonStyle): Modifier = styles.getValue(style)
 

@@ -1,6 +1,7 @@
 package com.github.jangalinski.tabweb.card
 
 import androidx.compose.runtime.Composable
+import com.github.jangalinski.tabweb._foundation.alignment.Horizontal
 import com.github.jangalinski.tabweb._foundation.Link
 import com.github.jangalinski.tabweb._foundation.TabwebComponentScope
 import com.github.jangalinski.tabweb._foundation.TabwebDsl
@@ -83,7 +84,7 @@ interface CardRowScope : TabwebComponentScope {
     ribbon: CardRibbon? = null,
     stamp: CardStamp? = null,
     progress: CardProgress? = null,
-    rotate: CardRotate? = null,
+    rotate: Horizontal? = null,
     active: Boolean = false,
     inactive: Boolean = false,
     borderless: Boolean = false,
@@ -124,7 +125,7 @@ interface CardRowScope : TabwebComponentScope {
     ribbon: CardRibbon? = null,
     stamp: CardStamp? = null,
     progress: CardProgress? = null,
-    rotate: CardRotate? = null,
+    rotate: Horizontal? = null,
     active: Boolean = false,
     inactive: Boolean = false,
     borderless: Boolean = false,
@@ -167,7 +168,7 @@ interface CardRowScope : TabwebComponentScope {
     ribbon: CardRibbon? = null,
     stamp: CardStamp? = null,
     progress: CardProgress? = null,
-    rotate: CardRotate? = null,
+    rotate: Horizontal? = null,
     active: Boolean = false,
     inactive: Boolean = false,
     borderless: Boolean = false,
@@ -212,7 +213,7 @@ interface CardRowScope : TabwebComponentScope {
     ribbon: CardRibbon? = null,
     stamp: CardStamp? = null,
     progress: CardProgress? = null,
-    rotate: CardRotate? = null,
+    rotate: Horizontal? = null,
     active: Boolean = false,
     inactive: Boolean = false,
     borderless: Boolean = false,
@@ -272,7 +273,7 @@ internal data object DefaultCardRowScope : CardRowScope {
     ribbon: CardRibbon?,
     stamp: CardStamp?,
     progress: CardProgress?,
-    rotate: CardRotate?,
+    rotate: Horizontal?,
     active: Boolean,
     inactive: Boolean,
     borderless: Boolean,
@@ -313,7 +314,7 @@ internal data object DefaultCardRowScope : CardRowScope {
     ribbon: CardRibbon?,
     stamp: CardStamp?,
     progress: CardProgress?,
-    rotate: CardRotate?,
+    rotate: Horizontal?,
     active: Boolean,
     inactive: Boolean,
     borderless: Boolean,

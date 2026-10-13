@@ -5,7 +5,7 @@ import com.github.jangalinski.tabweb.Tabweb.badge
 import com.github.jangalinski.tabweb.Tabweb.badges
 import com.github.jangalinski.tabweb.Tabweb.cardDeck
 import com.github.jangalinski.tabweb._foundation.Link
-import com.github.jangalinski.tabweb._foundation.TabwebDirection
+import com.github.jangalinski.tabweb._foundation.alignment.RIGHT
 import com.github.jangalinski.tabweb._foundation.Url
 import com.github.jangalinski.tabweb._foundation.compose.KDiv
 import com.github.jangalinski.tabweb._foundation.compose.KH1
@@ -110,7 +110,7 @@ fun BadgesPage() {
               badge(
                 text = "Right icon",
                 icon = TabwebIcon.TI_ARROW_RIGHT,
-                iconPosition = TabwebDirection.RIGHT,
+                iconPosition = RIGHT,
                 size = size,
               )
               badge(icon = TabwebIcon.TI_STAR, size = size)

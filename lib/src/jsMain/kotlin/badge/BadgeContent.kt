@@ -1,7 +1,7 @@
 package com.github.jangalinski.tabweb.badge
 
 import com.github.jangalinski.tabweb._foundation.TabwebContent
-import com.github.jangalinski.tabweb._foundation.TabwebDirection
+import com.github.jangalinski.tabweb._foundation.alignment.Horizontal
 import com.github.jangalinski.tabweb.icon.Icon
 
 /**
@@ -25,7 +25,7 @@ sealed interface BadgeContent : TabwebContent{
   data class TextWithIcon(
     val text: String,
     val icon: Icon,
-    val position: TabwebDirection.Horizontal,
+    val position: Horizontal,
   ) : BadgeContent
 
   /**

@@ -1,9 +1,9 @@
 package com.github.jangalinski.tabweb.badge
 
 import androidx.compose.runtime.Composable
+import com.github.jangalinski.tabweb._foundation.alignment.Horizontal
 import com.github.jangalinski.tabweb._foundation.Link
 import com.github.jangalinski.tabweb._foundation.TabwebComponentDsl
-import com.github.jangalinski.tabweb._foundation.TabwebDirection
 import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
 import com.github.jangalinski.tabweb.icon.Icon
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -29,7 +29,7 @@ internal data object BadgeDsl : TabwebComponentDsl, BadgeComposable {
   override fun badge(
     text: String,
     icon: Icon,
-    iconPosition: TabwebDirection.Horizontal,
+    iconPosition: Horizontal,
     color: BackgroundColor,
     style: BadgeStyle,
     size: BadgeSize,

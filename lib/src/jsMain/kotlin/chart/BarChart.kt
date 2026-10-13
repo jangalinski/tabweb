@@ -1,10 +1,10 @@
 package com.github.jangalinski.tabweb.chart
 
 import com.github.jangalinski.tabweb._foundation.DynamicJson
+import com.github.jangalinski.tabweb._foundation.alignment.HORIZONTAL
+import com.github.jangalinski.tabweb._foundation.alignment.VERTICAL
+import com.github.jangalinski.tabweb._foundation.alignment.Orientation
 import com.github.jangalinski.tabweb._foundation.TabwebColors
-import com.github.jangalinski.tabweb._foundation.TabwebDirection
-import com.github.jangalinski.tabweb._foundation.TabwebDirection.Orientation
-import com.github.jangalinski.tabweb._foundation.TabwebDirection.VERTICAL
 import org.jetbrains.compose.web.css.CSSLengthValue
 import org.jetbrains.compose.web.css.px
 import kotlin.js.json
@@ -93,7 +93,7 @@ data class BarChart(
       "xaxis" to json("categories" to categories.toTypedArray()),
       "plotOptions" to json(
         "bar" to json(
-          "horizontal" to (orientation == TabwebDirection.HORIZONTAL),
+          "horizontal" to (orientation == HORIZONTAL),
           "borderRadius" to borderRadius,
         ),
       ),

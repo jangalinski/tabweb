@@ -1,6 +1,7 @@
 package com.github.jangalinski.tabweb.card
 
 import androidx.compose.runtime.Composable
+import com.github.jangalinski.tabweb._foundation.alignment.Horizontal
 import com.github.jangalinski.tabweb._foundation.Link
 import com.github.jangalinski.tabweb._foundation.TabwebComposable
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -25,7 +26,7 @@ interface CardComposable : TabwebComposable {
     ribbon: CardRibbon? = null,
     stamp: CardStamp? = null,
     progress: CardProgress? = null,
-    rotate: CardRotate? = null,
+    rotate: Horizontal? = null,
     active: Boolean = false,
     inactive: Boolean = false,
     borderless: Boolean = false,
@@ -49,7 +50,7 @@ interface CardComposable : TabwebComposable {
     ribbon: CardRibbon? = null,
     stamp: CardStamp? = null,
     progress: CardProgress? = null,
-    rotate: CardRotate? = null,
+    rotate: Horizontal? = null,
     active: Boolean = false,
     inactive: Boolean = false,
     borderless: Boolean = false,

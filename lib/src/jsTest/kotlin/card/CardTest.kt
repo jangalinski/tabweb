@@ -9,6 +9,8 @@ import com.github.jangalinski.tabweb.Tabweb.cardDeck
 import com.github.jangalinski.tabweb.Tabweb.cardGroup
 import com.github.jangalinski.tabweb.Tabweb.cardRow
 import com.github.jangalinski.tabweb._foundation.Link
+import com.github.jangalinski.tabweb._foundation.alignment.START
+import com.github.jangalinski.tabweb._foundation.alignment.TOP
 import com.github.jangalinski.tabweb._foundation.Url
 import com.github.jangalinski.tabweb._foundation.compose.KH1
 import com.github.jangalinski.tabweb._foundation.compose.KP
@@ -123,7 +125,7 @@ class CardTest {
     composition {
       card(
         status = CardStatus.top(BackgroundColor.SEMANTIC.DANGER),
-        ribbon = CardRibbon(text = "NEW", color = BackgroundColor.SEMANTIC.SUCCESS, position = CardRibbonPosition.TOP),
+        ribbon = CardRibbon(text = "NEW", color = BackgroundColor.SEMANTIC.SUCCESS, position = TOP),
         stamp = CardStamp(icon = TabwebIcon.TI_STAR, color = BackgroundColor.BASE.YELLOW, size = CardStampSize.LG),
         progress = CardProgress(value = 45, color = BackgroundColor.SEMANTIC.PRIMARY),
       ) {
@@ -179,7 +181,7 @@ class CardTest {
   @Test
   fun rendersCardModifiersAndGroups() = runTest {
     composition {
-      card(active = true, stacked = true, size = CardSize.SM, rotate = CardRotate.START) {
+      card(active = true, stacked = true, size = CardSize.SM, rotate = START) {
         body {
           KText("Active stacked sm")
         }

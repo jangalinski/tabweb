@@ -1,6 +1,7 @@
 package com.github.jangalinski.tabweb.card
 
 import androidx.compose.runtime.Composable
+import com.github.jangalinski.tabweb._foundation.alignment.Horizontal
 import com.github.jangalinski.tabweb._foundation.Link
 import com.github.jangalinski.tabweb._foundation.TabwebComponentDsl
 import com.github.jangalinski.tabweb._foundation.compose.KDiv
@@ -24,7 +25,7 @@ internal data object CardDsl : TabwebComponentDsl, CardComposable {
     ribbon: CardRibbon?,
     stamp: CardStamp?,
     progress: CardProgress?,
-    rotate: CardRotate?,
+    rotate: Horizontal?,
     active: Boolean,
     inactive: Boolean,
     borderless: Boolean,
@@ -61,7 +62,7 @@ internal data object CardDsl : TabwebComponentDsl, CardComposable {
     ribbon: CardRibbon?,
     stamp: CardStamp?,
     progress: CardProgress?,
-    rotate: CardRotate?,
+    rotate: Horizontal?,
     active: Boolean,
     inactive: Boolean,
     borderless: Boolean,

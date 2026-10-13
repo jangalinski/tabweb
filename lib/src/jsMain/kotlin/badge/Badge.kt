@@ -1,9 +1,11 @@
 package com.github.jangalinski.tabweb.badge
 
 import androidx.compose.runtime.Composable
+import com.github.jangalinski.tabweb._foundation.alignment.Horizontal
+import com.github.jangalinski.tabweb._foundation.alignment.LEFT
 import com.github.jangalinski.tabweb._foundation.Link
+import com.github.jangalinski.tabweb._foundation.alignment.RIGHT
 import com.github.jangalinski.tabweb._foundation.TabwebComponent
-import com.github.jangalinski.tabweb._foundation.TabwebDirection
 import com.github.jangalinski.tabweb._foundation.compose.KAnchor
 import com.github.jangalinski.tabweb._foundation.compose.KSpan
 import com.github.jangalinski.tabweb._foundation.compose.KText
@@ -60,7 +62,7 @@ interface Badge : TabwebComponent {
     operator fun invoke(
       text: String,
       icon: Icon,
-      iconPosition: TabwebDirection.Horizontal = TabwebDirection.LEFT,
+      iconPosition: Horizontal = LEFT,
       color: BackgroundColor = BackgroundColor.SEMANTIC.PRIMARY,
       style: BadgeStyle = BadgeStyle.DEFAULT,
       size: BadgeSize = BadgeSize.DEFAULT,
@@ -142,9 +144,9 @@ interface Badge : TabwebComponent {
       when (val content = content) {
         is BadgeContent.Text -> KText(content.value)
         is BadgeContent.TextWithIcon -> {
-          if (content.position == TabwebDirection.LEFT) content.icon()
+          if (content.position == LEFT) content.icon()
           KText(content.text)
-          if (content.position == TabwebDirection.RIGHT) content.icon()
+          if (content.position == RIGHT) content.icon()
         }
         is BadgeContent.IconOnly -> content.icon()
       }

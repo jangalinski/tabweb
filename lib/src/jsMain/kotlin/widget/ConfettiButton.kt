@@ -1,12 +1,14 @@
 package com.github.jangalinski.tabweb.widget
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.tabweb._foundation.TabwebDirection
+import com.github.jangalinski.tabweb._foundation.alignment.Horizontal
+import com.github.jangalinski.tabweb._foundation.alignment.LEFT
+import com.github.jangalinski.tabweb._foundation.size.DEFAULT
+import com.github.jangalinski.tabweb._foundation.size.SmallToLargeX
 import com.github.jangalinski.tabweb.button.Button
 import com.github.jangalinski.tabweb.button.ButtonColor
 import com.github.jangalinski.tabweb.button.ButtonContent
 import com.github.jangalinski.tabweb.button.ButtonShape
-import com.github.jangalinski.tabweb.button.ButtonSize
 import com.github.jangalinski.tabweb.button.ButtonStyle
 import com.github.jangalinski.tabweb.icon.Icon
 import com.github.jangalinski.tabweb.icon.TabwebIcon
@@ -36,7 +38,7 @@ data class ConfettiButton(
   ),
   override val color: ButtonColor = ButtonColor.LIGHT,
   override val style: ButtonStyle = ButtonStyle.DEFAULT,
-  override val size: ButtonSize = ButtonSize.DEFAULT,
+  override val size: SmallToLargeX = DEFAULT,
   override val shape: ButtonShape = ButtonShape.DEFAULT,
   override val loading: Boolean = false,
   override val disabled: Boolean = loading,
@@ -69,7 +71,7 @@ data class ConfettiButton(
       text: String,
       color: ButtonColor = ButtonColor.LIGHT,
       style: ButtonStyle = ButtonStyle.DEFAULT,
-      size: ButtonSize = ButtonSize.DEFAULT,
+      size: SmallToLargeX = DEFAULT,
       shape: ButtonShape = ButtonShape.DEFAULT,
       loading: Boolean = false,
       disabled: Boolean = loading,
@@ -115,10 +117,10 @@ data class ConfettiButton(
     operator fun invoke(
       text: String,
       icon: Icon,
-      iconPosition: TabwebDirection.Horizontal = TabwebDirection.LEFT,
+      iconPosition: Horizontal = LEFT,
       color: ButtonColor = ButtonColor.LIGHT,
       style: ButtonStyle = ButtonStyle.DEFAULT,
-      size: ButtonSize = ButtonSize.DEFAULT,
+      size: SmallToLargeX = DEFAULT,
       shape: ButtonShape = ButtonShape.DEFAULT,
       loading: Boolean = false,
       disabled: Boolean = loading,
@@ -165,7 +167,7 @@ data class ConfettiButton(
       ariaLabel: String = "Confetti button",
       color: ButtonColor = ButtonColor.LIGHT,
       style: ButtonStyle = ButtonStyle.DEFAULT,
-      size: ButtonSize = ButtonSize.DEFAULT,
+      size: SmallToLargeX = DEFAULT,
       shape: ButtonShape = ButtonShape.DEFAULT,
       loading: Boolean = false,
       disabled: Boolean = loading,

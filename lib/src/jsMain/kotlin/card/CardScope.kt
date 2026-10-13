@@ -2,6 +2,7 @@ package com.github.jangalinski.tabweb.card
 
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb._foundation.Image
+import com.github.jangalinski.tabweb._foundation.alignment.CardinalDirection
 import com.github.jangalinski.tabweb._foundation.TabwebComponentScope
 import com.github.jangalinski.tabweb._foundation.TabwebDsl
 import com.github.jangalinski.tabweb._foundation.compose.*
@@ -77,7 +78,7 @@ interface CardScope : TabwebComponentScope {
   fun ribbon(
     text: String? = null,
     icon: Icon? = null,
-    position: CardRibbonPosition = CardRibbonPosition.DEFAULT,
+    position: CardinalDirection? = null,
     bookmark: Boolean = false,
     color: BackgroundColor = BackgroundColor.SEMANTIC.PRIMARY,
   )
@@ -232,7 +233,7 @@ internal data object DefaultCardScope : CardScope {
   override fun ribbon(
     text: String?,
     icon: Icon?,
-    position: CardRibbonPosition,
+    position: CardinalDirection?,
     bookmark: Boolean,
     color: BackgroundColor,
   ) {

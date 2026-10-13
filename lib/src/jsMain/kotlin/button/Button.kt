@@ -1,13 +1,14 @@
 package com.github.jangalinski.tabweb.button
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.tabweb._foundation.TabwebComponent
-import com.github.jangalinski.tabweb._foundation.TabwebDirection
-import com.github.jangalinski.tabweb._foundation.ariaLabel
+import com.github.jangalinski.tabweb._foundation.*
+import com.github.jangalinski.tabweb._foundation.alignment.*
 import com.github.jangalinski.tabweb._foundation.compose.KButton
 import com.github.jangalinski.tabweb._foundation.compose.KSpan
 import com.github.jangalinski.tabweb._foundation.css.cssClass
 import com.github.jangalinski.tabweb._foundation.css.plus
+import com.github.jangalinski.tabweb._foundation.size.DEFAULT
+import com.github.jangalinski.tabweb._foundation.size.SmallToLargeX
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.attr
 
@@ -32,7 +33,7 @@ interface Button : TabwebComponent {
       text: String,
       color: ButtonColor = ButtonColor.DEFAULT,
       style: ButtonStyle = ButtonStyle.DEFAULT,
-      size: ButtonSize = ButtonSize.DEFAULT,
+      size: SmallToLargeX = DEFAULT,
       shape: ButtonShape = ButtonShape.DEFAULT,
       loading: Boolean = false,
       disabled: Boolean = loading,
@@ -63,10 +64,10 @@ interface Button : TabwebComponent {
     operator fun invoke(
       text: String,
       icon: com.github.jangalinski.tabweb.icon.Icon,
-      iconPosition: TabwebDirection.Horizontal = TabwebDirection.LEFT,
+      iconPosition: Horizontal = LEFT,
       color: ButtonColor = ButtonColor.DEFAULT,
       style: ButtonStyle = ButtonStyle.DEFAULT,
-      size: ButtonSize = ButtonSize.DEFAULT,
+      size: SmallToLargeX = DEFAULT,
       shape: ButtonShape = ButtonShape.DEFAULT,
       loading: Boolean = false,
       disabled: Boolean = loading,
@@ -98,7 +99,7 @@ interface Button : TabwebComponent {
       ariaLabel: String,
       color: ButtonColor = ButtonColor.DEFAULT,
       style: ButtonStyle = ButtonStyle.DEFAULT,
-      size: ButtonSize = ButtonSize.DEFAULT,
+      size: SmallToLargeX = DEFAULT,
       shape: ButtonShape = ButtonShape.DEFAULT,
       loading: Boolean = false,
       disabled: Boolean = loading,
@@ -116,7 +117,7 @@ interface Button : TabwebComponent {
       content: ButtonContent,
       color: ButtonColor,
       style: ButtonStyle,
-      size: ButtonSize,
+      size: SmallToLargeX,
       shape: ButtonShape,
       loading: Boolean,
       disabled: Boolean,
@@ -149,7 +150,7 @@ interface Button : TabwebComponent {
   /**
    * Size applied to the button.
    */
-  val size: ButtonSize
+  val size: SmallToLargeX
 
   /**
    * Corner shape applied to the button.
@@ -180,10 +181,11 @@ interface Button : TabwebComponent {
       when (val content = content) {
         is ButtonContent.Text -> KSpan(text = content.value)
         is ButtonContent.TextWithIcon -> {
-          if (content.position == TabwebDirection.LEFT) content.icon(cssClass("me-2"))
+          if (content.position == LEFT) content.icon(cssClass("me-2"))
           KSpan(text = content.text)
-          if (content.position == TabwebDirection.RIGHT) content.icon(cssClass("ms-2"))
+          if (content.position == RIGHT) content.icon(cssClass("ms-2"))
         }
+
         is ButtonContent.IconOnly -> {
           content.icon()
         }

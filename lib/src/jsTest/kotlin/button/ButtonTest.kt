@@ -5,8 +5,9 @@ import assertk.assertions.contains
 import assertk.assertions.isEqualTo
 import com.github.jangalinski.tabweb.Tabweb.button
 import com.github.jangalinski.tabweb.Tabweb.buttons
-import com.github.jangalinski.tabweb._foundation.TabwebDirection
 import com.github.jangalinski.tabweb.icon.TabwebIcon
+import com.github.jangalinski.tabweb._foundation.alignment.RIGHT
+import com.github.jangalinski.tabweb._foundation.size.LARGE
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
 import kotlin.test.Test
@@ -18,10 +19,10 @@ class ButtonTest {
   fun rendersInstancesAndDslButtonsWithSupportedVariants() = runTest {
     composition {
       Button(text = "Primary", color = ButtonColor.PRIMARY)()
-      button(text = "Outline", color = ButtonColor.GREEN, style = ButtonStyle.OUTLINE, size = ButtonSize.LARGE)
+      button(text = "Outline", color = ButtonColor.GREEN, style = ButtonStyle.OUTLINE, size = LARGE)
       buttons {
         button(text = "Pill", color = ButtonColor.PURPLE, shape = ButtonShape.PILL)
-        button(text = "Right", icon = TabwebIcon.TI_ARROW_RIGHT, iconPosition = TabwebDirection.RIGHT)
+        button(text = "Right", icon = TabwebIcon.TI_ARROW_RIGHT, iconPosition = RIGHT)
       }
     }
 

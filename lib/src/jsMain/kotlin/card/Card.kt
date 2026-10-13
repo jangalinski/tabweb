@@ -3,6 +3,7 @@ package com.github.jangalinski.tabweb.card
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb._foundation.Link
 import com.github.jangalinski.tabweb._foundation.TabwebComponent
+import com.github.jangalinski.tabweb._foundation.alignment.*
 import com.github.jangalinski.tabweb._foundation.compose.KAnchor
 import com.github.jangalinski.tabweb._foundation.compose.KDiv
 import com.github.jangalinski.tabweb._foundation.compose.KText
@@ -18,7 +19,7 @@ interface Card : TabwebComponent {
   val ribbon: CardRibbon? get() = null
   val stamp: CardStamp? get() = null
   val progress: CardProgress? get() = null
-  val rotate: CardRotate? get() = null
+  val rotate: Horizontal? get() = null
   val active: Boolean get() = false
   val inactive: Boolean get() = false
   val borderless: Boolean get() = false
@@ -33,7 +34,7 @@ interface Card : TabwebComponent {
     val inactiveModifier = if (inactive) CardCss.CARD_INACTIVE else Modifier
     val borderlessModifier = if (borderless) CardCss.CARD_BORDERLESS else Modifier
     val stackedModifier = if (stacked) CardCss.CARD_STACKED else Modifier
-    val rotateModifier = rotate?.modifier ?: Modifier
+    val rotateModifier = rotate.css
     val sizeModifier = size.modifier
 
     val baseModifier = CardCss.CARD +
@@ -74,7 +75,7 @@ interface Card : TabwebComponent {
       ribbon: CardRibbon? = null,
       stamp: CardStamp? = null,
       progress: CardProgress? = null,
-      rotate: CardRotate? = null,
+      rotate: Horizontal? = null,
       active: Boolean = false,
       inactive: Boolean = false,
       borderless: Boolean = false,
@@ -88,7 +89,7 @@ interface Card : TabwebComponent {
       override val ribbon: CardRibbon? = ribbon
       override val stamp: CardStamp? = stamp
       override val progress: CardProgress? = progress
-      override val rotate: CardRotate? = rotate
+      override val rotate: Horizontal? = rotate
       override val active: Boolean = active
       override val inactive: Boolean = inactive
       override val borderless: Boolean = borderless
@@ -110,7 +111,7 @@ interface Card : TabwebComponent {
       ribbon: CardRibbon? = null,
       stamp: CardStamp? = null,
       progress: CardProgress? = null,
-      rotate: CardRotate? = null,
+      rotate: Horizontal? = null,
       active: Boolean = false,
       inactive: Boolean = false,
       borderless: Boolean = false,
@@ -138,6 +139,14 @@ interface Card : TabwebComponent {
         }
         KText(body)
       }
+    }
+
+    private val Horizontal?.css get(): Modifier = when(this) {
+      START -> CardCss.CARD_ROTATE_START
+      END -> CardCss.CARD_ROTATE_END
+      LEFT -> CardCss.CARD_ROTATE_LEFT
+      RIGHT -> CardCss.CARD_ROTATE_RIGHT
+      else -> Modifier
     }
   }
 }

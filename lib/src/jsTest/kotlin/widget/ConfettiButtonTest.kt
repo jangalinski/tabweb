@@ -3,10 +3,10 @@ package com.github.jangalinski.tabweb.widget
 import assertk.assertThat
 import assertk.assertions.contains
 import assertk.assertions.isEqualTo
-import com.github.jangalinski.tabweb._foundation.TabwebDirection
+import com.github.jangalinski.tabweb._foundation.alignment.LEFT
+import com.github.jangalinski.tabweb._foundation.size.LARGE
 import com.github.jangalinski.tabweb.button.ButtonColor
 import com.github.jangalinski.tabweb.button.ButtonShape
-import com.github.jangalinski.tabweb.button.ButtonSize
 import com.github.jangalinski.tabweb.button.ButtonStyle
 import com.github.jangalinski.tabweb.icon.TabwebIcon
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
@@ -62,10 +62,10 @@ class ConfettiButtonTest {
       ConfettiButton(
         text = "Shower",
         icon = TabwebIcon.TI_CONFETTI,
-        iconPosition = TabwebDirection.LEFT,
+        iconPosition = LEFT,
         color = ButtonColor.PRIMARY,
         style = ButtonStyle.OUTLINE,
-        size = ButtonSize.LARGE,
+        size = LARGE,
         shape = ButtonShape.PILL,
         count = 150,
         duration = 1500,

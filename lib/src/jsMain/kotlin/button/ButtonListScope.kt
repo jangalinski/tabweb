@@ -1,7 +1,10 @@
 package com.github.jangalinski.tabweb.button
 
-import com.github.jangalinski.tabweb._foundation.TabwebDirection
+import com.github.jangalinski.tabweb._foundation.alignment.Horizontal
+import com.github.jangalinski.tabweb._foundation.alignment.LEFT
 import com.github.jangalinski.tabweb._foundation.TabwebDsl
+import com.github.jangalinski.tabweb._foundation.size.DEFAULT
+import com.github.jangalinski.tabweb._foundation.size.SmallToLargeX
 import com.github.jangalinski.tabweb.icon.Icon
 
 /**
@@ -37,7 +40,7 @@ class ButtonListScope internal constructor() {
     text: String,
     color: ButtonColor = ButtonColor.DEFAULT,
     style: ButtonStyle = ButtonStyle.DEFAULT,
-    size: ButtonSize = ButtonSize.DEFAULT,
+    size: SmallToLargeX = DEFAULT,
     shape: ButtonShape = ButtonShape.DEFAULT,
     loading: Boolean = false,
     disabled: Boolean = loading,
@@ -62,10 +65,10 @@ class ButtonListScope internal constructor() {
   fun button(
     text: String,
     icon: Icon,
-    iconPosition: TabwebDirection.Horizontal = TabwebDirection.LEFT,
+    iconPosition: Horizontal = LEFT,
     color: ButtonColor = ButtonColor.DEFAULT,
     style: ButtonStyle = ButtonStyle.DEFAULT,
-    size: ButtonSize = ButtonSize.DEFAULT,
+    size: SmallToLargeX = DEFAULT,
     shape: ButtonShape = ButtonShape.DEFAULT,
     loading: Boolean = false,
     disabled: Boolean = loading,
@@ -91,7 +94,7 @@ class ButtonListScope internal constructor() {
     ariaLabel: String,
     color: ButtonColor = ButtonColor.DEFAULT,
     style: ButtonStyle = ButtonStyle.DEFAULT,
-    size: ButtonSize = ButtonSize.DEFAULT,
+    size: SmallToLargeX = DEFAULT,
     shape: ButtonShape = ButtonShape.DEFAULT,
     loading: Boolean = false,
     disabled: Boolean = loading,

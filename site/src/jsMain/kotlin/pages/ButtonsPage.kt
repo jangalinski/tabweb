@@ -3,12 +3,13 @@ package com.github.jangalinski.tabweb.site.pages
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb.Tabweb.buttons
 import com.github.jangalinski.tabweb.Tabweb.cardDeck
-import com.github.jangalinski.tabweb._foundation.TabwebDirection
+import com.github.jangalinski.tabweb._foundation.alignment.RIGHT
 import com.github.jangalinski.tabweb._foundation.compose.KDiv
 import com.github.jangalinski.tabweb._foundation.css.GridWidth
+import com.github.jangalinski.tabweb._foundation.size.SmallToLargeX
+import com.github.jangalinski.tabweb._foundation.size.smallToLargeX
 import com.github.jangalinski.tabweb.button.ButtonColor
 import com.github.jangalinski.tabweb.button.ButtonShape
-import com.github.jangalinski.tabweb.button.ButtonSize
 import com.github.jangalinski.tabweb.button.ButtonStyle
 import com.github.jangalinski.tabweb.icon.TabwebIcon
 import com.github.jangalinski.tabweb.site.SiteRoutes
@@ -26,7 +27,7 @@ fun ButtonsPage() {
         buttons {
           button(text = "Button")
           button(text = "Left icon", icon = TabwebIcon.TI_STAR)
-          button(text = "Right icon", icon = TabwebIcon.TI_ARROW_RIGHT, iconPosition = TabwebDirection.RIGHT)
+          button(text = "Right icon", icon = TabwebIcon.TI_ARROW_RIGHT, iconPosition = RIGHT)
           button(icon = TabwebIcon.TI_STAR, ariaLabel = "Icon only")
         }
       }
@@ -57,10 +58,10 @@ fun ButtonsPage() {
       header(title = "Sizes")
       body {
         KDiv(modifier = Modifier.classNames("space-y")) {
-          ButtonSize.entries.forEach { size ->
+          smallToLargeX.forEach { size ->
             buttons {
               button(text = "Button", size = size)
-              button(icon = TabwebIcon.TI_STAR, ariaLabel = "${size.name.lowercase()} icon", size = size)
+              button(icon = TabwebIcon.TI_STAR, ariaLabel = "${size.toString().lowercase()} icon", size = size)
               button(text = "Icon", icon = TabwebIcon.TI_STAR, size = size)
             }
           }

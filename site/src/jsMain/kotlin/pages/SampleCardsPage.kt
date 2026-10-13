@@ -5,6 +5,9 @@ import com.github.jangalinski.tabweb.Tabweb.button
 import com.github.jangalinski.tabweb.Tabweb.buttons
 import com.github.jangalinski.tabweb.Tabweb.cardGroup
 import com.github.jangalinski.tabweb.Tabweb.cardRow
+import com.github.jangalinski.tabweb._foundation.alignment.END
+import com.github.jangalinski.tabweb._foundation.alignment.START
+import com.github.jangalinski.tabweb._foundation.alignment.TOP
 import com.github.jangalinski.tabweb._foundation.Link
 import com.github.jangalinski.tabweb._foundation.Url
 import com.github.jangalinski.tabweb._foundation.compose.KDiv
@@ -85,10 +88,10 @@ fun SampleCardsPage() {
         title("Rotation & state")
         subtitle("Tilt a card slightly, or mark it as active or inactive.")
         cardRow {
-          card(width = GridWidth.MD_HALF_LG_QUARTER, rotate = CardRotate.END) {
+          card(width = GridWidth.MD_HALF_LG_QUARTER, rotate = END) {
             body { KText("Card rotate end") }
           }
-          card(width = GridWidth.MD_HALF_LG_QUARTER, rotate = CardRotate.START) {
+          card(width = GridWidth.MD_HALF_LG_QUARTER, rotate = START) {
             body { KText("Card rotate start") }
           }
           card(width = GridWidth.MD_HALF_LG_QUARTER, active = true) {
@@ -188,7 +191,7 @@ fun SampleCardsPage() {
             width = GridWidth.MD_HALF_LG_QUARTER,
             ribbon = CardRibbon(
               icon = TabwebIcon.TI_STAR,
-              position = CardRibbonPosition.TOP,
+              position = TOP,
               bookmark = true,
               color = BackgroundColor.BASE.YELLOW,
             ),

@@ -7,7 +7,7 @@ import assertk.assertions.isEqualTo
 import com.github.jangalinski.tabweb.Tabweb.badge
 import com.github.jangalinski.tabweb.Tabweb.badges
 import com.github.jangalinski.tabweb._foundation.Link
-import com.github.jangalinski.tabweb._foundation.TabwebDirection
+import com.github.jangalinski.tabweb._foundation.alignment.RIGHT
 import com.github.jangalinski.tabweb._foundation.Url
 import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
 import com.github.jangalinski.tabweb.icon.TabwebIcon
@@ -61,7 +61,7 @@ class BadgeTest {
     composition {
       badges {
         badge(text = "Left", icon = TabwebIcon.TI_CHECK)
-        badge(text = "Right", icon = TabwebIcon.TI_ARROW_RIGHT, iconPosition = TabwebDirection.RIGHT)
+        badge(text = "Right", icon = TabwebIcon.TI_ARROW_RIGHT, iconPosition = RIGHT)
         badge(icon = TabwebIcon.TI_STAR)
       }
     }

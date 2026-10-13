@@ -3,8 +3,10 @@ package com.github.jangalinski.tabweb.site.pages
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb.Tabweb.barChart
 import com.github.jangalinski.tabweb.Tabweb.cardDeck
+import com.github.jangalinski.tabweb._foundation.alignment.HORIZONTAL
+import com.github.jangalinski.tabweb._foundation.alignment.VERTICAL
+import com.github.jangalinski.tabweb._foundation.alignment.Orientation
 import com.github.jangalinski.tabweb._foundation.TabwebColors
-import com.github.jangalinski.tabweb._foundation.TabwebDirection
 import com.github.jangalinski.tabweb._foundation.compose.KDiv
 import com.github.jangalinski.tabweb._foundation.css.GridWidth
 import com.github.jangalinski.tabweb.chart.*
@@ -25,7 +27,7 @@ private fun barSeries(name: String, vararg values: Int): BarSeries =
 private fun barComponent(
   series: List<BarSeries>,
   grouping: BarGrouping = BarGrouping.GROUPED,
-  orientation: TabwebDirection.Orientation = TabwebDirection.VERTICAL,
+  orientation: Orientation = VERTICAL,
   colors: List<TabwebColors> = listOf(TabwebColors.GREEN),
 ): BarChart = BarChart(
   categories = barCategories,
@@ -75,7 +77,7 @@ fun BarChartPage() {
       body {
         barComponent(
           listOf(barSeries("Completed", 12, 18, 16, 24, 21, 29, 33)),
-          orientation = TabwebDirection.HORIZONTAL,
+          orientation = HORIZONTAL,
           colors = listOf(TabwebColors.ORANGE),
         )()
       }
