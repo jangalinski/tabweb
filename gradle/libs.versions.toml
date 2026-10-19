@@ -7,7 +7,7 @@ schema2class = "0.1.0"
 compose-html = "1.12.1"
 kobweb = "0.25.1"
 compose-runtime = "1.11.4"
-jetbrains-compose = "1.12.1"
+jetbrains-compose = "1.12.2"
 
 markdown = "0.7.16"
 
