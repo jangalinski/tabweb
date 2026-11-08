@@ -1,7 +1,12 @@
 package com.github.jangalinski.tabweb._foundation.size
 
 
-
+private sealed interface XSmall : Size
+private sealed interface Small : Size
+private sealed interface Medium : Size
+private sealed interface Large : Size
+private sealed interface XLarge : Size
+private sealed interface XXLarge : Size
 
 /**
  * The base interface for all sizes.
