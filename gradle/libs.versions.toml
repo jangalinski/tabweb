@@ -13,7 +13,7 @@ markdown = "0.7.18"
 
 assertk = "0.28.1"
 
-dokka = "2.2.0"
+dokka = "2.3.0"
 detekt = "2.0.0-alpha.6"
 
 cdn-tabler-core = "1.6.1"
